@@ -1,0 +1,106 @@
+(function(){
+	var doc = document;
+	var back = doc.getElementById("back");
+
+    var eventsObj = {
+        addEvent: function(el, type, fn){
+            if(typeof addEventListener !== "undefined"){
+                el.addEventListener(type, fn, false);
+            }else if(typeof attachEvent !== "undefined"){
+                el.attachEvent("on" + type, fn);
+            }else{
+                el["on" + type] = fn;
+            }
+        },
+
+        removeEvent: function(el, type, fn){
+            if(typeof removeEventListener !== "undefined"){
+                el.removeEventListener(type, fn, false);
+            }else if(typeof detachEvent !== "undefined"){
+                el.detachEvent("on" + type, fn);
+            }else{
+                el["on" + type] = null;
+            }
+        },
+
+        getTarget: function(event){
+            if(typeof event.target !== "undefined"){
+                return event.target;
+            }else{
+                return event.srcElement;
+            }
+        },
+
+        preventDefault: function(event){
+            if(typeof event.preventDefault !== "undefined"){
+                event.preventDefault();
+            }else{
+                event.returnValue = false;
+            }
+        }
+    };
+
+    var historyBack = function(e){
+		// var back = doc.getElementById("back"),
+		// eventsObj.preventDefault(e);
+		// var back = doc.getElementById("back");
+		// if(back){
+			// history.back();
+			// console.log("aee");
+		// }
+		// if(e.target){
+		// 	// console.log("aee");
+		// }
+
+		// var elem = eventsObj.getTarget(e),
+		// 	back = elem.getAttribute('data-back');
+		// if(e.target === back){
+		// 	// history.back();
+		// 	console.log("aee");
+		// }
+
+    };
+
+    // eventsObj.addEvent(back, "click", historyBack);
+
+
+	// horizontal menu
+	var pull = $("#pull");
+	var menu = $("nav ul");
+
+	$(pull).on('click', function(e){
+		e.preventDefault();
+		menu.slideToggle();
+		menuHeight = menu.height();
+	});
+
+	$(window).resize(function(){
+		var q = $(window).width(); 
+		if(q > 320 && menu.is(':hidden')){
+			menu.removeAttr('style');
+		}
+	});
+
+
+	// vertical menu
+	// $('#cssmenu li.active').addClass('open').children('ul').show();
+	$('#sidebarmenu li.has-sub>a').on('click', function(){
+		$(this).removeAttr('href');
+		var element = $(this).parent('li');
+		if (element.hasClass('open')) {
+			element.removeClass('open');
+			element.find('li').removeClass('open');
+			element.find('ul').slideUp(200);
+		}
+		else {
+			element.addClass('open');
+			element.children('ul').slideDown(200);
+			element.siblings('li').children('ul').slideUp(200);
+			element.siblings('li').removeClass('open');
+			element.siblings('li').find('li').removeClass('open');
+			element.siblings('li').find('ul').slideUp(200);
+		}
+	});
+
+
+})();
