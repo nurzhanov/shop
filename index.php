@@ -25,38 +25,56 @@ include "C:/wamp/www/shop/db_connect.php";
                             <ul>
                                 <li class='active has-sub'><a href='#'>GUITARS</a>
                                     <ul>
-                                        <li><a href='#'>Veston</a></li>
-                                        <li><a href='#'>Martinez</a></li>
-                                        <li><a href='#'>Cruzer</a></li>
-                                        <li><a href='#'>Cort</a></li>
-                                        <li><a href='#'>Maxwood</a></li>
-                                        <li><a href='#'>Fender</a></li>
-                                        <li><a href='#'>Jet</a></li>
-                                        <li><a href='#'>LTD</a></li>
+                                        <?php
+                                            $query_guitar = "SELECT * FROM category WHERE type='guitar'";
+                                            $result_guitar = $mysqli->query($query_guitar);
+                                            while(($row_guitar=mysqli_fetch_assoc($result_guitar))!=false){
+                                        ?>
+                                        <li><a href="catalog.php?cat=<?=strtolower($row_guitar['brand']).'&type='.$row_guitar['type']?>"><?=$row_guitar['brand']?></a></li>
+                                        <?php
+                                        }
+                                        ?>
                                     </ul>
-                                </li>
+                                </li>     
                                 <li class='active has-sub'><a href='#'>DRUMS</a>
                                     <ul>
-                                        <li><a href='#'>TAMA</a></li>
-                                        <li><a href='#'>YAMAHA</a></li>
-                                        <li><a href='#'>Sonor</a></li>
-                                        <li><a href='#'>Pearl</a></li>
+                                        <?php
+                                            $query_drum = "SELECT * FROM category WHERE type='drum'";
+                                            $result_drum = $mysqli->query($query_drum);
+                                            while(($row_drum=mysqli_fetch_assoc($result_drum))!=false){
+                                        ?>
+                                        <li><a href="catalog.php?cat=<?=strtolower($row_drum['brand']).'&type='.$row_drum['type']?>"><?=$row_drum['brand']?></a></li>
+                                        <?php
+                                        }
+                                        ?>
                                     </ul>
                                 </li>
                                 <li class='active has-sub'><a href='#'>HEADPHONES</a>
                                     <ul>
-                                        <li><a href='#'>AKG</a></li>
-                                        <li><a href='#'>Roland</a></li>
+                                        <?php
+                                            $query_headphone = "SELECT * FROM category WHERE type='headphone'";
+                                            $result_headphone = $mysqli->query($query_headphone);
+                                            while(($row_headphone=mysqli_fetch_assoc($result_headphone))!=false){
+                                        ?>
+                                        <li><a href="catalog.php?cat=<?=strtolower($row_headphone['brand']).'&type='.$row_headphone['type']?>"><?=$row_headphone['brand']?></a></li>
+                                        <?php
+                                        }
+                                        ?>
                                     </ul>
                                 </li>
                                 <li class='active has-sub'><a href='#'>MICROPHONES</a>
                                     <ul>
-                                        <li><a href='#'>AKG</a></li>
-                                        <li><a href='#'>Roland</a></li>
+                                        <?php
+                                            $query_microphone = "SELECT * FROM category WHERE type='microphone'";
+                                            $result_microphone = $mysqli->query($query_microphone);
+                                            while(($row_microphone=mysqli_fetch_assoc($result_microphone))!=false){
+                                        ?>
+                                        <li><a href="catalog.php?cat=<?=strtolower($row_microphone['brand']).'&type='.$row_microphone['type']?>"><?=$row_microphone['brand']?></a></li>
+                                        <?php
+                                        }
+                                        ?>
                                     </ul>
                                 </li>
-                                <li><a href='#'>CASES</a></li>
-                                <li><a href='#'>STRINGS</a></li>
                             </ul>
                         </div>
                     </div>
@@ -87,24 +105,23 @@ include "C:/wamp/www/shop/db_connect.php";
                                         $width = 160;
                                         $height = 160;
                                     }
-                                ?>
-
-                                <div class="product-wrapper">
-                                    <img src="<?=$img_path?>" height="<?=$height?>" width="<?=$width?>" />
-                                    <h2>$<?=$row['price']?></h2>
-                                    <p><?=$row['title']?></p>
-                                    <input type="button" class="add-to-cart" value="Add to cart" />
-                                </div>
-                                <?php
+                            ?>
+                            <div class="product-wrapper">
+                                <img src="<?=$img_path?>" height="<?=$height?>" width="<?=$width?>" />
+                                <h2>$<?=$row['price']?></h2>
+                                <p><?=$row['title']?></p>
+                                <input type="button" class="add-to-cart" value="Add to cart" />
+                            </div>
+                            <?php
                                 }
-                                ?>
+                            ?>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-     <?php include "footer.php";?>
+    <?php include "footer.php";?>
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
