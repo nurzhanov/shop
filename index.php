@@ -12,6 +12,7 @@ include "C:/wamp/www/shop/db_connect.php";
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
 </head>
 <body>
     <?php include "header.php";?>
@@ -125,6 +126,6 @@ include "C:/wamp/www/shop/db_connect.php";
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <script src="js/script.js"></script>
+    
 </body>
 </html>

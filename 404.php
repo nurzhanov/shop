@@ -15,12 +15,14 @@
 		</div>
 		<div class="content-404">
 			<p>Page Not Found</p>
-			<h2><a href="#" data-back="back" onclick="history.back()">Bring me back</a></h2>
+            <h2><a href="#" id="back">Bring me back</a></h2>
+			<h2><a href="#" id="back2">Bring me back2</a></h2>
 		</div>		
 	</div>
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <script src="js/script.js"></script>
+    <script src="js/events.js"></script>
 </body>
 </html>
