@@ -66,125 +66,38 @@ include "C:/wamp/www/shop/db_connect.php";
                         <h2 class="make-center">Special products</h2>
                         <div class="special-products">
                             <?php
-
-                                $query = "SELECT * FROM products";
+                                $query = "SELECT * FROM products WHERE top=1";
                                 $result = $mysqli->query($query);
-                                // $row_cnt = $result->num_rows;
-
                                 while(($row=mysqli_fetch_assoc($result))!=false){
-                                // echo "<pre>";
-                                // print_r($row);
-                                // echo "</pre>";
+                                    // если имя картинки не пустое и файл существует
+                                    if($row["image"] != "" && file_exists("./products_images/".$row["image"])){
+                                        // задаем путь
+                                        $img_path = "./products_images/".$row["image"];
+                                        $max_width = 160;
+                                        $max_height = 160;
+                                        // преобразование в 
+                                        list($width, $height) = getimagesize($img_path);
+                                        $ratioh = $max_height/$height;
+                                        $ratiow = $max_width/$width;
+                                        $ratio = min($ratioh, $ratiow);
+                                        $width = intval($ratio*$width);
+                                        $height = intval($ratio*$height);
+                                    }else{
+                                        $img_path = "images/no-image.png";
+                                        $width = 160;
+                                        $height = 160;
+                                    }
                                 ?>
+
                                 <div class="product-wrapper">
-                                    <img src="products_images/<?=$row['image']?>" alt="pict" />
+                                    <img src="<?=$img_path?>" height="<?=$height?>" width="<?=$width?>" />
                                     <h2>$<?=$row['price']?></h2>
                                     <p><?=$row['title']?></p>
                                     <input type="button" class="add-to-cart" value="Add to cart" />
                                 </div>
                                 <?php
-                               
                                 }
-
-                                // if($row_cnt > 0){
-                                //     $row = mysqli_fetch_assoc($result);
-                                //     while($row != false){
-                                //         print_r($row["title"]);
-                                //     }
-                                // }
-                                // if($row_cnt > 0){
-                                //     // $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-                                //     $row = mysqli_fetch_assoc($result);
-                                //     echo "<pre>";
-                                //     print_r ($result["num_rows"]);
-                                //     echo "</pre>";
-                                //     // foreach ($row as $key => $value) {
-                                //     //     echo "<pre>";
-                                //     //     print_r ($row["title"]);
-                                //     //     echo "</pre>";
-                                //     // }
-                                // }
-                                // if($row_cnt > 0){
-                                //     $row = $result->fetch_array(MYSQLI_ASSOC);
-                                //     foreach ($row as $key => $value) {
-                                //         echo "<pre>";
-                                //         echo $value;
-                                //         echo "</pre>";
-                                //     }
-                                // }
-
-                                // if($row_cnt > 0){
-                                //     $row = $result->fetch_array(MYSQLI_ASSOC);
-                                //     do{
-                                //         echo "<pre>";
-                                //         print_r($row["title"]);
-                                //         echo "</pre>";
-                                //     }while($row_cnt > 0);
-                                // }
-
-                                // if(mysql_num_rows($result) > 0){
-                                //     $row = $mysql_fetch_array($result);
-                                //     // foreach ($row as $key => $value) {
-                                //     //     echo "<pre>";
-                                //     //     print_r($row);
-                                //     //     echo "</pre>";
-                                //     // }
-                                //     die(mysql_error());
-                                //     do{
-                                //         echo "<pre>";
-                                //         print_r($row["title"]);
-                                //         echo "</pre>";
-                                //     }while($row = $mysql_fetch_array($result));
-                                // }
-                            ?>
-                            <!-- <div class="product-wrapper">
-                                <img src="images/guitar.jpg" alt="pict" />
-                                <h2>$56</h2>
-                                <p>VESTON FC10</p>
-                                <input type="button" class="add-to-cart" value="Add to cart" />
-                            </div>
-                           <div class="product-wrapper">
-                                <img src="images/guitar.jpg" alt="pict" />
-                                <h2>$56</h2>
-                                <p>VESTON FC10</p>
-                                <input type="button" class="add-to-cart" value="Add to cart" />
-                            </div>
-                            <div class="product-wrapper">
-                                <img src="images/guitar.jpg" alt="pict" />
-                                <h2>$56</h2>
-                                <p>VESTON FC10</p>
-                                <input type="button" class="add-to-cart" value="Add to cart" />
-                            </div>
-                            <div class="product-wrapper">
-                                <img src="images/guitar.jpg" alt="pict" />
-                                <h2>$56</h2>
-                                <p>VESTON FC10</p>
-                                <input type="button" class="add-to-cart" value="Add to cart" />
-                            </div>
-                            <div class="product-wrapper">
-                                <img src="images/guitar.jpg" alt="pict" />
-                                <h2>$56</h2>
-                                <p>VESTON FC10</p>
-                                <input type="button" class="add-to-cart" value="Add to cart" />
-                            </div>
-                           <div class="product-wrapper">
-                                <img src="images/guitar.jpg" alt="pict" />
-                                <h2>$56</h2>
-                                <p>VESTON FC10</p>
-                                <input type="button" class="add-to-cart" value="Add to cart" />
-                            </div>
-                           <div class="product-wrapper">
-                                <img src="images/guitar.jpg" alt="pict" />
-                                <h2>$56</h2>
-                                <p>VESTON FC10</p>
-                                <input type="button" class="add-to-cart" value="Add to cart" />
-                            </div>
-                            <div class="product-wrapper">
-                                <img src="images/guitar.jpg" alt="pict" />
-                                <h2>$56</h2>
-                                <p>VESTON FC10</p>
-                                <input type="button" class="add-to-cart" value="Add to cart" />
-                            </div> -->
+                                ?>
                         </div>
                     </div>
                 </div>
