@@ -1,21 +1,21 @@
 (function(){
 	
 	// horizontal menu
-	// var pull = $("#pull");
-	// var menu = $("nav ul");
+	var pull = $("#pull");
+	var menu = $("nav ul");
 
-	// $(pull).on('click', function(e){
-	// 	e.preventDefault();
-	// 	menu.slideToggle();
-	// 	menuHeight = menu.height();
-	// });
+	$(pull).on('click', function(e){
+		e.preventDefault();
+		menu.slideToggle();
+		menuHeight = menu.height();
+	});
 
-	// $(window).resize(function(){
-	// 	var q = $(window).width(); 
-	// 	if(q > 320 && menu.is(':hidden')){
-	// 		menu.removeAttr('style');
-	// 	}
-	// });
+	$(window).resize(function(){
+		var q = $(window).width(); 
+		if(q > 320 && menu.is(':hidden')){
+			menu.removeAttr('style');
+		}
+	});
 
 
 	// vertical menu

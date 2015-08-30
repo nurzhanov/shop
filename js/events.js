@@ -52,4 +52,38 @@
 	eventsObj.addEvent(link, 'click', someFunk); 
 	eventsObj.addEvent(link2, 'click', someFunk2); 
 
+
+
+
+	// var pull = $("#pull");
+	// var menu = $("nav ul");
+
+
+	// var pull = document.querySelector("#pull");
+	// var menu = document.querySelectorAll("nav ul");
+
+	// var menuHeight = function(e){
+	// 	eventsObj.preventDefault(e);
+	// 	menu.height = 
+	// 	menuHeight = menu.height();
+	// };
+
+	// eventsObj.addEvent(pull, 'click', menuHeight);
+
+
+
+	// $(pull).on('click', function(e){
+	// 	e.preventDefault();
+	// 	menu.slideToggle();
+	// 	menuHeight = menu.height();
+	// });
+
+	// $(window).resize(function(){
+	// 	var q = $(window).width(); 
+	// 	if(q > 320 && menu.is(':hidden')){
+	// 		menu.removeAttr('style');
+	// 	}
+	// });
+
+
 })();
