@@ -51,7 +51,22 @@
 						rpass.style.borderColor = "red";
 					}else{
 						rpass.style.borderColor = "";
-						console.log("OK");
+						var xhttp = new XMLHttpRequest();
+						xhttp.open('POST','server.php?rname='+encodeURI(rname_val)+'&rand='+Math.random(),true);
+		                xhttp.send();
+		                xhttp.onreadystatechange = function(){
+		                    if (xhttp.readyState==4 && xhttp.status==200) {
+		                    	// alert(xhttp.responseText)
+		                        var xhttp2 = new XMLHttpRequest();
+								xhttp2.open('POST','server.php?rnamee='+encodeURI(rname_val)+'&remail='+encodeURI(remail_val)+'&rpass='+encodeURI(rpass_val)+'&rand='+Math.random(),true);
+				                xhttp2.send();
+				                xhttp2.onreadystatechange = function(){
+			                    	if (xhttp2.readyState==4 && xhttp2.status==200) {
+			                    		console.log(xhttp2.responseText);
+			                    	}
+		                    	}
+	                		}
+						}
 					}
 				}
 			}
