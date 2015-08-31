@@ -1,5 +1,5 @@
 <?php
-include "C:/wamp/www/shop/db_connect.php";
+include "include/db_connect.php";
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@ include "C:/wamp/www/shop/db_connect.php";
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <?php include "header.php";?>
+    <?php include "include/header.php";?>
     <section>
         <div class="container">
             <div class="row">
@@ -81,10 +81,10 @@ include "C:/wamp/www/shop/db_connect.php";
                 </div>
                 <div class="cols col-9">
                     <div class="right-sidebar">
-                        <h2 class="make-center">Special products</h2>
+                        <h2 class="make-center">Top products</h2>
                         <div class="special-products">
                             <?php
-                                $query = "SELECT * FROM products WHERE top=1";
+                                $query = "SELECT * FROM products WHERE top=1 AND visible=1";
                                 $result = $mysqli->query($query);
                                 while(($row=mysqli_fetch_assoc($result))!=false){
                                     // если имя картинки не пустое и файл существует
@@ -121,7 +121,7 @@ include "C:/wamp/www/shop/db_connect.php";
             </div>
         </div>
     </section>
-    <?php include "footer.php";?>
+    <?php include "include/footer.php";?>
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
