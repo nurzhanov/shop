@@ -24,7 +24,8 @@
 		}else{
 			lname.style.borderColor = "";
 			lpass.style.borderColor = "";
-			console.log("it`s OK");
+			// var xhttp_log = new XMLHttpRequest();
+			// xhttp_log.open('POST','server.php?lname='+encodeURI(lname_val)+'&lpass='+encodeURI(lpass_val)+'&rand='+Math.random(),true);
 		}
 	};
 
@@ -57,7 +58,10 @@
 						xhttp.send();
 						xhttp.onreadystatechange = function(){
 							if (xhttp.readyState==4 && xhttp.status==200) {
-	                    		alert(xhttp.responseText);
+								alert(xhttp.responseText);
+	                    		if(xhttp.responseText === "New user was created"){
+	                    			 window.location.href = "account.php";
+	                    		}
 	                    	}
 						}
 					}

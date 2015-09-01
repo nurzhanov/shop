@@ -17,5 +17,6 @@ if(mysqli_num_rows($result_login) > 0){
 																	        )";
 	$result_reg = $mysqli->query($query_reg);
 	echo "New user was created";
+	// echo "New";
 }
 ?>
