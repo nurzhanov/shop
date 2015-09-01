@@ -28,208 +28,46 @@
 		}
 	};
 
-	// var checkForm = function(form){
-
-
-
-	// 	if((rname_val === "") && (remail_val === "") && (rpass_val === "")){
-	// 		rname.style.borderColor = "red";
-	// 		remail.style.borderColor = "red";
-	// 		rpass.style.borderColor = "red";
-	// 		var pattern = /^[a-zA-Z0-9]{6,20}$/;
-	// 		var pattern_email = /\S+@\S+\.\S+/;
-	// 		if(rname_val.search(pattern) == 0){
-	// 			rname.style.borderColor = "";
-	// 			return false;
-	// 		}else{
-	// 			rname.style.borderColor = "red";
-				
-	// 		}
-	// 		if(pattern_email.test(remail_val) === true){
-	// 			remail.style.borderColor = "";
-	// 			return false;
-	// 		}else{
-	// 			remail.style.borderColor = "red";
-				
-	// 		}
-	// 		if(rpass_val.search(pattern) == 0){
-	// 			rpass.style.borderColor = "";
-	// 			return false;
-	// 		}else{
-	// 			rpass.style.borderColor = "red";
-				
-	// 		}
-	// 	}else{
-	// 		console.log("OK");
-	// 		return true;
-	// 	}
-	// };
-
-
-	function allLetter(uname){   
-		var letters = /^[A-Za-z]+$/;  
-		if(uname.value.match(letters)){
-			uname.style.borderColor = "";  
-			return true;
-		}else{  
-			// alert('Username must have alphabet characters only');
-			uname.style.borderColor = "red";
-			uname.focus();
-			return false;  
-		}  
-	};
-
-	function ValidateEmail(uemail){  
-		var mailformat = /\S+@\S+\.\S+/;  
-		if(uemail.value.match(mailformat)){
-			uemail.style.borderColor = "";  
-			return true;
-		}else{  
-			// alert("You have entered an invalid email address!");  
-			uemail.style.borderColor = "red";  
-			uemail.focus();  
-			return false;  
-		}  
-	};  
-
-	function passid_validation(passid,mx,my){
-	var passid_len = passid.value.length;  
-		if (passid_len == 0 ||passid_len >= my || passid_len < mx){  
-			// alert("Password should not be empty / length be between "+mx+" to "+my);
-			passid.style.borderColor = "red";
-			passid.focus();  
-			return false;  
-		}
-		passid.style.borderColor = "";  
-		return true;  
-	};   
-
-
-
 	var signupUser = function(e){
 		eventsObj.preventDefault(e);
 		var rname = doc.querySelector("#reg_name");
 		var remail = doc.querySelector("#reg_email");
 		var rpass = doc.querySelector("#reg_pass");
-		// var rname_val = rname.value;
-		// var remail_val = remail.value;
-		// var rpass_val = rpass.value;
-
-		allLetter(rname);
-		ValidateEmail(remail);
-		passid_validation(rpass, 7, 12);
-		console.log("OK");
-
-
-
-
-
-
-		// if((rname_val != "") || (remail_val != "") || (rpass_val != "")){
-		// 	var pattern = /^[a-zA-Z0-9]{6,20}$/;
-		// 	var pattern_email = /\S+@\S+\.\S+/;
-		// 	if(rname_val.search(pattern) != 0){
-		// 		rname.style.borderColor = "red";
-		// 	}else{
-		// 		rname.style.borderColor = "";
-		// 		if(pattern_email.test(remail_val) != true){
-		// 			remail.style.borderColor = "red";
-		// 		}else{
-
-		// 			rname.style.borderColor = "";
-
-		// 			remail.style.borderColor = "";
-		// 			if(rpass_val.search(pattern) != 0){
-		// 				rpass.style.borderColor = "red";
-		// 			}else{
-
-		// 				rname.style.borderColor = "";
-		// 				remail.style.borderColor = "";
-
-		// 				rpass.style.borderColor = "";
-		// 				var xhttp = new XMLHttpRequest();
-		// 				// xhttp.open('POST','server.php?rname='+encodeURI(rname_val)+'&rand='+Math.random(),true);
-		// 				xhttp.open('POST','server.php?rname='+encodeURI(rname_val)+'&remail='+encodeURI(remail_val)+'&rpass='+encodeURI(rpass_val)+'&rand='+Math.random(),true);
-		//                 xhttp.send();
-		//                 xhttp.onreadystatechange = function(){
-		//                     if (xhttp.readyState==4 && xhttp.status==200) {
-		//                     	console.log(xhttp.responseText);
-	 //                		}
-		// 				}
-		// 			}
-		// 		}
-		// 	}
-		// }else{
-		// 	rname.style.borderColor = "red";
-		// 	remail.style.borderColor = "red";
-		// 	rpass.style.borderColor = "red";
-		// }
-
-
-
-
-
-
-
-
-		// var pattern = /^[a-zA-Z0-9]{6,20}$/;
-		// var pattern_email = /\S+@\S+\.\S+/;
-		// if((rname_val.search(pattern) == 0) && rname_val != ""){
-		// 	rname.style.borderColor = "";
-
-		// 	if((pattern_email.test(remail_val) === true) && (remail_val != "")){
-		// 		remail.style.borderColor = "";
-
-		// 		if((rpass_val.search(pattern) == 0) && (rpass_val != "")){
-		// 			rpass.style.borderColor = "";
-		// 			console.log("OK");
-		// 		}else{
-		// 			rpass.style.borderColor = "red";
-		// 		}
-
-		// 	}else{
-		// 		remail.style.borderColor = "red";
-		// 	}
-
-		// }else{
-		// 	rname.style.borderColor = "red";
-		// }
-
-
-
-
-
-
-
-		
-		
-
-		
-		
-		
-	
-		
-		
-
-
-		// var pattern = /^[a-zA-Z0-9]{6,20}$/;
-		// var pattern_email = /\S+@\S+\.\S+/;
-		// if((rname_val.search(pattern) == 0) && rname_val != ""){
-		// 	rname.style.borderColor = "";
-		// }else{
-		// 	rname.style.borderColor = "red";
-		// }
-		// if((pattern_email.test(remail_val) === true) && (remail_val != "")){
-		// 	remail.style.borderColor = "";
-		// }else{
-		// 	remail.style.borderColor = "red";
-		// }
-		// if((rpass_val.search(pattern) == 0) && (rpass_val != "")){
-		// 	rpass.style.borderColor = "";
-		// }else{
-		// 	rpass.style.borderColor = "red";
-		// }
-		// console.log("ok");
+		var rname_val = rname.value;
+		var remail_val = remail.value;
+		var rpass_val = rpass.value;
+		if((rname_val != "") || (remail_val != "") || (rpass_val != "")){
+			var pattern_name = /^[a-zA-Z0-9]/;
+			var pattern_email = /\S+@\S+\.\S+/;
+			var pattern_pass = /^[a-zA-Z0-9]{6,15}$/;
+			if(rname_val.search(pattern_name) != 0){
+				alert('Username must have alphabet characters or digits between 0-9 and length from 6 to 15 characters');
+			}else{
+				rname.style.borderColor = "";
+				if(pattern_email.test(remail_val) != true){
+					alert("Email is incorrect !"); 
+				}else{
+					remail.style.borderColor = "";
+					if(rpass_val.search(pattern_pass) != 0){
+						alert("Password length should be from 6 to 15 characters or digits");
+					}else{
+						rpass.style.borderColor = "";
+						var xhttp = new XMLHttpRequest();
+						xhttp.open('POST','server.php?rname='+encodeURI(rname_val)+'&remail='+encodeURI(remail_val)+'&rpass='+encodeURI(rpass_val)+'&rand='+Math.random(),true);
+						xhttp.send();
+						xhttp.onreadystatechange = function(){
+							if (xhttp.readyState==4 && xhttp.status==200) {
+	                    		alert(xhttp.responseText);
+	                    	}
+						}
+					}
+				}
+			}
+		}else{
+			rname.style.borderColor = "red";
+			remail.style.borderColor = "red";
+			rpass.style.borderColor = "red";
+		}		
 	};
 
 	eventsObj.addEvent(login, 'click', loginUser); 
