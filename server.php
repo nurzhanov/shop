@@ -9,15 +9,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	}else{
 		echo "true";
 	}
-
-
-	$login2 = $_POST['rnamee'];
-	$email = $_POST['remail'];
-	$pass = $_POST['rpass'];
-
-	echo $login2;
-	echo $email;
-	echo $pass;
 }
 
 
