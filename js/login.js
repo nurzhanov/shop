@@ -86,7 +86,7 @@
 								}
 	                    		if(xhttp.responseText === "true"){
 	                    			alert("New user was created!");
-	                    			// window.location.href = "account.php";
+	                    			window.location.href = "index.php";
 	                    		}
 	                    	}
 						}

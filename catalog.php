@@ -17,6 +17,7 @@ $type = mysqli_real_escape_string($mysqli, $type);
 $type = trim($type);
 
 session_start();
+include("include/auth_cookie.php");
 ?>
 
 <!DOCTYPE html>
