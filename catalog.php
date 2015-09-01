@@ -15,6 +15,8 @@ $type = strip_tags($type);
 $type = mysqli_real_escape_string($mysqli, $type);
 // удаление пробелов
 $type = trim($type);
+
+session_start();
 ?>
 
 <!DOCTYPE html>

@@ -11,6 +11,9 @@
 		var rememberme = doc.querySelector("#rememberme");
 		var lname_val = lname.value;
 		var lpass_val = lpass.value;
+		var send_login = "";
+		var send_pass = "";
+		var auth_rememberme = "";
 		if(lname_val === "" || lpass_val === ""){
 			if(lname_val === ""){
 				lname.style.borderColor = "red";
@@ -25,19 +28,26 @@
 		}else{
 			lname.style.borderColor = "";
 			lpass.style.borderColor = "";
-			var xhttp_log = new XMLHttpRequest();
-			xhttp_log.open('POST','login_server.php?lname='+encodeURI(lname_val)+'&lpass='+encodeURI(lpass_val)+'&rememberme='+rememberme+'&rand='+Math.random(),true);
+			if (rememberme.checked) {
+	            auth_rememberme = "yes";
+	        } else {
+	            auth_rememberme = "no";
+	        }
+
+	        var xhttp_log = new XMLHttpRequest();
+			xhttp_log.open('POST','login_server.php?lname='+encodeURI(lname_val)+'&lpass='+encodeURI(lpass_val)+'&rememberme='+encodeURI(auth_rememberme)+'&rand='+Math.random(),true);
 			xhttp_log.send();
 			xhttp_log.onreadystatechange = function(){
 				if (xhttp_log.readyState==4 && xhttp_log.status==200) {
-					if(xhttp_log.responseText === "false"){
+					if(xhttp_log.responseText === "no_auth"){
 						alert("Login or password is incorrect!");
 					}
-            		if(xhttp_log.responseText === "true"){
-            			 window.location.href = "account.php";
+            		if(xhttp_log.responseText === "yes_auth"){
+            			window.location.href = "account.php";
             		}
             	}
 			}
+			
 		}
 	};
 
@@ -76,7 +86,7 @@
 								}
 	                    		if(xhttp.responseText === "true"){
 	                    			alert("New user was created!");
-	                    			window.location.href = "account.php";
+	                    			// window.location.href = "account.php";
 	                    		}
 	                    	}
 						}

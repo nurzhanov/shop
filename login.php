@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,9 +22,9 @@
 					<div class="login_wrapper">
 						<h2>Login to your account</h2>
 						<form name="log_form" action="#" method="post">
-							<input type="text" placeholder="Login" id="login_name"/><br/>
+							<input type="text" placeholder="Login or Email" id="login_name"/><br/>
 							<input type="password" placeholder="Password" id="login_pass"/><br/>
-							<!-- <input type="checkbox" id="rememberme"/>Remember me<br/>  -->
+							<input type="checkbox" id="rememberme"/>Remember me<br/> 
 							<input type="button" value="Login" id="login"/>
 						</form>
 					</div>
