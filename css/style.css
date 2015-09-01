@@ -310,6 +310,12 @@ nav a#pull {
     margin-top: 200px;
 }
 
+/* account */
+.account_wrapper{
+    height: 500px;
+    margin-top: 25px;
+}
+
 
 /* less then 1000px*/
 @media screen and (max-width: 1200px) {

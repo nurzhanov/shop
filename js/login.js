@@ -8,6 +8,7 @@
 		eventsObj.preventDefault(e);
 		var lname = doc.querySelector("#login_name");
 		var lpass = doc.querySelector("#login_pass");
+		var rememberme = doc.querySelector("#rememberme");
 		var lname_val = lname.value;
 		var lpass_val = lpass.value;
 		if(lname_val === "" || lpass_val === ""){
@@ -24,8 +25,19 @@
 		}else{
 			lname.style.borderColor = "";
 			lpass.style.borderColor = "";
-			// var xhttp_log = new XMLHttpRequest();
-			// xhttp_log.open('POST','server.php?lname='+encodeURI(lname_val)+'&lpass='+encodeURI(lpass_val)+'&rand='+Math.random(),true);
+			var xhttp_log = new XMLHttpRequest();
+			xhttp_log.open('POST','login_server.php?lname='+encodeURI(lname_val)+'&lpass='+encodeURI(lpass_val)+'&rememberme='+rememberme+'&rand='+Math.random(),true);
+			xhttp_log.send();
+			xhttp_log.onreadystatechange = function(){
+				if (xhttp_log.readyState==4 && xhttp_log.status==200) {
+					if(xhttp_log.responseText === "false"){
+						alert("Login or password is incorrect!");
+					}
+            		if(xhttp_log.responseText === "true"){
+            			 window.location.href = "account.php";
+            		}
+            	}
+			}
 		}
 	};
 
@@ -58,9 +70,13 @@
 						xhttp.send();
 						xhttp.onreadystatechange = function(){
 							if (xhttp.readyState==4 && xhttp.status==200) {
-								alert(xhttp.responseText);
-	                    		if(xhttp.responseText === "New user was created"){
-	                    			 window.location.href = "account.php";
+								
+								if(xhttp.responseText === "false"){
+									alert("Login is used");
+								}
+	                    		if(xhttp.responseText === "true"){
+	                    			alert("New user was created!");
+	                    			window.location.href = "account.php";
 	                    		}
 	                    	}
 						}
