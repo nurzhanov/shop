@@ -3,6 +3,28 @@
 	var login = doc.querySelector('#login');
 	var signup = doc.querySelector('#signup');
 	var form = doc.querySelectorAll("#reg_form");
+
+	/* Данная функция создаёт кроссбраузерный объект XMLHTTP */
+	function getXmlHttp(){
+		var xmlhttp;
+		try {
+			xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+		}catch (e) {
+			try {
+		  		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}catch (E) {
+				xmlhttp = false;
+			}
+		}
+		if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
+			xmlhttp = new XMLHttpRequest();
+		}
+		return xmlhttp;
+	};
+
+	function formReset() {
+	    form.reset();
+	};
 	
 	var loginUser = function(e){
 		eventsObj.preventDefault(e);
@@ -60,11 +82,11 @@
 		var remail_val = remail.value;
 		var rpass_val = rpass.value;
 		if((rname_val != "") || (remail_val != "") || (rpass_val != "")){
-			var pattern_name = /^[a-zA-Z0-9]/;
+			var pattern_name = /^[a-zA-Z]/;
 			var pattern_email = /\S+@\S+\.\S+/;
 			var pattern_pass = /^[a-zA-Z0-9]{6,15}$/;
 			if(rname_val.search(pattern_name) != 0){
-				alert('Username must have alphabet characters or digits between 0-9 and length from 6 to 15 characters');
+				alert('Username must have alphabet characters');
 			}else{
 				rname.style.borderColor = "";
 				if(pattern_email.test(remail_val) != true){
@@ -74,19 +96,24 @@
 					if(rpass_val.search(pattern_pass) != 0){
 						alert("Password length should be from 6 to 15 characters or digits");
 					}else{
-						rpass.style.borderColor = "";
-						var xhttp = new XMLHttpRequest();
-						xhttp.open('POST','server.php?rname='+encodeURI(rname_val)+'&remail='+encodeURI(remail_val)+'&rpass='+encodeURI(rpass_val)+'&rand='+Math.random(),true);
-						xhttp.send();
-						xhttp.onreadystatechange = function(){
-							if (xhttp.readyState==4 && xhttp.status==200) {
-								
-								if(xhttp.responseText === "false"){
+						rpass.style.borderColor = ""; 
+						// Создаём объект XMLHTTP
+						var xhttp_reg = getXmlHttp();
+						// Открываем асинхронное соединение
+						xhttp_reg.open('POST', 'server.php', true);
+						// Отправляем кодировку 
+						xhttp_reg.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+						xhttp_reg.send("rname=" + encodeURIComponent(rname_val) + "&remail=" + encodeURIComponent(remail_val) + "&rpass=" + encodeURIComponent(rpass_val) + '&rand='+Math.random());
+						xhttp_reg.onreadystatechange = function(){
+							if (xhttp_reg.readyState==4 && xhttp_reg.status==200) {								
+								if(xhttp_reg.responseText === "false"){
 									alert("Login is used");
 								}
-	                    		if(xhttp.responseText === "true"){
-	                    			alert("New user was created!");
-	                    			window.location.href = "index.php";
+	                    		if(xhttp_reg.responseText === "true"){
+	             					rname.value = "";
+	             					remail.value = "";
+	             					rpass.value = "";
+	                    			alert("New user was created! Please login");
 	                    		}
 	                    	}
 						}

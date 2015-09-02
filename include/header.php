@@ -1,7 +1,3 @@
-<?php
-// session_start();
-?>
-
 <header id="header"><!--header-->
     <div class="header-top">
         <img src="images/banner.jpg" alt="" />
@@ -34,14 +30,7 @@
                     <div class="sub-menu">
                         <ul>
                             <li><a href="#">Cart</a></li>
-                            <?php
-                                if($_SESSION['auth'] == 'yes_auth'){
-                                    echo '<li><a href="/shop/account.php">'.$_SESSION['auth_login'].'</a></li>';
-                                }else{
-                                    echo '<li><a href="/shop/login.php">Sign in</a></li>';
-                                }
-                            ?>
-                            <!-- <li><a href="/shop/login.php">Sign in</a></li> -->
+                            <li><a href="/shop/login.php">Sign in</a></li>
                         </ul>
                     </div>
                 </div>

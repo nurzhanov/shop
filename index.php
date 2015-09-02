@@ -1,7 +1,5 @@
 <?php
 include "include/db_connect.php";
-session_start();
-include("include/auth_cookie.php");
 ?>
 
 <!DOCTYPE html>
@@ -109,7 +107,7 @@ include("include/auth_cookie.php");
                                     }
                             ?>
                             <div class="product-wrapper">
-                                <img src="<?=$img_path?>" height="<?=$height?>" width="<?=$width?>" />
+                                <img class="grow_image" src="<?=$img_path?>" height="<?=$height?>" width="<?=$width?>" />
                                 <h2>$<?=$row['price']?></h2>
                                 <p><?=$row['title']?></p>
                                 <input type="button" class="add-to-cart" value="Add to cart" />

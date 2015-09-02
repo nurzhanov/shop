@@ -15,9 +15,6 @@ $type = strip_tags($type);
 $type = mysqli_real_escape_string($mysqli, $type);
 // удаление пробелов
 $type = trim($type);
-
-session_start();
-include("include/auth_cookie.php");
 ?>
 
 <!DOCTYPE html>
