@@ -84,16 +84,28 @@ input[name="find"]:hover{
     content: url(../images/cart_hover.png);
 }
 
-.sub-menu ul li:last-child:before{
+.sub-menu ul li:nth-child(2):before{
     content: url(../images/user.png);
 }
 
-.sub-menu ul li:last-child:hover:before{
+.sub-menu ul li:nth-child(2):hover:before{
     content: url(../images/user_hover.png);
 }
 
 .sub-menu ul li{
     padding-left: 10%;
+}
+
+#logout{
+    cursor: pointer;
+}
+
+#logout:before{
+    content: url(../images/lock.png);
+}
+
+#logout:hover:before{
+    content: url(../images/lock_hover.png);
 }
 
 /*header-bottom*/

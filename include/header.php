@@ -18,7 +18,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="cols col-4">
+                <div class="cols col-3">
                     <div class="shop-info">
                         <ul>
                             <li> 0-800 10 20 30</li><br/>
@@ -26,13 +26,14 @@
                         </ul>
                     </div>
                 </div>
-                <div class="cols col-2">
+                <div class="cols col-3">
                     <div class="sub-menu">
                         <ul>
                             <li><a href="#">Cart</a></li>
                             <?php
                                 if(isset($_SESSION['auth']) && $_SESSION['auth'] == 'yes_auth'){
                                     echo '<li><a href="/shop/account.php">'.$_SESSION['auth_login'].'</a></li>';
+                                    echo '<li><a id="logout">Exit</a></li>';
                                 }else{
                                     echo '<li><a href="/shop/login.php">Sign in</a></li>';
                                 }

@@ -37,4 +37,19 @@
 			element.siblings('li').find('ul').slideUp(200);
 		}
 	});
+
+
+	$('#logout').click(function(){
+		$.ajax({
+			type: "POST",
+			url: "include/logout.php",
+			dataType: "html",
+			cache: false,
+			success: function(data){
+				if(data == "logout"){
+					location.reload();
+				}
+			}
+		});
+	});
 })();

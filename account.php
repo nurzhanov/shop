@@ -22,10 +22,10 @@ session_start();
 					<div class="account_wrapper">
 						<h2>This is your account page</h2>
                         <?php
-                            if($_SESSION['auth'] == 'yes_auth'){
+                            if(isset($_SESSION['auth']) && $_SESSION['auth'] == 'yes_auth'){
                                 echo 'Hello '.$_SESSION['auth_login'];
                             }else{
-                                echo '';
+                                echo 'You are not logged in!';
                             }
                         ?>
 					</div>
