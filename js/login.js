@@ -21,10 +21,6 @@
 		}
 		return xmlhttp;
 	};
-
-	function formReset() {
-	    form.reset();
-	};
 	
 	var loginUser = function(e){
 		eventsObj.preventDefault(e);
@@ -99,11 +95,6 @@
 						rpass.style.borderColor = ""; 
 						// Создаём объект XMLHTTP
 						var xhttp_reg = getXmlHttp();
-						// Открываем асинхронное соединение
-						xhttp_reg.open('POST', 'server.php', true);
-						// Отправляем кодировку 
-						xhttp_reg.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-						xhttp_reg.send("rname=" + encodeURIComponent(rname_val) + "&remail=" + encodeURIComponent(remail_val) + "&rpass=" + encodeURIComponent(rpass_val) + '&rand='+Math.random());
 						xhttp_reg.onreadystatechange = function(){
 							if (xhttp_reg.readyState==4 && xhttp_reg.status==200) {								
 								if(xhttp_reg.responseText === "false"){
@@ -117,6 +108,11 @@
 	                    		}
 	                    	}
 						}
+						// Открываем асинхронное соединение
+						xhttp_reg.open('POST', 'server.php', true);
+						// Отправляем кодировку 
+						xhttp_reg.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+						xhttp_reg.send("rname=" + encodeURIComponent(rname_val) + "&remail=" + encodeURIComponent(remail_val) + "&rpass=" + encodeURIComponent(rpass_val) + '&rand='+Math.random());
 					}
 				}
 			}
