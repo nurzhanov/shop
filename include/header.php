@@ -30,7 +30,14 @@
                     <div class="sub-menu">
                         <ul>
                             <li><a href="#">Cart</a></li>
-                            <li><a href="/shop/login.php">Sign in</a></li>
+                            <?php
+                                if(isset($_SESSION['auth']) && $_SESSION['auth'] == 'yes_auth'){
+                                    echo '<li><a href="/shop/account.php">'.$_SESSION['auth_login'].'</a></li>';
+                                }else{
+                                    echo '<li><a href="/shop/login.php">Sign in</a></li>';
+                                }
+                            ?>
+                            <!-- <li><a href="/shop/login.php">Sign in</a></li> -->
                         </ul>
                     </div>
                 </div>

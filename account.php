@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +21,13 @@
 				<div class="cols col-12">
 					<div class="account_wrapper">
 						<h2>This is your account page</h2>
+                        <?php
+                            if($_SESSION['auth'] == 'yes_auth'){
+                                echo 'Hello '.$_SESSION['auth_login'];
+                            }else{
+                                echo '';
+                            }
+                        ?>
 					</div>
 				</div>
     		</div>

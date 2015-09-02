@@ -51,21 +51,24 @@
 	        } else {
 	            auth_rememberme = "no";
 	        }
-
-	        var xhttp_log = new XMLHttpRequest();
-			xhttp_log.open('POST','login_server.php?lname='+encodeURI(lname_val)+'&lpass='+encodeURI(lpass_val)+'&rememberme='+encodeURI(auth_rememberme)+'&rand='+Math.random(),true);
-			xhttp_log.send();
-			xhttp_log.onreadystatechange = function(){
+	        // Создаём объект XMLHTTP
+	        var xhttp_log = getXmlHttp();
+	        xhttp_log.onreadystatechange = function(){
 				if (xhttp_log.readyState==4 && xhttp_log.status==200) {
 					if(xhttp_log.responseText === "no_auth"){
 						alert("Login or password is incorrect!");
 					}
             		if(xhttp_log.responseText === "yes_auth"){
+            			// alert("You have successfully login in!");
             			window.location.href = "account.php";
             		}
             	}
 			}
-			
+			// Открываем асинхронное соединение
+			xhttp_log.open('POST', 'login_server.php', true);
+			// Отправляем кодировку 
+			xhttp_log.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			xhttp_log.send("lname=" + encodeURIComponent(lname_val) + "&lpass=" + encodeURIComponent(lpass_val) + '&rememberme=' + encodeURIComponent(auth_rememberme) + '&rand='+Math.random());			
 		}
 	};
 
@@ -104,7 +107,7 @@
 	             					rname.value = "";
 	             					remail.value = "";
 	             					rpass.value = "";
-	                    			alert("New user was created! Please login");
+	                    			alert("You have successfully signed up!");
 	                    		}
 	                    	}
 						}
