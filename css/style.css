@@ -329,6 +329,17 @@ nav a#pull {
     transform: scale(0.8);  
 }
 
+/* contact us*/
+.contact-form{
+    height: 500px;
+    margin-top: 25px;
+}
+
+.contact-info{
+    height: 500px;
+    margin-top: 25px;
+}
+
 
 /* less then 1000px*/
 @media screen and (max-width: 1200px) {

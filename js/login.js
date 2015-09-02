@@ -5,22 +5,22 @@
 	var form = doc.querySelectorAll("#reg_form");
 
 	/* Данная функция создаёт кроссбраузерный объект XMLHTTP */
-	function getXmlHttp(){
-		var xmlhttp;
-		try {
-			xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
-		}catch (e) {
-			try {
-		  		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-			}catch (E) {
-				xmlhttp = false;
-			}
-		}
-		if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
-			xmlhttp = new XMLHttpRequest();
-		}
-		return xmlhttp;
-	};
+	// function getXmlHttp(){
+	// 	var xmlhttp;
+	// 	try {
+	// 		xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+	// 	}catch (e) {
+	// 		try {
+	// 	  		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	// 		}catch (E) {
+	// 			xmlhttp = false;
+	// 		}
+	// 	}
+	// 	if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
+	// 		xmlhttp = new XMLHttpRequest();
+	// 	}
+	// 	return xmlhttp;
+	// };
 	
 	var loginUser = function(e){
 		eventsObj.preventDefault(e);
@@ -52,7 +52,7 @@
 	            auth_rememberme = "no";
 	        }
 	        // Создаём объект XMLHTTP
-	        var xhttp_log = getXmlHttp();
+	        var xhttp_log = new XMLHttpRequest();
 	        xhttp_log.onreadystatechange = function(){
 				if (xhttp_log.readyState==4 && xhttp_log.status==200) {
 					if(xhttp_log.responseText === "no_auth"){
@@ -97,7 +97,8 @@
 					}else{
 						rpass.style.borderColor = ""; 
 						// Создаём объект XMLHTTP
-						var xhttp_reg = getXmlHttp();
+						// var xhttp_reg = getXmlHttp();
+						var xhttp_reg = new XMLHttpRequest();
 						xhttp_reg.onreadystatechange = function(){
 							if (xhttp_reg.readyState==4 && xhttp_reg.status==200) {								
 								if(xhttp_reg.responseText === "false"){

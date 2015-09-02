@@ -53,7 +53,7 @@
                         <ul class="clearfix">
                             <li><a href="/shop/">HOME</a></li>
                             <li><a href="#">NEWS</a></li>
-                            <li><a href="#">CONTACT US</a></li>
+                            <li><a href="/shop/contact_us.php">CONTACT US</a></li>
                         </ul>
                     </nav> 
                            
