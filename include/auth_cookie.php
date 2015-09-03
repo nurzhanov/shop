@@ -1,5 +1,6 @@
 <?php
-if(isset($_COOKIE['rememberme']) && $_SESSION['auth'] != 'yes_auth'){
+// if(isset($_COOKIE['rememberme']) && $_SESSION['auth'] != 'yes_auth'){
+if(isset($_COOKIE['rememberme'])){
 	
 	include "include/db_connect.php";
 
