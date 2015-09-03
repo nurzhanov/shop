@@ -1,6 +1,6 @@
 <?php
 session_start();
-// include("include/auth_cookie.php");
+include("include/auth_cookie.php");
 ?>
 
 <!DOCTYPE html>

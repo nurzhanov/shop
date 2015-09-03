@@ -38,7 +38,7 @@
 		}
 	});
 
-
+	// logout 
 	$('#logout').click(function(){
 		$.ajax({
 			type: "POST",

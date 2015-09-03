@@ -1,7 +1,10 @@
 <?php
+// error_reporting(0);
 include "include/db_connect.php";
 session_start();
-// include("include/auth_cookie.php");
+include("include/auth_cookie.php");
+// unset($_SESSION["auth"]);
+// setcookie("rememberme", "", 0, "/");
 ?>
 <!DOCTYPE html>
 <html lang="en">

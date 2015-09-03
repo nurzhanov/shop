@@ -1,7 +1,7 @@
 <?php
 include "include/db_connect.php";
 session_start();
-// include("include/auth_cookie.php");
+include("include/auth_cookie.php");
 $cat = $_GET["cat"];
 // удаление всех ненужных тегов
 $cat = strip_tags($cat);
