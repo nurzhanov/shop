@@ -64,8 +64,7 @@ include("include/auth_cookie.php");
 										';
 										while(($row=mysqli_fetch_assoc($result))!=false){
 											$int = $row["cart_price"] * $row["cart_count"];
-											$
-											$all_price = $all_price + $int;
+											$all_price += $int;
 											echo $all_price;
 											if(strlen($row["image"]) > 0 && file_exists("./products_images/".$row["image"])){
 												$img_path = "./products_images/".$row["image"];
@@ -109,7 +108,7 @@ include("include/auth_cookie.php");
 											</div>
 											';
 										}
-										
+
 										echo '
 												<h2 class="itog-price" align="right">Total:<strong>'.$all_price.'</strong>$</h2>
 												<p align="right" class="button-next"><a href="cart.php?action=confirm">Next</a></p>
