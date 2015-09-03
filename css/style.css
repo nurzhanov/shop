@@ -351,6 +351,126 @@ nav a#pull {
     margin-top: 25px;
 }
 
+/* cart */
+.cart_wrapper{
+    height: 500px;
+    margin-top: 25px;
+}
+
+#block-step{
+    height: 70px;
+    border-bottom: 1px solid #E0E0E0;
+    margin-top: 10px; 
+}
+
+#block-step > p{
+    font: 19px sans-serif;
+    color: #646464;
+    margin-top: 8px;
+    margin-left: 15px;
+    position: absolute;
+}
+
+#block-step > a{
+    position: absolute;
+    border: 1px solid #D98386;
+    font: bold 13px sans-serif;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-top: 5px;
+    margin-left: 700px;
+    text-decoration: none;
+    color: white;
+    background-color: #DA2027;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    -ms-border-radius:5px;
+    -o-border-radius:5px;
+    border-radius: 5px;
+}
+
+#name-step{
+    height: 30px;
+}
+
+#name-step li{
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#name-step a{
+    color: #00658B;
+    font: bold 14px sans-serif;
+    text-decoration: none;
+}
+
+#name-step a.active{
+    color: #EF662B;
+    font: bold 14px sans-serif;
+}
+
+#header-list-cart{
+    height: 30px;
+    border-bottom: 1px solid #DBDBDB;
+}
+
+#header-list-cart > div{
+    float: left;
+    margin-left: 5px;
+    text-align: center;
+    font: bold 13px sans-serif;
+    color: #6D6D6D;
+    margin-top: 7px;
+}
+
+#head1{width: 130px;}
+#head2{width: 400px;}
+#head3{width: 55px;}
+#head4{width: 140px;}
+
+.block-list-cart{
+    border: 1px solid black;
+    height: 130px; 
+}
+
+.block-list-cart > div{
+    float: left;
+    margin-left: 5px;
+    border: 1px solid black;
+}
+
+.img-cart{
+    width: 130px;
+    height: 125px;
+    border: 1px solid black;
+}
+
+.title-cart{
+    width: 400px;
+    height: 125px;
+    border: 1px solid black;
+}
+
+.count-cart{
+    width: 55px;
+    height: 125px;
+    border: 1px solid black;
+}
+
+.price-product{
+    width: 140px;
+    height: 125px;
+    border: 1px solid black;
+}
+
+.delete-cart{
+    height: 125px;
+    border: 1px solid black;
+}
 
 /* less then 1000px*/
 @media screen and (max-width: 1200px) {
