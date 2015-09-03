@@ -20,15 +20,14 @@ ul li a{
     color: black;
 }
 
+img{
+    border: none;
+}
+
 /*header-middle*/
 .header-middle{
     padding-top: 30px;
 }
-
-/*.logo-position a img{
-   width: 75%;
-   height: auto;
-}*/
 
 input[name="q"]{
     border: 1px solid gray;
