@@ -50,40 +50,74 @@ include("include/auth_cookie.php");
 										<a href="cart.php?action=clear">Clear</a>
 									</div>
 									';
-									echo '
-									<div id="header-list-cart">
-										<div id="head1">Item</div>
-										<div id="head2">Product Info</div>
-										<div id="head3">Quantity</div>
-										<div id="head4">Total</div>
-									</div>
-									';
-									echo '
-									<div class="block-list-cart">
-										<div class="img-cart">
-											<p align="center"><img src="" width="" height="" /></p>
+
+									$query = "SELECT * FROM cart, products WHERE cart.cart_ip = '{$_SERVER['REMOTE_ADDR']}' AND products.products_id = cart.cart_id_products"; 
+									$result = $mysqli->query($query);
+									if(mysqli_num_rows($result) > 0){
+										echo '
+										<div id="header-list-cart">
+											<div id="head1">Item</div>
+											<div id="head2">Product Info</div>
+											<div id="head3">Quantity</div>
+											<div id="head4">Total</div>
 										</div>
-										<div class="title-cart">
-											<p><a href=""></a></p>
-										</div>
-										<div class="count-cart">
-											<ul class="input-count-style">
-												<li>
-													<p align="center" class="count-minus"></p>
-												</li>
-												<li>
-													<p align="center"><input class="count-input" maxlength="3" type="text" /></p>
-												</li>
-												<li>
-													<p align="center" class="count-minus"></p>
-												</li>
-											</ul>
-										</div>
-										<div class="price-product"><h5><span class="span-count"></span>X<span></span></h5></div>
-										<div class="delete-cart"><a href=""><img src="images/delete.png"/></a></div>
-										<div id="bottom-cart-line"></div>
-									</div>
-									';
+										';
+										while(($row=mysqli_fetch_assoc($result))!=false){
+											$int = $row["cart_price"] * $row["cart_count"];
+											$
+											$all_price = $all_price + $int;
+											echo $all_price;
+											if(strlen($row["image"]) > 0 && file_exists("./products_images/".$row["image"])){
+												$img_path = "./products_images/".$row["image"];
+												$max_width = 100;
+												$max_height = 100;
+												list($width, $height) = getimagesize($img_path);
+												$ratioh = $max_height/$height;
+												$ratiow = $max_width/$width;
+												$ratio = min($ratioh, $ratiow);
+												$width = intval($ratio*$width);
+                                        		$height = intval($ratio*$height);
+											}else{
+												$img_path = "images/no-image.png";
+                                        		$width = 100;
+                                        		$height = 100;
+											}
+											echo '
+											<div class="block-list-cart">
+												<div class="img-cart">
+													<p align="center"><img src="'.$img_path.'" width="'.$width.'" height="'.$height.'" /></p>
+												</div>
+												<div class="title-cart">
+													<p><a href="">'.$row['title'].'</a></p>
+												</div>
+												<div class="count-cart">
+													<ul class="input-count-style">
+														<li>
+															<p align="center" class="count-minus">-</p>
+														</li>
+														<li>
+															<p align="center"><input class="count-input" maxlength="3" type="text" value="'.$row['cart_count'].'" /></p>
+														</li>
+														<li>
+															<p align="center" class="count-minus">+</p>
+														</li>
+													</ul>
+												</div>
+												<div class="price-product"><h5><span class="span-count">1</span>x<span>'.$row['cart_price'].'$</span></h5><p>'.$row['cart_price'].'$</p></div>
+												<div class="delete-cart"><a href=""><img src="images/delete.png"/></a></div>
+												<div id="bottom-cart-line"></div>
+											</div>
+											';
+										}
+										
+										echo '
+												<h2 class="itog-price" align="right">Total:<strong>'.$all_price.'</strong>$</h2>
+												<p align="right" class="button-next"><a href="cart.php?action=confirm">Next</a></p>
+											';
+									}else{
+										echo '<h3 id="clear-cart" align="center">Cart is empty</h3>';
+									}
+
 									break;
 								case "confirm":
 									echo '
