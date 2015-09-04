@@ -7,10 +7,11 @@ include("include/auth_cookie.php");
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Shop</title>
+    <title>Login</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="lib/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -21,29 +22,38 @@ include("include/auth_cookie.php");
     		<div class="row">
 				<div class="cols col-6">
 					<div class="login_wrapper">
-						<h2>Login to your account</h2>
+						<h2>Log in to Your account</h2>
 						<form name="log_form" action="#" method="post">
-							<span>Login or Email</span><br/>
-							<input type="text" placeholder="e.g., han_solo" id="login_name"/><br/>
-							<span>Password</span><br/>
-							<input type="password" placeholder="e.g., ******" id="login_pass"/><br/>
-							<label class="checksigned"><input type="checkbox" id="rememberme"/>Keep me signed in</label><br/> 
+							<span class="logtext">Login or Email</span><br/>
+							<input class="loginput" type="text" placeholder="Login or Email" id="login_name"/><br/>
+							<span class="logtext">Password</span><br/>
+							<input class="loginput" type="password" placeholder="Password" id="login_pass"/><br/>
+							<label class="checksigned checkboxtext"><input class="logcheckbox last" type="checkbox" id="rememberme"/>Keep me signed in</label><br/> 
 							<!-- <input type="button" value="Login" /> -->
-							<a id="login">Login</a>
+							<a class="logbutton" id="login" href="#">Log in</a>
 						</form>
 					</div>
 				</div>
 				<div class="cols col-6">
 					<div class="signup_wrapper">
-						<h2>Create a Your Account</h2>
+						<h2>Create Your Account</h2>
 						<form id="reg_form" action="#" method="post">
-							<span>Login</span><br/>
-							<input type="text" placeholder="e.g., han_solo" id="reg_name" /><br/>
-							<span>Email</span><br/>
-							<input type="text" placeholder="e.g., hs@gmail.com" id="reg_email" /><br/>
-							<span>Password</span><br/>
-							<input type="password" placeholder="e.g., ******" id="reg_pass" /><br/>
-							<input type="button" value="Signup" id="signup">
+							<span class="logtext" id="error_login"></span><br/>
+							<input class="loginput" type="text" placeholder="Login" id="reg_login" /><br/>
+							<span class="logtext" id="error_pass"></span><br/>
+							<input class="loginput" type="password" placeholder="Password" id="reg_pass" /><br/>
+							<span class="logtext" id="error_email"></span><br/>
+							<input class="loginput" type="text" placeholder="Email" id="reg_email" /><br/>
+							<span class="logtext" id="error_name"></span><br/>
+							<input class="loginput" type="text" placeholder="Name" id="reg_name" /><br/>
+							<span class="logtext" id="error_surname"></span><br/>
+							<input class="loginput" type="text" placeholder="Surname" id="reg_surname" /><br/>
+							<span class="logtext" id="error_phone"></span><br/>
+							<input class="loginput" type="text" placeholder="Phone number" id="reg_phone" /><br/>
+							<span class="logtext" id="error_address"></span><br/>
+							<input class="loginput last" type="text" placeholder="Delivery address" id="reg_address" /><br/>
+							<!-- <input type="button" value="Signup" id="signup"> -->
+							<a class="logbutton" id="signup" href="#">Sign up</a>
 						</form>
 					</div>
 				</div>
@@ -57,5 +67,6 @@ include("include/auth_cookie.php");
     <script src="js/events.js"></script>
     <script src="js/login.js"></script>
     <script src="js/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="lib/dist/sweetalert.css">
 </body>
 </html>

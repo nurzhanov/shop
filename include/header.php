@@ -36,7 +36,7 @@
                                     echo '<li><a href="/shop/account.php">'.$_SESSION['auth_login'].'</a></li>';
                                     echo '<li><a id="logout">Log out</a></li>';
                                 }else{
-                                    echo '<li><a href="/shop/login.php">Sign in / Sign up</a></li>';
+                                    echo '<li><a href="/shop/login.php">Log in / Sign up</a></li>';
                                 }
                             ?>
                             <!-- <li><a href="/shop/login.php">Sign in</a></li> -->

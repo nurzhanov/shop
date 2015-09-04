@@ -59,7 +59,6 @@ input[name="q"]{
     font-size: 18px;
     padding: 0 8px;
     width: 80%;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 input[name="find"]{
@@ -364,17 +363,97 @@ nav a#pull {
 
 /* login */
 .login_wrapper{
-    height: 500px;
+    height: 800px;
     margin-top: 50px;
+    margin-bottom: 20px;
+    width: 100%;
 }
 
 .signup_wrapper{
-    height: 500px;
+    height: 800px;
     margin-top: 50px;
+    width: 100%;
 }
+
+.login_wrapper h2{
+    margin-bottom: 20px;
+}
+
+.signup_wrapper h2{
+    margin-bottom: 20px;
+}
+
 
 .checksigned{
     cursor: pointer;
+}
+
+.loginput{
+    margin-bottom: 10px;
+    font-size: 18px;
+    /*padding: 7px;*/
+    padding: 0.5em;
+    width: 50%;
+    /*border: none;*/
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    /*background-color: #eeeff1;*/
+    background: #edeff0;
+    border: 1px solid #cdd2d4;
+}
+
+.last{
+    margin-bottom: 30px;
+}
+
+.logtext{
+    font-size: 20px;
+    margin-bottom: 15px;
+    width: 50%;
+    color: #BF5252;
+}
+
+.checkboxtext{
+    font-size: 20px;
+    margin-bottom: 15px;
+    width: 50%;
+}
+
+.logcheckbox{
+    font-size: 18px;
+    width: 15px;
+    height:15px;
+    border: none;
+    color:#fff;
+    background-color:#c1c1c1;
+    margin-right: 10px;
+/*    -moz-appearance:none;
+    -webkit-appearance:none;
+    -o-appearance:none;*/
+}
+
+.logbutton{
+    /*height: 20px;*/
+    width: 100px;
+    background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #2A568C 0px, #2A698C 100%) repeat scroll 0 0;
+    /*box-shadow: 0 2px 0 #3f6f21;*/
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    margin-top: 20px;
+    padding: 10px 30px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.logbutton{
+
 }
 
 /* account */
