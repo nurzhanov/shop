@@ -1,5 +1,6 @@
 body {
-    font: 100%/1.5em Arial, Helvetica, sans-serif;
+    /*font: 100%/1.5em Arial, Helvetica, sans-serif;*/
+    font-family: "jaf-facitweb", "Helvetica Neue", Arial, sans-serif; 
     background: url(../images/bg.jpg);
     background-repeat:no-repeat;
     background-position: center top;
@@ -23,6 +24,24 @@ ul li a{
 img{
     border: none;
 }
+
+
+/*header-top*/
+.header-top{
+    position: relative;
+}
+
+.header-top p{
+    font: Arial, Helvetica, sans-serif;
+    /*width: %;*/
+    position: absolute;
+    right: 50%;
+    bottom: 50%;
+    font-size: 6em;
+    margin: 0 auto;
+    color: white;
+}
+
 
 /*header-middle*/
 .header-middle{
@@ -75,7 +94,7 @@ input[name="find"]:hover{
     text-align: right;
 }
 
-.sub-menu ul li:first-child:before{
+/*.sub-menu ul li:first-child:before{
     content: url(../images/cart.png);
 }
 
@@ -89,7 +108,7 @@ input[name="find"]:hover{
 
 .sub-menu ul li:nth-child(2):hover:before{
     content: url(../images/user_hover.png);
-}
+}*/
 
 .sub-menu ul li{
     padding-left: 10%;
@@ -99,13 +118,13 @@ input[name="find"]:hover{
     cursor: pointer;
 }
 
-#logout:before{
+/*#logout:before{
     content: url(../images/lock.png);
 }
 
 #logout:hover:before{
     content: url(../images/lock_hover.png);
-}
+}*/
 
 /*header-bottom*/
 

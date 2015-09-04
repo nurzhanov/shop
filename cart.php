@@ -50,7 +50,6 @@ switch($action){
 							$action = strip_tags($action);
 							$action = mysqli_real_escape_string($mysqli, $action);
 							$action = trim($action);
-
 							switch($action){
 								case "oneclick":
 									echo '

@@ -1,6 +1,7 @@
 <header id="header"><!--header-->
     <div class="header-top">
         <img src="images/banner.jpg" alt="" />
+        <p>Music Shop</p>
     </div>
     <div class="header-middle"><!--header-middle-->
         <div class="container">
@@ -33,9 +34,9 @@
                             <?php
                                 if(isset($_SESSION['auth']) && $_SESSION['auth'] == 'yes_auth'){
                                     echo '<li><a href="/shop/account.php">'.$_SESSION['auth_login'].'</a></li>';
-                                    echo '<li><a id="logout">Exit</a></li>';
+                                    echo '<li><a id="logout">Log out</a></li>';
                                 }else{
-                                    echo '<li><a href="/shop/login.php">Sign in</a></li>';
+                                    echo '<li><a href="/shop/login.php">Sign in / Sign up</a></li>';
                                 }
                             ?>
                             <!-- <li><a href="/shop/login.php">Sign in</a></li> -->

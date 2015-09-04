@@ -23,20 +23,26 @@ include("include/auth_cookie.php");
 					<div class="login_wrapper">
 						<h2>Login to your account</h2>
 						<form name="log_form" action="#" method="post">
-							<input type="text" placeholder="Login or Email" id="login_name"/><br/>
-							<input type="password" placeholder="Password" id="login_pass"/><br/>
+							<span>Login or Email</span><br/>
+							<input type="text" placeholder="e.g., han_solo" id="login_name"/><br/>
+							<span>Password</span><br/>
+							<input type="password" placeholder="e.g., ******" id="login_pass"/><br/>
 							<label class="checksigned"><input type="checkbox" id="rememberme"/>Keep me signed in</label><br/> 
-							<input type="button" value="Login" id="login"/>
+							<!-- <input type="button" value="Login" /> -->
+							<a id="login">Login</a>
 						</form>
 					</div>
 				</div>
 				<div class="cols col-6">
 					<div class="signup_wrapper">
-						<h2>New User Signup!</h2>
+						<h2>Create a Your Account</h2>
 						<form id="reg_form" action="#" method="post">
-							<input type="text" placeholder="Login" id="reg_name" /><br/>
-							<input type="text" placeholder="Email" id="reg_email" /><br/>
-							<input type="password" placeholder="Password" id="reg_pass" /><br/>
+							<span>Login</span><br/>
+							<input type="text" placeholder="e.g., han_solo" id="reg_name" /><br/>
+							<span>Email</span><br/>
+							<input type="text" placeholder="e.g., hs@gmail.com" id="reg_email" /><br/>
+							<span>Password</span><br/>
+							<input type="password" placeholder="e.g., ******" id="reg_pass" /><br/>
 							<input type="button" value="Signup" id="signup">
 						</form>
 					</div>
