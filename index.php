@@ -114,7 +114,7 @@ include("include/auth_cookie.php");
                                 <img class="grow_image" src="<?=$img_path?>" height="<?=$height?>" width="<?=$width?>" />
                                 <h2>$<?=$row['price']?></h2>
                                 <p><?=$row['title']?></p>
-                                <input type="button" class="add-to-cart" value="Add to cart" />
+                                <a class="add-to-cart" href="#">Add to cart</a>
                             </div>
                             <?php
                                 }

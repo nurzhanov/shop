@@ -113,14 +113,21 @@ input[name="find"]:hover{
    padding-bottom: 30px;
 }
 
-nav {
+/*nav{
     background: -webkit-linear-gradient(#36648B, #5F9EA0);
+
     background: -moz-linear-gradient(#36648B, #5F9EA0);
     background: -ms-linear-gradient(#36648B, #5F9EA0);
     background: -o-linear-gradient(#36648B, #5F9EA0);
+
     background: linear-gradient(#36648B, #5F9EA0);
-    box-shadow:0 5px 10px rgba(0, 0, 0, 0.7);
+}*/
+
+nav{
+    background: -webkit-linear-gradient(#36648B, #5F9EA0);
+    background: linear-gradient(#36648B, #5F9EA0);
 }
+
 
 nav li a {
     color: white;
@@ -128,7 +135,7 @@ nav li a {
 
 .clearfix:before,
 .clearfix:after {
-    content: " ";
+    content: "";
     display:table;
 }
 
@@ -139,19 +146,19 @@ nav li a {
 nav a {
     color: #fff;
     display: inline-block;
-    /*width: 370px;*/
-    width: 33%;
+    /*width: 391px;*/
+    width: 24.7%;
     text-align: center;
     text-decoration:none;
     line-height: 40px;
 }
 
 nav li a{
-    border: 0.5px solid #36648b;
+    border: 1px solid #36648b;
     margin: 0px;
 }
 
-nav a:hover, nav a:active {
+nav li a:hover, nav a:active {
     background-color: #36648B;
 }
 
@@ -276,14 +283,40 @@ nav a#pull {
 }
 
 .add-to-cart{
-    width: 120px;
-    background-color: #36648b;
-    color: white;
-    cursor: pointer;
-    border-radius: 3px;
-    padding: 10px;
-    font-size: 18px;
-    line-height: 18px;
+    /*basic styles*/
+    width: 350px; 
+    height: 50px; 
+    color: white; 
+    background-color: #0099CC; 
+    text-align: center;
+    padding: 5px 20px; 
+    font-size: 20px; 
+    line-height: 50px; 
+    text-decoration: none;  
+    /*gradient styles*/ 
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0099CC), to(#006699)); 
+    background: -moz-linear-gradient(19% 75% 90deg,#006699, #0099CC); 
+    background: -ms-linear-gradient(#0099CC 0%, #006699 100%); 
+    background: linear-gradient(19% 75% 90deg,#006699, #0099CC); 
+    /*border styles*/ border-top: solid 2px #0099FF; 
+    border-bottom: solid 1px #003366; 
+    border-right: solid 1px #0099CC; 
+    border-left: solid 1px #0099CC; 
+    -moz-border-radius: 30px; 
+    -webkit-border-radius: 30px; 
+    border-radius: 30px; 
+}
+
+.add-to-cart:hover { 
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#006699), to(#0099CC)); 
+    background: -ms-linear-gradient(#006699 0%, #0099CC 100%); 
+    background: -moz-linear-gradient(19% 75% 90deg,#0099CC, #006699); 
+    border-top: solid 2px #006699; 
+    border-bottom: solid 1px #0099FF; 
+}
+
+.add-to-cart:active { 
+    color: #E6E6E6;
 }
 
 /*footer*/
@@ -312,13 +345,13 @@ nav a#pull {
 
 /* login */
 .login_wrapper{
-    height: 300px;
-    margin-top: 200px;
+    height: 500px;
+    margin-top: 50px;
 }
 
 .signup_wrapper{
-    height: 300px;
-    margin-top: 200px;
+    height: 500px;
+    margin-top: 50px;
 }
 
 .checksigned{
