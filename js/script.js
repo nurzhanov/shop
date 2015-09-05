@@ -47,7 +47,7 @@
 			cache: false,
 			success: function(data){
 				if(data == "logout"){
-					location.reload();
+					window.location.href = "index.php";
 				}
 			}
 		});

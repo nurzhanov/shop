@@ -15,8 +15,6 @@
 		var info_subject_val = info_subject.value;
 		var info_message_val = info_message.value;
 
-		// console.log("ok");
-
 		if((info_name_val != "") || (info_email_val != "") || (info_subject_val != "") || (info_message_val != "")){
 			var pattern_info = /^[a-zA-Z]/;
 			var pattern_email = /\S+@\S+\.\S+/;
@@ -38,14 +36,14 @@
 							xhttp_info.onreadystatechange = function(){
 								if(xhttp_info.readyState==4 && xhttp_info.status==200){
 									if(xhttp_info.responseText == "true"){
-										alert("We will write to you as soon!")
+										swal("Good job!", "We will reply soon =)", "success");
 									}else{
-										alert("You can`t add contacts! Try again)");
+										swal("Oops!", "Try again!", "error");
 									}
 								}
 							}
 							// Открываем асинхронное соединение
-							xhttp_info.open('POST', 'contact_us_server.php', true);
+							xhttp_info.open('POST', './include/contacts.php', true);
 							// Отправляем кодировку 
 							xhttp_info.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 							xhttp_info.send("info_name=" + encodeURIComponent(info_name_val) + "&info_email=" + encodeURIComponent(info_email_val) + "&info_subject=" + encodeURIComponent(info_subject_val) + "&info_message=" + encodeURIComponent(info_message_val) + '&rand='+Math.random());

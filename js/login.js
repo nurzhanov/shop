@@ -1,39 +1,20 @@
 (function(){
-	var doc = document;
-	var login = doc.querySelector('#login');
-	var signup = doc.querySelector('#signup');
-	var form = doc.querySelectorAll("#reg_form");
-
-	/* Данная функция создаёт кроссбраузерный объект XMLHTTP */
-	// function getXmlHttp(){
-	// 	var xmlhttp;
-	// 	try {
-	// 		xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
-	// 	}catch (e) {
-	// 		try {
-	// 	  		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	// 		}catch (E) {
-	// 			xmlhttp = false;
-	// 		}
-	// 	}
-	// 	if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
-	// 		xmlhttp = new XMLHttpRequest();
-	// 	}
-	// 	return xmlhttp;
-	// };
+	var doc = document,
+		login = doc.querySelector('#login'),
+		signup = doc.querySelector('#signup');
 	
 	var loginUser = function(e){
 		eventsObj.preventDefault(e);
-		var error_username = doc.querySelector("#error_username");
-		var error_password = doc.querySelector("#error_password");
-		var lname = doc.querySelector("#login_name");
-		var lpass = doc.querySelector("#login_pass");
-		var rememberme = doc.querySelector("#rememberme");
-		var lname_val = lname.value;
-		var lpass_val = lpass.value;
-		var send_login = "";
-		var send_pass = "";
-		var auth_rememberme = "";
+		var error_username = doc.querySelector("#error_username"),
+			error_password = doc.querySelector("#error_password"),
+			lname = doc.querySelector("#login_name"),
+			lpass = doc.querySelector("#login_pass"),
+			rememberme = doc.querySelector("#rememberme"),
+			lname_val = lname.value,
+			lpass_val = lpass.value,
+			send_login = "",
+			send_pass = "",
+			auth_rememberme = "";
 		if(lname_val === "" || lpass_val === ""){
 			if(lname_val === ""){
 				error_username.innerHTML = "Login field is empty!";
@@ -66,7 +47,7 @@
 	        xhttp_log.onreadystatechange = function(){
 				if (xhttp_log.readyState==4 && xhttp_log.status==200) {
 					if(xhttp_log.responseText === "no_auth"){
-						sweetAlert("Login or Password is incorrect!");
+						swal("Oops!", "Login or Password is incorrect!", "error");
 					}
             		if(xhttp_log.responseText === "yes_auth"){
             			// alert("You have successfully login in!");
@@ -174,7 +155,7 @@
 										xhttp_reg.onreadystatechange = function(){
 											if (xhttp_reg.readyState==4 && xhttp_reg.status==200) {
 												if(xhttp_reg.responseText === "false"){
-													sweetAlert("Login is used");
+													swal("Oops!", "Login is used!", "error");
 												}
 												if(xhttp_reg.responseText === "true"){
 													login.value = "";
@@ -184,7 +165,7 @@
 													surname.value = "";
 													phone.value = "";
 													address.value = "";
-													sweetAlert("You have successfully signed up!");
+													swal("Good job!", "You are signed up!", "success");
 												}
 											}	
 										}

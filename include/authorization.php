@@ -18,8 +18,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		session_start();
 		$_SESSION['auth'] = 'yes_auth'; 
 		$_SESSION['auth_login'] = $row['login']; 
-		$_SESSION['auth_pathword'] = $row['password']; 
-		$_SESSION['auth_email'] = $row['email']; 
+		$_SESSION['auth_password'] = $row['password']; 
+		$_SESSION['auth_email'] = $row['email'];
+		$_SESSION['auth_name'] = $row['name'];
+		$_SESSION['auth_surname'] = $row['surname'];
+		$_SESSION['auth_phone'] = $row['phone'];
+		$_SESSION['auth_address'] = $row['address'];
 		echo "yes_auth";
 	}else{
 		echo "no_auth";

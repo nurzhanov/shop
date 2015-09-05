@@ -1,7 +1,7 @@
 <?php
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-	include "include/db_connect.php";
+	include "db_connect.php";
 
 	if (isset($_POST['info_name'])) { $info_name = $_POST['info_name']; }
 	if (isset($_POST['info_email'])) { $info_email = $_POST['info_email']; }

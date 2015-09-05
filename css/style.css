@@ -383,7 +383,6 @@ nav a#pull {
     margin-bottom: 20px;
 }
 
-
 .checksigned{
     cursor: pointer;
 }
@@ -452,14 +451,17 @@ nav a#pull {
     border-radius: 4px;
 }
 
-.logbutton{
-
-}
-
 /* account */
 .account_wrapper{
-    height: 500px;
+    height: 800px;
     margin-top: 25px;
+}
+
+.account-text{
+    font-size: 20px;
+    margin-bottom: 15px;
+    width: 50%;
+    color: #cdd2d4;
 }
 
 /* top products*/
