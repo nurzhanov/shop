@@ -24,6 +24,8 @@
 	
 	var loginUser = function(e){
 		eventsObj.preventDefault(e);
+		var error_username = doc.querySelector("#error_username");
+		var error_password = doc.querySelector("#error_password");
 		var lname = doc.querySelector("#login_name");
 		var lpass = doc.querySelector("#login_pass");
 		var rememberme = doc.querySelector("#rememberme");
@@ -34,16 +36,22 @@
 		var auth_rememberme = "";
 		if(lname_val === "" || lpass_val === ""){
 			if(lname_val === ""){
+				error_username.innerHTML = "Login field is empty!";
 				lname.style.borderColor = "#BF5252";
 				lname.style.backgroundColor = "#F2C9C9";
 			}else{
-				lname.style.borderColor = "";
+				error_username.innerHTML = "";
+				lname.style.borderColor = "#cdd2d4";
+				lname.style.backgroundColor = "#edeff0";
 			}
 			if(lpass_val === ""){
+				error_password.innerHTML = "Password field is empty!";
 				lpass.style.borderColor = "#BF5252";
 				lpass.style.backgroundColor = "#F2C9C9";
 			}else{
-				lpass.style.borderColor = "";
+				error_password.innerHTML = "";
+				lpass.style.borderColor = "#cdd2d4";
+				lpass.style.backgroundColor = "#edeff0";
 			}
 		}else{
 			lname.style.borderColor = "";
@@ -53,25 +61,24 @@
 	        } else {
 	            auth_rememberme = "no";
 	        }
-	        sweetAlert("OK");
-	        // Создаём объект XMLHTTP
-	  //       var xhttp_log = new XMLHttpRequest();
-	  //       xhttp_log.onreadystatechange = function(){
-			// 	if (xhttp_log.readyState==4 && xhttp_log.status==200) {
-			// 		if(xhttp_log.responseText === "no_auth"){
-			// 			alert("Login or password is incorrect!");
-			// 		}
-   //          		if(xhttp_log.responseText === "yes_auth"){
-   //          			// alert("You have successfully login in!");
-   //          			window.location.href = "account.php";
-   //          		}
-   //          	}
-			// }
-			// // Открываем асинхронное соединение
-			// xhttp_log.open('POST', 'login_server.php', true);
-			// // Отправляем кодировку 
-			// xhttp_log.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-			// xhttp_log.send("lname=" + encodeURIComponent(lname_val) + "&lpass=" + encodeURIComponent(lpass_val) + '&rememberme=' + encodeURIComponent(auth_rememberme) + '&rand='+Math.random());			
+	        //Создаём объект XMLHTTP
+	        var xhttp_log = new XMLHttpRequest();
+	        xhttp_log.onreadystatechange = function(){
+				if (xhttp_log.readyState==4 && xhttp_log.status==200) {
+					if(xhttp_log.responseText === "no_auth"){
+						sweetAlert("Login or Password is incorrect!");
+					}
+            		if(xhttp_log.responseText === "yes_auth"){
+            			// alert("You have successfully login in!");
+            			window.location.href = "account.php";
+            		}
+            	}
+			}
+			// Открываем асинхронное соединение
+			xhttp_log.open('POST', './include/authorization.php', true);
+			// Отправляем кодировку 
+			xhttp_log.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			xhttp_log.send("login=" + encodeURIComponent(lname_val) + "&pass=" + encodeURIComponent(lpass_val) + '&rememberme=' + encodeURIComponent(auth_rememberme) + '&rand='+Math.random());			
 		}
 	};
 

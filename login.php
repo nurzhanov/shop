@@ -24,9 +24,9 @@ include("include/auth_cookie.php");
 					<div class="login_wrapper">
 						<h2>Log in to Your account</h2>
 						<form name="log_form" action="#" method="post">
-							<span class="logtext">Login or Email</span><br/>
+							<span class="logtext" id="error_username"></span><br/>
 							<input class="loginput" type="text" placeholder="Login or Email" id="login_name"/><br/>
-							<span class="logtext">Password</span><br/>
+							<span class="logtext" id="error_password"></span><br/>
 							<input class="loginput" type="password" placeholder="Password" id="login_pass"/><br/>
 							<label class="checksigned checkboxtext"><input class="logcheckbox last" type="checkbox" id="rememberme"/>Keep me signed in</label><br/> 
 							<!-- <input type="button" value="Login" /> -->
