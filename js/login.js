@@ -84,7 +84,7 @@
 			error_name = doc.querySelector("#error_name"),
 			error_surname = doc.querySelector("#error_surname"),
 			error_phone = doc.querySelector("#error_phone"),
-			error_address = doc.querySelector("error_address"),
+			error_address = doc.querySelector("#error_address"),
 			login = doc.querySelector("#reg_login"),
 			pass = doc.querySelector("#reg_pass"),
 			email = doc.querySelector("#reg_email"),
@@ -146,33 +146,56 @@
 								error_surname.innerHTML = "";
 								surname.style.borderColor = "#cdd2d4";
 								surname.style.backgroundColor = "#edeff0";
-
-								alert("OK");
-
-								// // Создаём объект XMLHTTP
-						// // var xhttp_reg = getXmlHttp();
-						// var xhttp_reg = new XMLHttpRequest();
-						// xhttp_reg.onreadystatechange = function(){
-						// 	if (xhttp_reg.readyState==4 && xhttp_reg.status==200) {								
-						// 		if(xhttp_reg.responseText === "false"){
-						// 			alert("Login is used");
-						// 		}
-	     //                		if(xhttp_reg.responseText === "true"){
-	     //         					rname.value = "";
-	     //         					remail.value = "";
-	     //         					rpass.value = "";
-	     //                			alert("You have successfully signed up!");
-	     //                		}
-	     //                	}
-						// }
-						// // Открываем асинхронное соединение
-						// xhttp_reg.open('POST', 'server.php', true);
-						// // Отправляем кодировку 
-						// xhttp_reg.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-						// xhttp_reg.send("rname=" + encodeURIComponent(rname_val) + "&remail=" + encodeURIComponent(remail_val) + "&rpass=" + encodeURIComponent(rpass_val) + '&rand='+Math.random());
-
-
-								
+								if(phone_val.search(pattern_phone) != 0){
+									error_phone.innerHTML = "Phone is incorrect!";
+									phone.style.borderColor = "#BF5252";
+									phone.style.backgroundColor = "#F2C9C9";
+								}else{
+									error_phone.innerHTML = "";
+									phone.style.borderColor = "#cdd2d4";
+									phone.style.backgroundColor = "#edeff0";
+									if(address_val === ""){
+										error_address.innerHTML = "Address does not exist!";
+										address.style.borderColor = "#BF5252";
+										address.style.backgroundColor = "#F2C9C9";
+									}else{
+										error_address.innerHTML = "";
+										address.style.borderColor = "#cdd2d4";
+										address.style.backgroundColor = "#edeff0";
+										// Создаём объект XMLHTTP
+										var xhttp_reg = new XMLHttpRequest();
+										xhttp_reg.onreadystatechange = function(){
+											if (xhttp_reg.readyState==4 && xhttp_reg.status==200) {
+												if(xhttp_reg.responseText === "false"){
+													sweetAlert("Login is used");
+												}
+												if(xhttp_reg.responseText === "true"){
+													login.value = "";
+													pass.value = "";
+													email.value = "";
+													name.value = "";
+													surname.value = "";
+													phone.value = "";
+													address.value = "";
+													sweetAlert("You have successfully signed up!");
+												}
+											}	
+										}
+										// Открываем асинхронное соединение
+										xhttp_reg.open('POST', './include/registration.php', true);
+										// Устанавливаем кодировку
+										xhttp_reg.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+										// Отправляем данные
+										xhttp_reg.send("login=" + encodeURIComponent(login_val) + 
+													   "&pass=" + encodeURIComponent(pass_val) + 
+													   "&email=" + encodeURIComponent(email_val) + 
+													   "&name=" + encodeURIComponent(name_val) + 
+													   "&surname=" + encodeURIComponent(surname_val) + 
+													   "&phone=" + encodeURIComponent(phone_val) + 
+													   "&address=" + encodeURIComponent(address_val) + 
+													   "&rand="+Math.random());
+									}
+								}
 							}
 						}
 					}
@@ -192,7 +215,14 @@
 			name.style.backgroundColor = "#F2C9C9";
 			surname.style.backgroundColor = "#F2C9C9";
 			phone.style.backgroundColor = "#F2C9C9";
-			address.style.backgroundColor = "#F2C9C9"; 
+			address.style.backgroundColor = "#F2C9C9";
+			error_login.innerHTML = "Login field is empty!";
+			error_email.innerHTML = "Email field is empty!";
+			error_pass.innerHTML = "Password field is empty!";
+			error_name.innerHTML = "Name field is empty!";
+			error_surname.innerHTML = "Surname field is empty!";
+			error_phone.innerHTML = "Phone field is empty!";
+			error_address.innerHTML = "Address field is empty!"; 
 		}		
 	};
 

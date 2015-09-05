@@ -49,7 +49,7 @@ include("include/auth_cookie.php");
 							<span class="logtext" id="error_surname"></span><br/>
 							<input class="loginput" type="text" placeholder="Surname" id="reg_surname" /><br/>
 							<span class="logtext" id="error_phone"></span><br/>
-							<input class="loginput" type="text" placeholder="Phone number" id="reg_phone" /><br/>
+							<input class="loginput" type="text" placeholder="Phone number" id="reg_phone" maxlength="10" /><br/>
 							<span class="logtext" id="error_address"></span><br/>
 							<input class="loginput last" type="text" placeholder="Delivery address" id="reg_address" /><br/>
 							<!-- <input type="button" value="Signup" id="signup"> -->
