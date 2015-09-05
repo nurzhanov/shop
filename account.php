@@ -33,22 +33,18 @@ include "include/db_connect.php";
                             <span class="account-text">New Password</span><br/>
                             <input class="loginput" type="password" id="new_pass" /><br/>
                             <span class="account-text">Email</span><br/>
-                            <input class="loginput" type="text" id="new_email" /><br/>
+                            <input class="loginput" type="text" id="new_email" value="<?php echo $_SESSION['auth_email']?>" /><br/>
                             <span class="account-text">Name</span><br/>
-                            <input class="loginput" type="text" id="new_name" /><br/>
+                            <input class="loginput" type="text" id="new_name" value="<?php echo $_SESSION['auth_name']?>" /><br/>
                             <span class="account-text">Surname</span><br/>
-                            <input class="loginput" type="text" id="new_surname" /><br/>
+                            <input class="loginput" type="text" id="new_surname" value="<?php echo $_SESSION['auth_surname']?>" /><br/>
                             <span class="account-text">Phone number</span><br/>
-                            <input class="loginput" type="text" id="new_phone" maxlength="10" /><br/>
+                            <input class="loginput" type="text" id="new_phone" maxlength="10" value="<?php echo $_SESSION['auth_phone']?>" /><br/>
                             <span class="account-text">Delivery address</span><br/>
-                            <input class="loginput last" type="text" id="new_address" /><br/>
+                            <input class="loginput last" type="text" id="new_address" value="<?php echo $_SESSION['auth_address']?>" /><br/>
                             <a class="logbutton" id="save" href="#">Save</a>
                         </form>
                     </div>
-                    <?php
-                        
-                    ?>
-					</div>
 				</div>
     		</div>
     	</div>
@@ -62,8 +58,6 @@ include "include/db_connect.php";
     <script src="js/script.js"></script>
 </body>
 </html>
-
 <?php
 }
-
 ?>
