@@ -33,6 +33,16 @@ switch($action){
 		break;
 }
 
+$query_total_price = "SELECT * FROM cart, products WHERE cart.cart_ip = '{$_SERVER['REMOTE_ADDR']}' AND products.products_id = cart.cart_id_products"; 
+$result_total_price = $mysqli->query($query_total_price);
+if(mysqli_num_rows($result_total_price) > 0){
+	$fprice = 0;
+	while(($row=mysqli_fetch_assoc($result_total_price))!=false){
+		$fprice = $fprice + ($row["price"] * $row["cart_count"]);		
+		$total_price = $fprice;	
+	}
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -225,6 +235,11 @@ switch($action){
 										</ul>
 										';
 									}
+									echo '
+									<h2>Total price:<strong>'.$total_price.'</strong>$</h2>
+									<a class="button-next" href="#">Pay</a>				
+									';
+									
 									break;
 
 								default:
