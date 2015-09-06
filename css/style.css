@@ -310,7 +310,8 @@ nav a#pull {
     padding: 5px 20px; 
     font-size: 20px; 
     line-height: 50px; 
-    text-decoration: none;  
+    text-decoration: none;
+    cursor: pointer;  
     /*gradient styles*/ 
     background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0099CC), to(#006699)); 
     background: -moz-linear-gradient(19% 75% 90deg,#006699, #0099CC); 

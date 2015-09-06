@@ -30,7 +30,7 @@
                 <div class="cols col-3">
                     <div class="sub-menu">
                         <ul>
-                            <li><a href="/shop/cart.php?action=oneclick">Cart</a></li>
+                            <li><a id="cart_status" href="/shop/cart.php?id=0&action=oneclick">Cart is empty</a></li>
                             <?php
                                 if(isset($_SESSION['auth']) && $_SESSION['auth'] == 'yes_auth'){
                                     echo '<li><a href="/shop/account.php">'.$_SESSION['auth_login'].'</a></li>';
@@ -55,7 +55,7 @@
                         <ul class="clearfix">
                             <li><a href="/shop/">HOME</a></li>
                             <li><a href="#">NEWS</a></li>
-                            <li><a href="#">ABOUT</a></li>
+                            <li><a href="#">ABOUT US</a></li>
                             <li><a href="/shop/contact_us.php">CONTACT US</a></li>
                         </ul>
                     </nav>   

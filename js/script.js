@@ -5,6 +5,7 @@
         info_send = doc.querySelector('#info_send'),
         logout = doc.querySelector("#logout"),
         order_next = doc.querySelector("#order_next");
+        // product = doc.querySelector(".add-to-cart");
 
     var eventsObj = {
         addEvent: function(el, type, fn){
@@ -424,6 +425,14 @@
             }
     };
 
+    // var addToCart = function(e){
+    //     eventsObj.preventDefault(e);
+    //     var elem = eventsObj.getTarget(e),
+    //         prodid = elem.getAttribute('data-productid');
+    //     console.log(prodid); 
+    //     console.log("ok");
+    // }
+
     if(login_button != null){
         eventsObj.addEvent(login_button, 'click', loginUser); 
     }
@@ -439,5 +448,8 @@
     if(order_next != null){
         eventsObj.addEvent(order_next, 'click', checkOrderInfo);
     }
+    // if(product != null){
+    //     eventsObj.addEvent(product, 'click', addToCart);
+    // }
 
 })();

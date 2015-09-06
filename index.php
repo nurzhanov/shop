@@ -91,6 +91,9 @@ include("include/auth_cookie.php");
                                 $query = "SELECT * FROM products WHERE top=1 AND visible=1";
                                 $result = $mysqli->query($query);
                                 while(($row=mysqli_fetch_assoc($result))!=false){
+                                    // echo "<pre>";
+                                    // print_r($row);
+                                    // echo "</pre>";
                                     // если имя картинки не пустое и файл существует
                                     if($row["image"] != "" && file_exists("./products_images/".$row["image"])){
                                         // задаем путь
@@ -114,7 +117,7 @@ include("include/auth_cookie.php");
                                 <img class="grow_image" src="<?=$img_path?>" height="<?=$height?>" width="<?=$width?>" />
                                 <h2>$<?=$row['price']?></h2>
                                 <p><?=$row['title']?></p>
-                                <a class="add-to-cart" href="#">Add to cart</a>
+                                <a class="add-to-cart" tid="<?=$row['products_id']?>">Add to cart</a>
                             </div>
                             <?php
                                 }

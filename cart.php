@@ -3,18 +3,24 @@ include "include/db_connect.php";
 session_start();
 include("include/auth_cookie.php");
 
-$id = $_GET["id"];	
-// Удаляем HTML и PHP-теги из строки	
-$id = strip_tags($id);
-// Экранируем специальные символы в строке для использования в SQL выражении, используя текущий набор символов соединения
-$id = mysqli_real_escape_string($mysqli, $id);
-// Удаляем пробелы (или другие символы) из начала и конца строки
-$id = trim($id);
 
 $action = $_GET["action"];	
 $action = strip_tags($action);
 $action = mysqli_real_escape_string($mysqli, $action);
 $action = trim($action);
+
+// if(isset($_GET["id"])){ $id = $_GET["id"]; } 
+
+if(isset($_GET["id"])){
+	$id = $_GET["id"];		
+	// Удаляем HTML и PHP-теги из строки	
+	$id = strip_tags($id);
+	// Экранируем специальные символы в строке для использования в SQL выражении, используя текущий набор символов соединения
+	$id = mysqli_real_escape_string($mysqli, $id);
+	// Удаляем пробелы (или другие символы) из начала и конца строки
+	$id = trim($id);
+}
+
 
 if(!isset($_SESSION['order_surname'])){ $_SESSION['order_surname'] = ""; }
 if(!isset($_SESSION['order_email'])){ $_SESSION['order_email'] = ""; }
@@ -137,7 +143,7 @@ if(mysqli_num_rows($result_total_price) > 0){
 														</li>
 													</ul>
 												</div>
-												<div class="price-product"><h5><span class="span-count">1</span>x<span>'.$row['cart_price'].'$</span></h5><p>'.$float_price.'$</p></div>
+												<div class="price-product"><h5><span class="span-count">'.$row['cart_count'].'</span>x<span>'.$row['cart_price'].'$</span></h5><p>'.$float_price.'$</p></div>
 												<div class="delete-cart"><a href="cart.php?id='.$row['cart_id'].'&action=delete"><img src="images/delete.png"/></a></div>
 												<div id="bottom-cart-line"></div>
 											</div>
@@ -193,7 +199,7 @@ if(mysqli_num_rows($result_total_price) > 0){
 										';
 									}
 									echo '
-												<a class="button-next" type="submit" name="submitdata" id="order_next" href="cart.php?id=0&action=completion">Next</a>
+												<a class="button-next" id="order_next" href="cart.php?action=completion">Next</a>
 										</form>
 										';
 
@@ -310,7 +316,7 @@ if(mysqli_num_rows($result_total_price) > 0){
 														</li>
 													</ul>
 												</div>
-												<div class="price-product"><h5><span class="span-count">1</span>x<span>'.$row['cart_price'].'$</span></h5><p>'.$float_price.'$</p></div>
+												<div class="price-product"><h5><span class="span-count">'.$row['cart_count'].'</span>x<span>'.$row['cart_price'].'$</span></h5><p>'.$float_price.'$</p></div>
 												<div class="delete-cart"><a href="cart.php?id='.$row['cart_id'].'&action=delete"><img src="images/delete.png"/></a></div>
 												<div id="bottom-cart-line"></div>
 											</div>
@@ -324,11 +330,8 @@ if(mysqli_num_rows($result_total_price) > 0){
 										echo '<h3 id="clear-cart" align="center">Cart is empty</h3>';
 									}
 									break;
-
 							}
-
 						?>
-
 					</div>
 				</div>
     		</div>

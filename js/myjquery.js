@@ -35,4 +35,38 @@
 			element.siblings('li').find('ul').slideUp(200);
 		}
 	});
+
+	// add to cart
+	$('.add-to-cart').click(function(){
+		var tid = $(this).attr("tid");
+		// console.log(tid);
+		$.ajax({
+			type: "POST",
+			url: "./include/addtocart.php",
+			data: "id="+tid,
+			dataType: "html",
+			cache: false,
+			success: function(data){
+				console.log("add ok");
+				// loadcart();
+			}
+		});
+	});
+
+	function loadcart(){
+		$.ajax({
+			type: "POST",
+			url: "./include/loadcart.php",
+			dataType: "html",
+			cache: false,
+			success: function(data){
+				if(data == 0){
+					$('#cart_status').html("Cart is empty");
+				}else{
+					$('#cart_status').html("Cart +"+data);
+				}
+			}
+		});
+	};
+
 })();

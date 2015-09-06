@@ -137,7 +137,7 @@ $type = trim($type);
                                 <img src="<?=$img_path?>" height="<?=$height?>" width="<?=$width?>" />
                                 <h2>$<?=$row['price']?></h2>
                                 <p><?=$row['title']?></p>
-                                <a class="add-to-cart" href="#">Add to cart</a>
+                                <a class="add-to-cart" tid="<?=$row['products_id']?>">Add to cart</a>
                             </div>
                             <?php
                                     }
