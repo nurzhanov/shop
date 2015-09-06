@@ -18,13 +18,26 @@
 			new_surname_val = new_surname.value;
 			new_phone_val = new_phone.value;
 			new_address_val = new_address.value;
-			console.log(cur_pass_val);
-			console.log(new_pass_val);
-			console.log(new_email_val);
-			console.log(new_name_val);
-			console.log(new_surname_val);
-			console.log(new_phone_val);
-			console.log(new_address_val);
+
+			var xhttp_acc = new XMLHttpRequest();
+			xhttp_reg.onreadystatechange = function(){
+				if (xhttp_reg.readyState==4 && xhttp_reg.status==200) {
+					if(xhttp_reg.responseText === "false"){
+						swal("Oops!", "Login is used!", "error");
+					}
+					if(xhttp_reg.responseText === "true"){
+						login.value = "";
+						pass.value = "";
+						email.value = "";
+						name.value = "";
+						surname.value = "";
+						phone.value = "";
+						address.value = "";
+						swal("Good job!", "You are signed up!", "success");
+					}
+				}	
+			}
+
 	}
 
 	eventsObj.addEvent(save, 'click', changeUserInfo);

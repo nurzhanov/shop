@@ -16,6 +16,13 @@ $action = strip_tags($action);
 $action = mysqli_real_escape_string($mysqli, $action);
 $action = trim($action);
 
+if(!isset($_SESSION['order_surname'])){ $_SESSION['order_surname'] = ""; }
+if(!isset($_SESSION['order_email'])){ $_SESSION['order_email'] = ""; }
+if(!isset($_SESSION['order_phone'])){ $_SESSION['order_phone'] = ""; }
+if(!isset($_SESSION['order_address'])){ $_SESSION['order_address'] = ""; }
+if(!isset($_SESSION['order_note'])){ $_SESSION['order_note'] = ""; }
+
+
 switch($action){
 	case 'clear':
 		$clear = $mysqli->query("DELETE FROM cart WHERE cart_ip = '{$_SERVER['REMOTE_ADDR']}'");
@@ -23,6 +30,15 @@ switch($action){
 	case 'delete':
 		$delete = $mysqli->query("DELETE FROM cart WHERE cart_id ='$id' AND cart_ip='{$_SERVER['REMOTE_ADDR']}'");
 		break;
+}
+
+if(isset($_POST["submitdata"])){
+	$_SESSION["order_surname"] = $_POST["order_surname"];
+	$_SESSION["order_email"] = $_POST["order_email"];
+	$_SESSION["order_phone"] = $_POST["order_phone"];
+	$_SESSION["order_address"] = $_POST["order_address"];
+	$_SESSION["order_note"] = $_POST["order_note"];
+	header("Location: cart.php?action=completion");
 }
 
 ?>
@@ -127,7 +143,7 @@ switch($action){
 										}
 										echo '
 												<h2 class="itog-price" align="right">Total:<strong>'.$all_price.'</strong>$</h2>
-												<p align="right" class="button-next"><a href="cart.php?action=confirm">Next</a></p>
+												<p align="right" class="button-next"><a href="cart.php?id=0&action=confirm">Next</a></p>
 											';
 									}else{
 										echo '<h3 id="clear-cart" align="center">Cart is empty</h3>';
@@ -146,24 +162,55 @@ switch($action){
 												<li><a>3.Completion</a></li>
 											</ul>
 										</div>
-										<p>Step 1 of 3</p>
+										<p>Step 2 of 3</p>
 										<a href="cart.php?action=clear">Clear</a>
 									</div>
 									';
+
+									echo '
+									<h3>Information Delivery:</h3>
+									<form id="order_form" action="#" method="post">
+									';
+									if(isset($_SESSION['auth'])){
+
+										echo '
+												<span class="order-text">Comment</span><br/>
+											    <textarea class="order-input" name="order_comment" id="order_comment">'.$_SESSION['order_note'].'</textarea>
+											';
+										
+									}else{
+										echo '
+										    <span class="order-text">Surname</span><br/>
+										    <input class="order-input" type="text" name="order_surname" id="order_surname" value="'.$_SESSION["order_surname"].'" /><br/>
+										    <span class="order-text">Email</span><br/>
+										    <input class="order-input" type="text" name="order_email" id="order_email" value="'.$_SESSION["order_email"].'" /><br/>
+										    <span class="order-text">Phone number</span><br/>
+										    <input class="order-input" type="text" name="order_phone" id="order_phone" maxlength="10" value="'.$_SESSION["order_phone"].'"  /><br/>
+										    <span class="order-text">Delivery address</span><br/>
+										    <input class="order-input" type="text" name="order_address" id="order_address" value="'.$_SESSION["order_address"].'" /><br/>
+											<span class="order-text">Comment</span><br/>
+											<textarea class="order-input" name="order_comment" id="order_comment">'.$_SESSION["order_note"].'</textarea>
+										';
+									}
+									echo '
+												<a class="button-next" type="submit" name="submitdata" id="order-next" href="cart.php?id=0&action=completion">Next</a>
+										</form>
+										';
+
 									break;
 								case "completion":
 									echo '
 									<div id="block-step">
 										<div id="name-step">
 											<ul>
-												<li><a>1.Cart</a></li>
+												<li><a href="cart.php?action=oneclick">1.Cart</a></li>
 												<li><span>&rarr;</span></li>
-												<li><a>2.Contacts</a></li>
+												<li><a href="cart.php?action=confirm">2.Contacts</a></li>
 												<li><span>&rarr;</span></li>
 												<li><a class="active">3.Completion</a></li>
 											</ul>
 										</div>
-										<p>Step 1 of 3</p>
+										<p>Step 3 of 3</p>
 										<a href="cart.php?action=clear">Clear</a>
 									</div>
 									';
