@@ -3,7 +3,8 @@
         login_button = doc.querySelector("#login"),
         signup_button = doc.querySelector("#signup"),
         info_send = doc.querySelector('#info_send'),
-        logout = doc.querySelector("#logout");
+        logout = doc.querySelector("#logout"),
+        order_next = doc.querySelector("#order_next");
 
     var eventsObj = {
         addEvent: function(el, type, fn){
@@ -330,7 +331,98 @@
         xhttp_logout.open('POST', './include/logout.php', true);
         xhttp_logout.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhttp_logout.send("rand="+Math.random());
-    }
+    };
+
+    var checkOrderInfo = function(e){
+        eventsObj.preventDefault(e);
+        var order_comment = doc.querySelector('#order_comment'),
+            order_comment_val = order_comment.value;
+
+            if(order_comment_val != ""){
+                var xhttp_comment = new XMLHttpRequest();
+                    xhttp_comment.onreadystatechange = function(){
+                        if(xhttp_comment.readyState==4 && xhttp_comment.status==200){
+                            if(xhttp_comment.responseText === "comment_true"){
+                                window.location.href = "cart.php?action=completion";
+                            }
+                        }
+                    }
+                    xhttp_comment.open('POST', './include/check_order.php', true);
+                    xhttp_comment.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    xhttp_comment.send("&note=" + encodeURIComponent(order_comment_val) +
+                                       "&rand="+Math.random());
+            }
+
+        var order_surname = doc.querySelector('#order_surname'),
+            order_email = doc.querySelector('#order_email'),
+            order_phone = doc.querySelector('#order_phone'),
+            order_address = doc.querySelector('#order_address'),
+            order_surname_val = order_surname.value,
+            order_email_val = order_email.value,
+            order_phone_val = order_phone.value,
+            order_address_val = order_address.value,
+            check = /^[a-zA-Z]/,
+            check_phone = /^[0-9]{10}/,
+            check_email = /\S+@\S+\.\S+/;
+
+            if((order_surname_val != "") || (order_email_val != "") || (order_phone_val != "") || (order_address_val != "")){
+                if(order_surname_val.search(check) != 0){
+                    // error_login.innerHTML = "Only characters or digits!";
+                    order_surname.style.borderColor = "#BF5252";
+                    order_surname.style.backgroundColor = "#F2C9C9";
+                }else{
+                    // error_login.innerHTML = "";
+                    order_surname.style.borderColor = "#cdd2d4";
+                    order_surname.style.backgroundColor = "#edeff0";
+                    if(check_email.test(order_email_val) != true){
+                        order_email.style.borderColor = "#BF5252";
+                        order_email.style.backgroundColor = "#F2C9C9"; 
+                    }else{
+                        order_email.style.borderColor = "#cdd2d4";
+                        order_email.style.backgroundColor = "#edeff0";
+                        if(order_phone_val.search(check_phone) != 0){
+                            order_phone.style.borderColor = "#BF5252";
+                            order_phone.style.backgroundColor = "#F2C9C9";
+                        }else{
+                            order_phone.style.borderColor = "#cdd2d4";
+                            order_phone.style.backgroundColor = "#edeff0";
+                            if(order_address_val.search(check) != 0){
+                                order_address.style.borderColor = "#BF5252";
+                                order_address.style.backgroundColor = "#F2C9C9";
+                            }else{
+                                order_address.style.borderColor = "#cdd2d4";
+                                order_address.style.backgroundColor = "#edeff0";
+                                var xhttp_order = new XMLHttpRequest();
+                                xhttp_order.onreadystatechange = function(){
+                                    if(xhttp_order.readyState==4 && xhttp_order.status==200){
+                                        if(xhttp_order.responseText === "order_true"){
+                                            window.location.href = "cart.php?action=completion";
+                                        }
+                                    }
+                                }
+                                xhttp_order.open('POST', './include/check_order.php', true);
+                                xhttp_order.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                                xhttp_order.send("&surname=" + encodeURIComponent(order_surname_val) +
+                                                 "&email=" + encodeURIComponent(order_email_val) + 
+                                                 "&phone=" + encodeURIComponent(order_phone_val) +                                                 
+                                                 "&address=" + encodeURIComponent(order_address_val) +
+                                                 "&comment=" + encodeURIComponent(order_comment_val) +  
+                                                 "&rand="+Math.random());
+                            }
+                        }
+                    }
+                }
+            }else{
+                order_surname.style.borderColor = "#BF5252";
+                order_surname.style.backgroundColor = "#F2C9C9";
+                order_email.style.borderColor = "#BF5252";
+                order_email.style.backgroundColor = "#F2C9C9";
+                order_phone.style.borderColor = "#BF5252";
+                order_phone.style.backgroundColor = "#F2C9C9";
+                order_address.style.borderColor = "#BF5252";
+                order_address.style.backgroundColor = "#F2C9C9"; 
+            }
+    };
 
     if(login_button != null){
         eventsObj.addEvent(login_button, 'click', loginUser); 
@@ -343,6 +435,9 @@
     } 
     if(logout != null){
         eventsObj.addEvent(logout, 'click', logoutFromAccount);
+    }
+    if(order_next != null){
+        eventsObj.addEvent(order_next, 'click', checkOrderInfo);
     }
 
 })();

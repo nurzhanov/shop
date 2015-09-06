@@ -20,6 +20,7 @@ if(!isset($_SESSION['order_surname'])){ $_SESSION['order_surname'] = ""; }
 if(!isset($_SESSION['order_email'])){ $_SESSION['order_email'] = ""; }
 if(!isset($_SESSION['order_phone'])){ $_SESSION['order_phone'] = ""; }
 if(!isset($_SESSION['order_address'])){ $_SESSION['order_address'] = ""; }
+if(!isset($_SESSION['order_comment'])){ $_SESSION['order_comment'] = ""; }
 if(!isset($_SESSION['order_note'])){ $_SESSION['order_note'] = ""; }
 
 
@@ -30,15 +31,6 @@ switch($action){
 	case 'delete':
 		$delete = $mysqli->query("DELETE FROM cart WHERE cart_id ='$id' AND cart_ip='{$_SERVER['REMOTE_ADDR']}'");
 		break;
-}
-
-if(isset($_POST["submitdata"])){
-	$_SESSION["order_surname"] = $_POST["order_surname"];
-	$_SESSION["order_email"] = $_POST["order_email"];
-	$_SESSION["order_phone"] = $_POST["order_phone"];
-	$_SESSION["order_address"] = $_POST["order_address"];
-	$_SESSION["order_note"] = $_POST["order_note"];
-	header("Location: cart.php?action=completion");
 }
 
 ?>
@@ -143,7 +135,7 @@ if(isset($_POST["submitdata"])){
 										}
 										echo '
 												<h2 class="itog-price" align="right">Total:<strong>'.$all_price.'</strong>$</h2>
-												<p align="right" class="button-next"><a href="cart.php?id=0&action=confirm">Next</a></p>
+												<p align="right" class="button-next"><a href="cart.php?action=confirm">Next</a></p>
 											';
 									}else{
 										echo '<h3 id="clear-cart" align="center">Cart is empty</h3>';
@@ -155,7 +147,7 @@ if(isset($_POST["submitdata"])){
 									<div id="block-step">
 										<div id="name-step">
 											<ul>
-												<li><a href="cart.php?id=0&action=oneclick">1.Cart</a></li>
+												<li><a href="cart.php?action=oneclick">1.Cart</a></li>
 												<li><span>&rarr;</span></li>
 												<li><a class="active">2.Contacts</a></li>
 												<li><span>&rarr;</span></li>
@@ -163,7 +155,6 @@ if(isset($_POST["submitdata"])){
 											</ul>
 										</div>
 										<p>Step 2 of 3</p>
-										<a href="cart.php?action=clear">Clear</a>
 									</div>
 									';
 
@@ -172,7 +163,6 @@ if(isset($_POST["submitdata"])){
 									<form id="order_form" action="#" method="post">
 									';
 									if(isset($_SESSION['auth'])){
-
 										echo '
 												<span class="order-text">Comment</span><br/>
 											    <textarea class="order-input" name="order_comment" id="order_comment">'.$_SESSION['order_note'].'</textarea>
@@ -181,15 +171,15 @@ if(isset($_POST["submitdata"])){
 									}else{
 										echo '
 										    <span class="order-text">Surname</span><br/>
-										    <input class="order-input" type="text" name="order_surname" id="order_surname" /><br/>
+										    <input class="order-input" type="text" name="order_surname" id="order_surname" value="'.$_SESSION["order_surname"].'" /><br/>
 										    <span class="order-text">Email</span><br/>
-										    <input class="order-input" type="text" name="order_email" id="order_email" /><br/>
+										    <input class="order-input" type="text" name="order_email" id="order_email" value="'.$_SESSION["order_email"].'" /><br/>
 										    <span class="order-text">Phone number</span><br/>
-										    <input class="order-input" type="text" name="order_phone" id="order_phone" maxlength="10"  /><br/>
+										    <input class="order-input" type="text" name="order_phone" id="order_phone" maxlength="10" value="'.$_SESSION["order_phone"].'"  /><br/>
 										    <span class="order-text">Delivery address</span><br/>
-										    <input class="order-input" type="text" name="order_address" id="order_address" /><br/>
+										    <input class="order-input" type="text" name="order_address" id="order_address" value="'.$_SESSION["order_address"].'" /><br/>
 											<span class="order-text">Comment</span><br/>
-											<textarea class="order-input" name="order_comment" id="order_comment"></textarea>
+											<textarea class="order-input" name="order_comment" id="order_comment">'.$_SESSION['order_comment'].'</textarea>
 										';
 									}
 									echo '
@@ -211,9 +201,30 @@ if(isset($_POST["submitdata"])){
 											</ul>
 										</div>
 										<p>Step 3 of 3</p>
-										<a href="cart.php?action=clear">Clear</a>
 									</div>
 									';
+
+									if(isset($_SESSION['auth'])){
+										echo '
+										<ul>
+											<li>Surname:<strong>'.$_SESSION['auth_surname'].'</strong></li>
+											<li>Email:<strong>'.$_SESSION['auth_email'].'</strong></li>
+											<li>Phone number:<strong>'.$_SESSION['auth_phone'].'</strong></li>
+											<li>Delivery address:<strong>'.$_SESSION['auth_address'].'</strong></li>
+											<li>Comment<strong></strong>'.$_SESSION['order_note'].'</li>
+										</ul>
+										';
+									}else{
+										echo '
+										<ul>
+											<li>Surname:<strong>'.$_SESSION['order_surname'].'</strong></li>
+											<li>Email:<strong>'.$_SESSION['order_email'].'</strong></li>
+											<li>Phone number:<strong>'.$_SESSION['order_phone'].'</strong></li>
+											<li>Delivery address:<strong>'.$_SESSION['order_address'].'</strong></li>
+											<li>Comment<strong>'.$_SESSION['order_comment'].'</strong></li>
+										</ul>
+										';
+									}
 									break;
 
 								default:
