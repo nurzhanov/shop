@@ -4,6 +4,8 @@
 	var pull = $("#pull");
 	var menu = $("nav ul");
 
+	loadcart();
+
 	$(pull).on('click', function(e){
 		e.preventDefault();
 		menu.slideToggle();
@@ -47,8 +49,8 @@
 			dataType: "html",
 			cache: false,
 			success: function(data){
-				console.log("add ok");
-				// loadcart();
+				// console.log("add ok");
+				loadcart();
 			}
 		});
 	});
@@ -60,7 +62,7 @@
 			dataType: "html",
 			cache: false,
 			success: function(data){
-				if(data == 0){
+				if(data == "0"){
 					$('#cart_status').html("Cart is empty");
 				}else{
 					$('#cart_status').html("Cart +"+data);
