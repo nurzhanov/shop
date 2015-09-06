@@ -155,7 +155,7 @@ if(isset($_POST["submitdata"])){
 									<div id="block-step">
 										<div id="name-step">
 											<ul>
-												<li><a href="cart.php?action=oneclick">1.Cart</a></li>
+												<li><a href="cart.php?id=0&action=oneclick">1.Cart</a></li>
 												<li><span>&rarr;</span></li>
 												<li><a class="active">2.Contacts</a></li>
 												<li><span>&rarr;</span></li>
@@ -181,19 +181,19 @@ if(isset($_POST["submitdata"])){
 									}else{
 										echo '
 										    <span class="order-text">Surname</span><br/>
-										    <input class="order-input" type="text" name="order_surname" id="order_surname" value="'.$_SESSION["order_surname"].'" /><br/>
+										    <input class="order-input" type="text" name="order_surname" id="order_surname" /><br/>
 										    <span class="order-text">Email</span><br/>
-										    <input class="order-input" type="text" name="order_email" id="order_email" value="'.$_SESSION["order_email"].'" /><br/>
+										    <input class="order-input" type="text" name="order_email" id="order_email" /><br/>
 										    <span class="order-text">Phone number</span><br/>
-										    <input class="order-input" type="text" name="order_phone" id="order_phone" maxlength="10" value="'.$_SESSION["order_phone"].'"  /><br/>
+										    <input class="order-input" type="text" name="order_phone" id="order_phone" maxlength="10"  /><br/>
 										    <span class="order-text">Delivery address</span><br/>
-										    <input class="order-input" type="text" name="order_address" id="order_address" value="'.$_SESSION["order_address"].'" /><br/>
+										    <input class="order-input" type="text" name="order_address" id="order_address" /><br/>
 											<span class="order-text">Comment</span><br/>
-											<textarea class="order-input" name="order_comment" id="order_comment">'.$_SESSION["order_note"].'</textarea>
+											<textarea class="order-input" name="order_comment" id="order_comment"></textarea>
 										';
 									}
 									echo '
-												<a class="button-next" type="submit" name="submitdata" id="order-next" href="cart.php?id=0&action=completion">Next</a>
+												<a class="button-next" type="submit" name="submitdata" id="order_next" href="cart.php?id=0&action=completion">Next</a>
 										</form>
 										';
 
