@@ -155,6 +155,7 @@ $type = trim($type);
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <script src="js/myjquery.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
