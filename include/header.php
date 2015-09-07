@@ -13,9 +13,12 @@
                 </div>
                 <div class="cols col-4">
                     <div class="make-center">
-                        <form method="get" action="search.php?q=" name="search-form">
-                            <input type="search" name="q" id="input-searh" placeholder="search">
-                            <input type="submit" name="find" id="button-searh" value="FIND">
+                        <!-- <form method="get" action="search.php?q=" name="search-form"> -->
+                        <form method="get"  name="search-form">
+                            <!-- <input type="search" name="q" id="input-searh" placeholder="search"> -->
+                            <input type="text" id="input-searh" placeholder="search">
+                            <!-- <input type="submit" name="find" id="button-searh" value="Find"> -->
+                            <input type="button" id="button-searh" value="Find">
                         </form>
                     </div>
                 </div>

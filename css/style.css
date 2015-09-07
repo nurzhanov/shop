@@ -466,12 +466,19 @@ nav a#pull {
 }
 
 /* top products*/
+.grow_image{
+/*    height: 160px;
+    transition: height 0.5s;
+    -webkit-transition: height 0.5s;*/
+}
+
 .grow_image:hover
 {
-    -webkit-transform: scale(0.8);
+     /*height: 140px;*/
+/*    -webkit-transform: scale(0.8);
     -moz-transform: scale(0.8);
     -ms-transform: scale(0.8);
-    transform: scale(0.8);  
+    transform: scale(0.8); */ 
 }
 
 /* contact us*/
