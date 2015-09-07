@@ -35,11 +35,12 @@ img{
     font: Arial, Helvetica, sans-serif;
     /*width: %;*/
     position: absolute;
-    right: 50%;
-    bottom: 50%;
-    font-size: 6em;
+    right: 25%;
+    bottom: 25%;
+    font-size: 8em;
     margin: 0 auto;
     color: white;
+    border: 5px solid black;
 }
 
 
@@ -48,7 +49,7 @@ img{
     padding-top: 30px;
 }
 
-input[name="q"]{
+#input-searh{
     border: 1px solid gray;
     margin: 0;
     outline: none;
@@ -58,10 +59,20 @@ input[name="q"]{
     color: black;
     font-size: 18px;
     padding: 0 8px;
-    width: 80%;
+    width: 70%;
 }
 
-input[name="find"]{
+/*#input-searh:focus{
+    animation: input-animation .5s ease forwards;
+}*/
+
+/*@keyframes input-animation {
+    to {
+        width: 80%;
+    }
+}*/
+
+#button-searh{
     border: none;
     border-radius: 3px;
     margin: 0;
@@ -72,10 +83,12 @@ input[name="find"]{
     cursor: pointer;
 }
 
-input[name="find"]:hover{
+#button-searh:hover{
     background-color: #36648B;
     color: white;
 }
+
+
 
 .shop-info ul li{
     color: white;
@@ -702,6 +715,20 @@ nav a#pull {
     margin-top: 40px;
 }
 
+
+/*about-us*/
+.about-us-text{
+    text-align: justify;
+}
+
+/*.shop1{
+    width: 400px;
+}
+
+.shop2{
+     width: 400px;
+}*/
+
 /* less then 1000px*/
 @media screen and (max-width: 1200px) {
     .container .cols.col-1 {width: 8.333333333333333%;}
@@ -829,7 +856,7 @@ nav a#pull {
 
 
 /*mobile*/
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 350px) {
     .container .cols.col-1,
     .container .cols.col-2,
     .container .cols.col-3,
