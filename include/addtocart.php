@@ -8,7 +8,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$result = $mysqli->query("SELECT * FROM cart WHERE cart_ip = '{$_SERVER['REMOTE_ADDR']}' AND cart_id_products = '$id'");
 	if(mysqli_num_rows($result) > 0){
 		$row = mysqli_fetch_assoc($result);
-		$new_count = $row["cart_count"] + 1;
+		$new_count = (int)$row["cart_count"] + 1;
 		$update = $mysqli->query("UPDATE cart SET cart_count = '$new_count' WHERE cart_ip = '{$_SERVER['REMOTE_ADDR']}' AND cart_id_products = '$id'");
 	}else{
 		$result = $mysqli->query("SELECT * FROM products WHERE products_id = '$id'");

@@ -63,7 +63,7 @@
 			cache: false,
 			success: function(data){
 				if(data == "0"){
-					$('#sub-menu > a ').html("Cart is empty");
+					$('#sub-menu > a').html("Cart is empty");
 				}else{
 					$('#cart_status').html("Cart +"+data);
 				}
