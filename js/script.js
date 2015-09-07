@@ -5,6 +5,7 @@
         info_send = doc.querySelector('#info_send'),
         logout = doc.querySelector("#logout"),
         order_next = doc.querySelector("#order_next");
+        // doc.querySelector(".count-input").readOnly = true;
         // product = doc.querySelector(".add-to-cart");
 
     var eventsObj = {

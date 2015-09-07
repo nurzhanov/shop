@@ -63,7 +63,7 @@
 			cache: false,
 			success: function(data){
 				if(data == "0"){
-					$('#cart_status').html("Cart is empty");
+					$('#sub-menu > a ').html("Cart is empty");
 				}else{
 					$('#cart_status').html("Cart +"+data);
 				}
@@ -71,4 +71,91 @@
 		});
 	};
 
+
+
+	$('.count-minus').click(function(){
+		var curid = $(this).attr("curid");
+		$.ajax({
+			type: "POST",
+			url: "./include/count_minus.php",
+			data: "id="+curid,
+			dataType: "html",
+			cache: false,
+			success: function(data){
+				$('#input_id'+curid).val(data);
+				loadcart();
+				// переменная с ценой продукта
+				var priceproduct = $("#tovar"+curid+ " > p").attr("price");
+				// цену умножаем на количество
+				result_total = Number(priceproduct) * Number(data);
+
+				$("#tovar"+curid+" > p").html(result_total+"$");
+				$("#tovar"+curid+" > h5 > .span-count").html(data);
+
+				itog_price();
+			}
+		});
+	});
+
+	$('.count-plus').click(function(){
+		var curid = $(this).attr("curid");
+		$.ajax({
+			type: "POST",
+			url: "./include/count_plus.php",
+			data: "id="+curid,
+			dataType: "html",
+			cache: false,
+			success: function(data){
+				$('#input_id'+curid).val(data);
+				loadcart();
+				// переменная с ценой продукта
+				var priceproduct = $("#tovar"+curid+ " > p").attr("price");
+				// цену умножаем на количество
+				result_total = Number(priceproduct) * Number(data);
+
+				$("#tovar"+curid+" > p").html(result_total+"$");
+				$("#tovar"+curid+" > h5 > .span-count").html(data);
+
+				itog_price();
+			}
+		});
+	});
+
+	function itog_price(){
+		$.ajax({
+			type: "POST",
+			url: "./include/itog_price.php",
+			dataType: "html",
+			cache: false,
+			success: function(data){
+				$(".itog-price > strong").html(data);
+			}
+		});
+	};
+
+	// $('.count-input').keypress(function(e)){
+	// 	if(e.keyCode == 13){
+	// 		var curid = $(this).attr("curid");
+	// 		var incount = $("#input-id"+curid.val());
+
+	// 		$.ajax({
+	// 			type: "POST",
+	// 			url: "./include/count_input.php",
+	// 			data: "id="+curid+"&count="+incount,
+	// 			dataType: "html",
+	// 			cache: false,
+	// 			success: function(data){
+	// 				$("#input-id"+curid).val(data);
+	// 				loadcart();
+	// 				// переменная с ценой продукта
+	// 				var priceproduct = $("#tovar"+curid+ " > p").attr("price");
+	// 				// цену умножаем на количество
+	// 				result_total = Number(priceproduct) * Number(data);
+	// 				$("#tovar"+curid+" > p").html(result_total+"$");
+	// 				$("#tovar"+curid+" > h5 > .span-count").html(data);
+	// 				itog_price();
+	// 			}
+	// 		});
+	// 	}
+	// };	
 })();

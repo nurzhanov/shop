@@ -133,17 +133,17 @@ if(mysqli_num_rows($result_total_price) > 0){
 												<div class="count-cart">
 													<ul class="input-count-style">
 														<li>
-															<p align="center" class="count-minus">-</p>
+															<p align="center" curid="'.$row['cart_id'].'" class="count-minus">-</p>
 														</li>
 														<li>
-															<p align="center"><input class="count-input" maxlength="3" type="text" value="'.$row['cart_count'].'" /></p>
+															<p align="center"><input curid="'.$row['cart_id'].'" id="input_id'.$row['cart_id'].'" class="count-input" maxlength="3" type="text" value="'.$row['cart_count'].'" readonly /></p>
 														</li>
 														<li>
-															<p align="center" class="count-minus">+</p>
+															<p align="center" curid="'.$row['cart_id'].'" class="count-plus">+</p>
 														</li>
 													</ul>
 												</div>
-												<div class="price-product"><h5><span class="span-count">'.$row['cart_count'].'</span>x<span>'.$row['cart_price'].'$</span></h5><p>'.$float_price.'$</p></div>
+												<div id="tovar'.$row['cart_id'].'" class="price-product"><h5><span class="span-count">'.$row['cart_count'].'</span>x<span>'.$row['cart_price'].'$</span></h5><p price="'.$row['cart_price'].'">'.$float_price.'$</p></div>
 												<div class="delete-cart"><a href="cart.php?id='.$row['cart_id'].'&action=delete"><img src="images/delete.png"/></a></div>
 												<div id="bottom-cart-line"></div>
 											</div>
@@ -306,17 +306,17 @@ if(mysqli_num_rows($result_total_price) > 0){
 												<div class="count-cart">
 													<ul class="input-count-style">
 														<li>
-															<p align="center" class="count-minus">-</p>
+															<p align="center" curid="'.$row['cart_id'].'" class="count-minus">-</p>
 														</li>
 														<li>
-															<p align="center"><input class="count-input" maxlength="3" type="text" value="'.$row['cart_count'].'" /></p>
+															<p align="center"><input curid="'.$row['cart_id'].'" id="input_id'.$row['cart_id'].'" class="count-input" maxlength="3" type="text" value="'.$row['cart_count'].'" readonly /></p>
 														</li>
 														<li>
-															<p align="center" class="count-minus">+</p>
+															<p align="center" curid="'.$row['cart_id'].'" class="count-plus">+</p>
 														</li>
 													</ul>
 												</div>
-												<div class="price-product"><h5><span class="span-count">'.$row['cart_count'].'</span>x<span>'.$row['cart_price'].'$</span></h5><p>'.$float_price.'$</p></div>
+												<div id="tovar'.$row['cart_id'].'" class="price-product"><h5><span class="span-count">'.$row['cart_count'].'</span>x<span>'.$row['cart_price'].'$</span></h5><p price="'.$row['cart_price'].'">'.$float_price.'$</p></div>
 												<div class="delete-cart"><a href="cart.php?id='.$row['cart_id'].'&action=delete"><img src="images/delete.png"/></a></div>
 												<div id="bottom-cart-line"></div>
 											</div>
