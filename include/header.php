@@ -57,7 +57,7 @@
                         <a href="#" id="pull">MENU</a>
                         <ul class="clearfix">
                             <li><a href="/shop/">HOME</a></li>
-                            <li><a href="#">NEWS</a></li>
+                            <li><a href="/shop/news.php">NEWS</a></li>
                             <li><a href="#">ABOUT US</a></li>
                             <li><a href="/shop/contact_us.php">CONTACT US</a></li>
                         </ul>
