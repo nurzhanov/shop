@@ -100,6 +100,10 @@ img{
     color: white;
 }
 
+.sub-menu ul li{
+     margin: 5px;
+}
+
 .sub-menu ul li a{
     color:white;
 }
@@ -109,7 +113,7 @@ img{
 }
 
 .sub-menu{
-    text-align: right;
+    /*text-align: right;*/
 }
 
 /*.sub-menu ul li:first-child:before{
@@ -128,9 +132,9 @@ img{
     content: url(../images/user_hover.png);
 }*/
 
-.sub-menu ul li{
+/*.sub-menu ul li{
     padding-left: 10%;
-}
+}*/
 
 #logout{
     cursor: pointer;
@@ -161,8 +165,9 @@ img{
 }*/
 
 nav{
-    background: -webkit-linear-gradient(#36648B, #5F9EA0);
-    background: linear-gradient(#36648B, #5F9EA0);
+    /*background: -webkit-linear-gradient(#36648B, #5F9EA0);*/
+    /*background: linear-gradient(#36648B, #5F9EA0);*/
+    background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #36648B 0px, #5F9EA0 100%) repeat scroll 0 0;
 }
 
 
@@ -745,9 +750,9 @@ nav a#pull {
 }*/
 
 @media screen and (max-width: 1310px) {
-    .sub-menu ul li{
-        float: left;
-    }
+/*    .sub-menu ul li{
+        float: right;
+    }*/
 }
 
 
@@ -924,7 +929,7 @@ nav a#pull {
     }*/
 
     .product-wrapper{
-        width: 100%;
+        width: 50%;
         float: left;
     }
 
@@ -950,8 +955,13 @@ nav a#pull {
 
 }
 
+@media screen and (max-width: 620px) {
+    .product-wrapper{
+        width: 100%;
+        float: left;
+    }
+}
 
-/*mobile*/
 @media screen and (max-width: 420px) {
     .container .cols.col-1,
     .container .cols.col-2,
