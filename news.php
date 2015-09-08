@@ -22,7 +22,7 @@ include("include/auth_cookie.php");
             <div class="row">
                 <div class="cols col-12">
                     <div class="right-sidebar">
-                        <h2 class="make-center">Shop News</h2>
+                        <h2 class="make-center">Shop Events</h2>
                         <div class="all-news">
                         	<ul>
                            	<?php
@@ -32,9 +32,9 @@ include("include/auth_cookie.php");
 								do{
 									echo '
 									<li>
-										<span>'.$row['date'].'</span>
-										<a href="#">'.$row['title'].'</a>
-										<p>'.$row['text'].'</p>
+										<span>'.$row['date'].'</span><br/>
+										<a href="#">'.$row['title'].'</a><br/>
+										<p>'.$row['text'].'</p><br/>
 									</li>
 									';
 								}while(($row=mysqli_fetch_assoc($result))!=false);

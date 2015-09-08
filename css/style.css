@@ -819,17 +819,36 @@ nav a#pull {
 
 
 /*about-us*/
+.about-title{
+    text-align: center;
+    margin: 25px 0;
+}
+
+
 .about-us-text{
+    text-indent: 40px;
     text-align: justify;
 }
 
-/*.shop1{
-    width: 400px;
+/*news*/
+.all-news ul li span{
+    color: #095E8C;
+    font-size: 18px;
+    margin-bottom: 15px;
 }
 
-.shop2{
-     width: 400px;
-}*/
+.all-news ul li a{
+    /*color: #18206D;*/
+    border-bottom: 1px solid black;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.all-news ul li p{
+    margin-bottom: 15px;
+    text-indent: 40px;
+    text-align: justify;
+}
 
 @media screen and (max-width: 1310px) {
 /*    .sub-menu ul li{
@@ -957,6 +976,12 @@ nav a#pull {
     .header-top{
       visibility: hidden;
       height: 0px;
+    }
+
+    .logo-shop{
+        width: 40%;
+        margin: 0 auto;
+        /*text-align: center;*/
     }
 }
 
