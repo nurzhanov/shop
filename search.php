@@ -128,7 +128,7 @@ if(isset($_GET['q'])){
                             <?php
                                 }
                                 }else{
-                                    echo "<h2>Product not found!</h2>";
+                                    echo "<p>Product not found!</p>";
                                 }
                             ?>
                         </div>

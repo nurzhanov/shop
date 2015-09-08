@@ -37,7 +37,7 @@
                             <!-- <input type="submit" name="find" id="button-searh" value="Find"> -->
                             <input type="button" id="button-searh" value="Find">
                         </form>
-                        <span>For example:<a href="/shop/search.php?q=cort">Cort</a></span>
+                        <span class="exmp">For example:<a href="/shop/search.php?q=cort">Cort</a></span>
                     </div>
                 </div>
                 <div class="cols col-6">

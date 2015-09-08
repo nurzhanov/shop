@@ -1,13 +1,20 @@
+/*html {height: 100%}
+* html body {height: 100%}*/
 body {
     /*font: 100%/1.5em Arial, Helvetica, sans-serif;*/
     font-family: "jaf-facitweb", "Helvetica Neue", Arial, sans-serif; 
     background: url(../images/bg.jpg);
     background-repeat:no-repeat;
     background-position: center top;
+    /*min-height: 100%;*/
+/*    position: relative;*/
 }
 
 section{
     background-color: white;
+/*    display: block;
+    padding-bottom: 100px;*/
+    padding-bottom: 100px;
 }
 
 ul li {
@@ -92,6 +99,18 @@ img{
     color: white;
 }
 
+.exmp{
+    color: white;
+    font-size: 16px;
+    height: 100px;
+
+}
+
+.exmp a{
+    color: white;
+    font-size: 16px;
+}
+
 .shop-info ul > li{
     margin-bottom: 5px;
 }
@@ -114,6 +133,10 @@ img{
 
 .sub-menu ul li a:hover{
     color: #36648B;
+}
+
+#username{
+    margin-right: 7px;
 }
 
 #username:before{
@@ -384,6 +407,11 @@ nav a#pull {
 #footer{
     background-color: #333333;
     color: white;
+    position: fixed;
+    left: 0; 
+    bottom: 0;
+    right: 0;
+    width: 100%;
 }
 
 .info{
@@ -860,7 +888,6 @@ nav a#pull {
         text-indent:25px;
     }
 
-
     .ileft{
         width: 100%;
     }
@@ -885,6 +912,15 @@ nav a#pull {
         width: 50%;
         margin: 0 auto;
         text-align: center;
+    }
+
+    .shop-info ul{
+        text-align: center;
+    }
+
+    .header-top{
+      visibility: hidden;
+      height: 0px;
     }
 }
 
