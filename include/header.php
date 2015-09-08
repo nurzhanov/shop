@@ -44,7 +44,7 @@
                     <div class="shop-info">
                         <ul>
                             <li> 0-800 10 20 30</li><br/>
-                            <li> music.shop@gmail.com</li><br/>
+                            <li> info@music-shop.com</li><br/>
                             <li> Work from 9:00 a.m. to 9:00 p.m.</li>
                         </ul>
                     </div>

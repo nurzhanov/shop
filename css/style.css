@@ -11,10 +11,11 @@ body {
 }
 
 section{
+    /*min-height: 100%;*/
     background-color: white;
-/*    display: block;
-    padding-bottom: 100px;*/
-    padding-bottom: 100px;
+    /*display: block;*/
+    padding-bottom: 140px;
+    /*padding-bottom: 10%;*/
 }
 
 ul li {
@@ -152,13 +153,13 @@ img{
 }
 
 .log:before{
-    content: url(../images/lock.png);
+    content: url(../images/user.png);
     margin-right: 3px;
     cursor: pointer;
 }
 
 .log:hover:before{
-    content: url(../images/lock_hover.png);
+    content: url(../images/user_hover.png);
     margin-right: 3px;
     cursor: pointer;
 }
@@ -443,15 +444,17 @@ nav a#pull {
 
 /* login */
 .login_wrapper{
-    height: 800px;
+    /*height: 800px;*/
+    height: 100%;
     margin-top: 50px;
     margin-bottom: 20px;
     width: 100%;
 }
 
 .signup_wrapper{
-    height: 800px;
-    margin-top: 50px;
+    /*height: 800px;*/
+    height: 100%;
+    margin-top: 100px;
     width: 100%;
 }
 
@@ -469,7 +472,7 @@ nav a#pull {
 
 .loginput{
     margin-bottom: 10px;
-    font-size: 18px;
+    font-size: 16px;
     /*padding: 7px;*/
     padding: 0.5em;
     width: 50%;
@@ -482,6 +485,20 @@ nav a#pull {
     /*background-color: #eeeff1;*/
     background: #edeff0;
     border: 1px solid #cdd2d4;
+}
+
+#info_message{
+    font-family: "jaf-facitweb", "Helvetica Neue", Arial, sans-serif;  
+}
+
+.loginput:focus{
+    animation: input-animation .5s ease forwards;
+}
+
+@keyframes input-animation {
+    to {
+        width: 65%;
+    }
 }
 
 .last{
@@ -562,14 +579,33 @@ nav a#pull {
 
 /* contact us*/
 .contact-form{
-    height: 500px;
+    /*height: 500px;*/
+    height: 100%;
     margin-top: 25px;
 }
 
 .contact-info{
-    height: 500px;
+    /*height: 500px;*/
+    height: 100%;
     margin-top: 25px;
 }
+
+.contact-form h2{
+    margin-bottom: 20px;
+}
+
+.contact-form p{
+    margin-bottom: 20px;
+}
+
+.contact-info h2{
+     margin-bottom: 20px;
+}
+
+#info_message{
+    margin-bottom: 40px;
+}
+
 
 /* cart */
 .cart_wrapper{
@@ -1006,6 +1042,24 @@ nav a#pull {
         margin: 0 auto;
         text-align: center;
     }
+
+    .loginput{
+        width: 70%;
+    }
+
+    .loginput:focus{
+        animation: input-animation .5s ease forwards;
+    }
+
+    @keyframes input-animation {
+        to {
+            width: 85%;
+        }
+    }
+
+
+
+
 
 }
 

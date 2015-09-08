@@ -262,7 +262,11 @@
 
     var addContact = function(e){
         eventsObj.preventDefault(e);
-        var info_name = doc.querySelector('#info_name'),
+        var error_inf_name = doc.querySelector('#error_inf_name'),
+            error_inf_email = doc.querySelector('#error_inf_email'),
+            error_inf_subject = doc.querySelector('#error_inf_subject'),
+            error_inf_message = doc.querySelector('#error_inf_message'),
+            info_name = doc.querySelector('#info_name'),
             info_email = doc.querySelector('#info_email'),
             info_subject = doc.querySelector('#info_subject'),
             info_message = doc.querySelector('#info_message'),
@@ -275,23 +279,41 @@
             var pattern_info = /^[a-zA-Z]/;
             var pattern_email = /\S+@\S+\.\S+/;
             if(info_name_val.search(pattern_info) != 0){
-                alert('Name must have only alphabet characters');
+                error_inf_name.innerHTML = "Only alphabet characters!";
+                info_name.style.borderColor = "#BF5252";
+                info_name.style.backgroundColor = "#F2C9C9";
             }else{
-                info_name.style.borderColor = "";
+                error_inf_name.innerHTML = "";
+                info_name.style.borderColor = "#cdd2d4";
+                info_name.style.backgroundColor = "#edeff0";
                 if(pattern_email.test(info_email_val) != true){
-                    alert("Email is incorrect !"); 
+                    error_inf_email.innerHTML = "Email is incorrect!";
+                    info_email.style.borderColor = "#BF5252";
+                    info_email.style.backgroundColor = "#F2C9C9";
                 }else{
-                    info_email.style.borderColor = "";
+                    error_inf_email.innerHTML = "";
+                    info_email.style.borderColor = "#cdd2d4";
+                    info_email.style.backgroundColor = "#edeff0";
                     if(info_subject_val.search(pattern_info) != 0){
-                        alert('Subject must have only alphabet characters');
+                        error_inf_subject.innerHTML = "Only alphabet characters!";
+                        info_subject.style.borderColor = "#BF5252";
+                        info_subject.style.backgroundColor = "#F2C9C9";
                     }else{
-                        info_subject.style.borderColor = "";
+                        error_inf_subject.innerHTML = "";
+                        info_subject.style.borderColor = "#cdd2d4";
+                        info_subject.style.backgroundColor = "#edeff0";
                         if(info_message_val != ""){
-                            info_message.style.borderColor = "";
+                            error_inf_message.innerHTML = "";
+                            info_message.style.borderColor = "#cdd2d4";
+                            info_message.style.backgroundColor = "#edeff0";
                             var xhttp_info = new XMLHttpRequest();
                             xhttp_info.onreadystatechange = function(){
                                 if(xhttp_info.readyState==4 && xhttp_info.status==200){
                                     if(xhttp_info.responseText == "true"){
+                                        info_name.value = "";
+                                        info_email.value = "";
+                                        info_subject.value = "";
+                                        info_message.value = "";
                                         swal("Good job!", "We will write to you as soon", "success");
                                     }else{
                                         swal("Oops!", "Try again!", "error");
@@ -314,10 +336,18 @@
                 }
             }
         }else{
-            info_name.style.borderColor = "red";
-            info_email.style.borderColor = "red";
-            info_subject.style.borderColor = "red";
-            info_message.style.borderColor = "red";
+            info_name.style.borderColor = "#BF5252";
+            info_email.style.borderColor = "#BF5252";
+            info_subject.style.borderColor = "#BF5252";
+            info_message.style.borderColor = "#BF5252";
+            info_name.style.backgroundColor = "#F2C9C9";
+            info_email.style.backgroundColor = "#F2C9C9";
+            info_subject.style.backgroundColor = "#F2C9C9";
+            info_message.style.backgroundColor = "#F2C9C9";
+            error_inf_name.innerHTML = "Name field is empty!";
+            error_inf_email.innerHTML = "Email field is empty!";
+            error_inf_subject.innerHTML = "Subject field is empty!";
+            error_inf_message.innerHTML = "Message field is empty!";
         }
     };
 

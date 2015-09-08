@@ -24,17 +24,21 @@ include("include/auth_cookie.php");
 				<div class="cols col-8">
 					<div class="contact-form">
                         <!-- <a href="#" id="boo">SOMETEXT</a> -->
-                        <h2 class="make-center">How can we help you?</h2>
+                        <h2>How can we help you?</h2>
                         <p>Do you have questions, wishes or comments about Music Shop?
                         We would be happy if you send us a message.
                         Your Music Shop Support Team</p>
                         <h2>Get In Touch</h2>
                         <form id="info_form" action="#" method="post">
-                            <input id="info_name" type="text" placeholder="Name" />
-                            <input id="info_email" type="text" placeholder="Email" /><br/>
-                            <input id="info_subject" type="text" placeholder="Subject" /><br/>
-                            <textarea id="info_message" placeholder="Your Message Here"></textarea><br/>
-                            <input type="button" id="info_send" value="Send"/>
+                            <span class="logtext" id="error_inf_name"></span><br/>
+                            <input class="loginput" id="info_name" type="text" placeholder="Name" /><br/>
+                            <span class="logtext" id="error_inf_email"></span><br/>
+                            <input class="loginput" id="info_email" type="text" placeholder="Email" /><br/>
+                            <span class="logtext" id="error_inf_subject"></span><br/>
+                            <input class="loginput" id="info_subject" type="text" placeholder="Subject" /><br/>
+                            <span class="logtext" id="error_inf_message"></span><br/>
+                            <input class="loginput" id="info_message" placeholder="Your Message Here" /><br/>
+                            <a class="logbutton last" id="info_send" href="#">Send</a>
                         </form>
 					</div>
 				</div>
@@ -45,9 +49,9 @@ include("include/auth_cookie.php");
                             <p>Music Shop Inc.</p>
                             <p>135 W. Webster Ave New Streets Chicago, IL 60614, NY</p>
                             <p>NY USA</p>
-                            <p>Mobile: +49 221 888 44</p>
+                            <p>Phone: 0-800 10 20 30</p>
                             <p>Fax: 514-152-0126</p>
-                            <p>Email: info@music-shopp.com</p>
+                            <p>Email: info@music-shop.com</p>
                         </address>
 					</div>
 				</div>
