@@ -6,6 +6,23 @@
     <div class="header-middle"><!--header-middle-->
         <div class="container">
             <div class="row">
+                <div class="cols col-12">
+                     <div class="sub-menu">
+                        <ul>
+                            <?php
+                                if(isset($_SESSION['auth']) && $_SESSION['auth'] == 'yes_auth'){
+                                    echo '<li><a id="username" href="/shop/account.php">'.$_SESSION['auth_login'].'</a></li>';
+                                    echo '<li><a id="logout" href="#">Log out</a></li>';
+                                }else{
+                                    echo '<li><a class="log" href="/shop/login.php">Log in / Sign up</a></li>';
+                                }
+                            ?>
+                            <li><a id="cart_status" href="/shop/cart.php?action=oneclick">Cart is empty</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="cols col-2">
                     <div class="logo">
                         <a href="/shop/"><img src="images/logo.png" alt="" /></a>
@@ -20,30 +37,15 @@
                             <!-- <input type="submit" name="find" id="button-searh" value="Find"> -->
                             <input type="button" id="button-searh" value="Find">
                         </form>
+                        <span>For example:<a href="/shop/search.php?q=cort">Cort</a></span>
                     </div>
                 </div>
-                <div class="cols col-3">
+                <div class="cols col-6">
                     <div class="shop-info">
                         <ul>
                             <li> 0-800 10 20 30</li><br/>
                             <li> music.shop@gmail.com</li><br/>
                             <li> Work from 9:00 a.m. to 9:00 p.m.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="cols col-3">
-                    <div class="sub-menu">
-                        <ul>
-                            <li><a id="cart_status" href="/shop/cart.php?action=oneclick">Cart is empty</a></li>
-                            <?php
-                                if(isset($_SESSION['auth']) && $_SESSION['auth'] == 'yes_auth'){
-                                    echo '<li><a href="/shop/account.php">'.$_SESSION['auth_login'].'</a></li>';
-                                    echo '<li><a id="logout">Log out</a></li>';
-                                }else{
-                                    echo '<li><a href="/shop/login.php">Log in / Sign up</a></li>';
-                                }
-                            ?>
-                            <!-- <li><a href="/shop/login.php">Sign in</a></li> -->
                         </ul>
                     </div>
                 </div>

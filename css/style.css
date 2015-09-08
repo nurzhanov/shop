@@ -100,8 +100,12 @@ img{
     color: white;
 }
 
+.sub-menu{
+     text-align: right;
+}
+
 .sub-menu ul li{
-     margin: 5px;
+    margin: 5px;
 }
 
 .sub-menu ul li a{
@@ -112,41 +116,55 @@ img{
     color: #36648B;
 }
 
-.sub-menu{
-    /*text-align: right;*/
-}
-
-/*.sub-menu ul li:first-child:before{
-    content: url(../images/cart.png);
-}
-
-.sub-menu ul li:first-child:hover:before{
-    content: url(../images/cart_hover.png);
-}
-
-.sub-menu ul li:nth-child(2):before{
+#username:before{
     content: url(../images/user.png);
-}
-
-.sub-menu ul li:nth-child(2):hover:before{
-    content: url(../images/user_hover.png);
-}*/
-
-/*.sub-menu ul li{
-    padding-left: 10%;
-}*/
-
-#logout{
+    margin-right: 3px;
     cursor: pointer;
 }
 
-/*#logout:before{
+#username:hover:before{
+    content: url(../images/user_hover.png);
+    margin-right: 3px;
+    cursor: pointer;
+}
+
+.log:before{
     content: url(../images/lock.png);
+    margin-right: 3px;
+    cursor: pointer;
+}
+
+.log:hover:before{
+    content: url(../images/lock_hover.png);
+    margin-right: 3px;
+    cursor: pointer;
+}
+
+#logout:before{
+    content: url(../images/lock.png);
+    margin-right: 3px;
+    cursor: pointer;
 }
 
 #logout:hover:before{
     content: url(../images/lock_hover.png);
-}*/
+    margin-right: 3px;
+    cursor: pointer;
+}
+
+#cart_status:before{
+    content: url(../images/cart.png);
+    margin-right: 3px;
+    cursor: pointer;
+}
+
+#cart_status:hover:before{
+    content: url(../images/cart_hover.png);
+    margin-right: 3px;
+    cursor: pointer;
+}
+
+
 
 /*header-bottom*/
 
@@ -859,8 +877,8 @@ nav a#pull {
         text-align: center;
     }
 
-    .sub-menu ul li{
-       float: none;
+    .sub-menu{
+         text-align: center;
     }
 
     .form-align{
@@ -918,10 +936,10 @@ nav a#pull {
         text-indent:25px;
     }
 
-    .sub-menu{
+/*    .sub-menu{
         width: 100%;
         text-align: center;
-    }
+    }*/
 
 /*    .shop-info{
       visibility: hidden;
@@ -1015,9 +1033,9 @@ nav a#pull {
         text-align: center;
     }
 
-    .sub-menu{
+/*    .sub-menu{
         width: 100%;
-    }
+    }*/
 
     .logo{
         width: 100%;
