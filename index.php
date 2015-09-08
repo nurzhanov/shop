@@ -14,6 +14,8 @@ include("include/auth_cookie.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="lib/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="lib/dist/sweetalert.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/style.css">
 </head>

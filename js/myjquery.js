@@ -49,6 +49,8 @@
 			dataType: "html",
 			cache: false,
 			success: function(data){
+				// alert("Product added!");
+				swal("Product added!", "continue shopping ...", "success");
 				// console.log("add ok");
 				loadcart();
 			}
