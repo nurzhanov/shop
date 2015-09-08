@@ -361,6 +361,14 @@ nav a#pull {
     padding-top: 10px;
 }
 
+.ileft{
+    width: 100%;
+}
+
+.iright{
+    width: 100%;
+}
+
 .pull-left{
     text-align: left;
 }
@@ -370,6 +378,7 @@ nav a#pull {
     padding-right: 5px;
 }
 
+/*catalog*/
 .product-wrapper{
     width: 33.3%;
     float: left;
@@ -781,6 +790,26 @@ nav a#pull {
     nav a {
         width: 32.9%;
     }
+
+    .ileft{
+        width: 100%;
+    }
+
+    .iright{
+        width: 100%;
+    }
+
+    .pull-left{
+        text-align: center;
+    }
+
+    .pull-right{
+        text-align: center;
+    }
+
+
+
+
 }
 
 
