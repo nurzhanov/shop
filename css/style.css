@@ -11,11 +11,8 @@ body {
 }
 
 section{
-    /*min-height: 100%;*/
     background-color: white;
-    /*display: block;*/
-    padding-bottom: 140px;
-    /*padding-bottom: 10%;*/
+    /*padding-bottom: 140px;*/
 }
 
 ul li {
@@ -408,11 +405,11 @@ nav a#pull {
 #footer{
     background-color: #333333;
     color: white;
-    position: fixed;
+/*    position: fixed;
     left: 0; 
     bottom: 0;
     right: 0;
-    width: 100%;
+    width: 100%;*/
 }
 
 .info{
@@ -976,12 +973,6 @@ nav a#pull {
     .header-top{
       visibility: hidden;
       height: 0px;
-    }
-
-    .logo-shop{
-        width: 40%;
-        margin: 0 auto;
-        /*text-align: center;*/
     }
 }
 

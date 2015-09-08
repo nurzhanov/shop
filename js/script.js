@@ -460,12 +460,16 @@
     var searchProduct = function(e){
         eventsObj.preventDefault(e);
         var input_searh = doc.querySelector("#input-searh"),
-            input_searh_val = input_searh.value;
-            console.log(input_searh_val);
+            input_searh_val = input_searh.value,
+            check_search = /^[a-zA-Z]/;
             if(input_searh_val == ""){
                 input_searh.style.backgroundColor = "#F2C9C9";
             }else{
-                window.location.href = "search.php?q="+input_searh.value;
+                if(input_searh_val.search(check_search) != 0){
+                    input_searh.style.backgroundColor = "#F2C9C9";
+                }else{
+                    window.location.href = "search.php?q="+input_searh.value;
+                }
             }
     };
 
