@@ -12,7 +12,7 @@
                     </div>
                 </div>
                 <div class="cols col-4">
-                    <div class="make-center">
+                    <div class="make-center form-align">
                         <!-- <form method="get" action="search.php?q=" name="search-form"> -->
                         <form method="get"  name="search-form">
                             <!-- <input type="search" name="q" id="input-searh" placeholder="search"> -->
@@ -26,6 +26,7 @@
                     <div class="shop-info">
                         <ul>
                             <li> 0-800 10 20 30</li><br/>
+                            <li> music.shop@gmail.com</li><br/>
                             <li> Work from 9:00 a.m. to 9:00 p.m.</li>
                         </ul>
                     </div>
