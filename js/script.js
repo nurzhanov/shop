@@ -6,7 +6,6 @@
         logout = doc.querySelector("#logout"),
         order_next = doc.querySelector("#order_next"),
         button_searh = doc.querySelector("#button-searh");
-        // pay_button = doc.querySelector("#pay");
 
     var eventsObj = {
         addEvent: function(el, type, fn){
@@ -492,21 +491,6 @@
             }
     };
 
-
-    // var payProduct = function(e){
-    //     eventsObj.preventDefault(e);
-    //     var xhttp_pay = new XMLHttpRequest();
-    //     xhttp_pay.onreadystatechange = function(){
-    //         if(xhttp_pay.readyState==4 && xhttp_pay.status==200){
-    //             if(xhttp_pay.responseText === "clear"){
-    //                 swal("Thanks!", "Our manager will contact with You!", "success");
-    //             }
-    //         }
-    //     }
-    //     xhttp_pay.open('GET','cart.php?action=clear'+'&rand='+Math.random(),true);
-    //     xhttp_pay.send();
-    // };
-
     if(login_button != null){
         eventsObj.addEvent(login_button, 'click', loginUser); 
     }
@@ -525,7 +509,4 @@
     if(button_searh != null){
         eventsObj.addEvent(button_searh, 'click', searchProduct);
     }
-    // if(pay_button != null){
-    //     eventsObj.addEvent(pay_button, 'click', payProduct);
-    // }
 })();

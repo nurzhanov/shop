@@ -281,28 +281,44 @@ if(mysqli_num_rows($result_total_price) > 0){
 								';
 								if(isset($_SESSION['auth'])){
 										echo '
-										<ul>
-											<li>Surname:<strong>'.$_SESSION['auth_surname'].'</strong></li>
-											<li>Email:<strong>'.$_SESSION['auth_email'].'</strong></li>
-											<li>Phone number:<strong>'.$_SESSION['auth_phone'].'</strong></li>
-											<li>Delivery address:<strong>'.$_SESSION['auth_address'].'</strong></li>
-											<li>Comment<strong></strong>'.$_SESSION['order_note'].'</li>
-										</ul>
+										<div class="row">
+											<div class="cols col-6">
+												<div class="pay-info">
+													<ul>
+														<li>Surname:<strong>'.$_SESSION['auth_surname'].'</strong></li>
+														<li>Email:<strong>'.$_SESSION['auth_email'].'</strong></li>
+														<li>Phone number:<strong>'.$_SESSION['auth_phone'].'</strong></li>
+														<li>Delivery address:<strong>'.$_SESSION['auth_address'].'</strong></li>
+														<li>Comment<strong></strong>'.$_SESSION['order_note'].'</li>
+													</ul>
+												</div>
+											</div>
+										</div>
 										';
 									}else{
 										echo '
-										<ul>
-											<li>Surname:<strong>'.$_SESSION['order_surname'].'</strong></li>
-											<li>Email:<strong>'.$_SESSION['order_email'].'</strong></li>
-											<li>Phone number:<strong>'.$_SESSION['order_phone'].'</strong></li>
-											<li>Delivery address:<strong>'.$_SESSION['order_address'].'</strong></li>
-											<li>Comment<strong>'.$_SESSION['order_comment'].'</strong></li>
-										</ul>
+										<div class="row">
+											<div class="cols col-6">
+												<div class="pay-info">
+													<ul>
+														<li>Surname:<strong>'.$_SESSION['order_surname'].'</strong></li>
+														<li>Email:<strong>'.$_SESSION['order_email'].'</strong></li>
+														<li>Phone number:<strong>'.$_SESSION['order_phone'].'</strong></li>
+														<li>Delivery address:<strong>'.$_SESSION['order_address'].'</strong></li>
+														<li>Comment<strong>'.$_SESSION['order_comment'].'</strong></li>
+													</ul>
+												</div>
+											</div>
+										</div>
 										';
 									}
 									echo '
-									<h2 class="tprice">Total price:<strong>'.$total_price.'</strong>$</h2>
-									<a class="button-next" id="pay" href="#">Pay</a>				
+									<div class="row">
+										<div class="cols col-6">
+											<h2 class="tprice">Total price:<strong>'.$total_price.'</strong>$</h2>
+											<a class="primary-button" id="pay" href="#">Pay</a>
+										</div>
+									</div>				
 									';
 								break;
 							default:
