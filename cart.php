@@ -106,10 +106,10 @@ if(mysqli_num_rows($result_total_price) > 0){
 										<div class="cols col-3">
 											<div class="head-list" id="head2">Product Info</div>
 										</div>
-										<div class="cols col-3">
+										<div class="cols col-2">
 											<div class="head-list" id="head3">Quantity</div>
 										</div>
-										<div class="cols col-2">
+										<div class="cols col-3">
 											<div class="head-list" id="head4">Total</div>
 										</div>
 										<div class="cols col-2">
@@ -149,7 +149,7 @@ if(mysqli_num_rows($result_total_price) > 0){
 														<p><a href="">'.$row['title'].'</a></p>
 													</div>
 												</div>
-												<div class="cols col-3">
+												<div class="cols col-2">
 													<div class="count-cart">
 														<ul class="input-count-style">
 															<li>
@@ -164,12 +164,14 @@ if(mysqli_num_rows($result_total_price) > 0){
 														</ul>				
 													</div>
 												</div>
-												<div class="cols col-2">
+												<div class="cols col-3">
 													<div id="tovar'.$row['cart_id'].'" class="price-product"><h5><span class="span-count">'.$row['cart_count'].'</span>x<span>'.$row['cart_price'].'$</span></h5><p price="'.$row['cart_price'].'">'.$float_price.'$</p></div>
 												</div>
 												<div class="cols col-2">
 													<div class="delete-cart"><a href="cart.php?id='.$row['cart_id'].'&action=delete"><img src="images/delete.png"/></a></div>
+													<div class="border-bottom-cart"></div>
 												</div>
+
 											</div>
 										</div>
 										';
@@ -356,10 +358,10 @@ if(mysqli_num_rows($result_total_price) > 0){
 										<div class="cols col-3">
 											<div class="head-list" id="head2">Product Info</div>
 										</div>
-										<div class="cols col-3">
+										<div class="cols col-2">
 											<div class="head-list" id="head3">Quantity</div>
 										</div>
-										<div class="cols col-2">
+										<div class="cols col-3">
 											<div class="head-list" id="head4">Total</div>
 										</div>
 										<div class="cols col-2">
@@ -399,7 +401,7 @@ if(mysqli_num_rows($result_total_price) > 0){
 														<p><a href="">'.$row['title'].'</a></p>
 													</div>
 												</div>
-												<div class="cols col-3">
+												<div class="cols col-2">
 													<div class="count-cart">
 														<ul class="input-count-style">
 															<li>
@@ -414,12 +416,14 @@ if(mysqli_num_rows($result_total_price) > 0){
 														</ul>				
 													</div>
 												</div>
-												<div class="cols col-2">
+												<div class="cols col-3">
 													<div id="tovar'.$row['cart_id'].'" class="price-product"><h5><span class="span-count">'.$row['cart_count'].'</span>x<span>'.$row['cart_price'].'$</span></h5><p price="'.$row['cart_price'].'">'.$float_price.'$</p></div>
 												</div>
 												<div class="cols col-2">
 													<div class="delete-cart"><a href="cart.php?id='.$row['cart_id'].'&action=delete"><img src="images/delete.png"/></a></div>
+													<div class="border-bottom-cart"></div>
 												</div>
+
 											</div>
 										</div>
 										';
@@ -428,7 +432,7 @@ if(mysqli_num_rows($result_total_price) > 0){
 										<div class="row">
 											<div class="cols col-12">
 												<h2 class="itog-price" align="right">Total:<strong>'.$all_price.'</strong>$</h2>
-												<p align="right" class="button-next"><a href="cart.php?action=confirm">Next</a></p>
+												<p align="right"><a class="primary-button" href="cart.php?action=confirm">Next</a></p>
 											</div>
 										</div>
 									';
