@@ -50,19 +50,15 @@
     </div>
     <div class="header-bottom">
         <div class="container">
-            <div class="row">
-                <div class="cols col-12">
-                    <nav class="clearfix">
-                        <a href="#" id="pull">MENU</a>
-                        <ul class="clearfix">
-                            <li><a href="/shop/">HOME</a></li>
-                            <li><a href="/shop/news.php">NEWS</a></li>
-                            <li><a href="/shop/about_us.php">ABOUT US</a></li>
-                            <li><a href="/shop/contact_us.php">CONTACT US</a></li>
-                        </ul>
-                    </nav>   
-                </div>
-            </div>
+            <nav class="clearfix">
+                <a href="#" id="pull">MENU</a>
+                <ul class="clearfix">
+                    <li><a href="/shop/">HOME</a></li>
+                    <li><a href="/shop/news.php">NEWS</a></li>
+                    <li><a href="/shop/about_us.php">ABOUT US</a></li>
+                    <li><a href="/shop/contact_us.php">CONTACT US</a></li>
+                </ul>
+            </nav>   
         </div>
     </div>
 </header>
