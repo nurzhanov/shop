@@ -369,8 +369,8 @@
     var checkOrderInfo = function(e){
         eventsObj.preventDefault(e);
         var order_comment = doc.querySelector('#order_comment'),
-            order_comment_val = order_comment.value;
-
+            order_comment_val = order_comment.value,
+            error_order_comment = doc.querySelector('#error_order_comment');
             if(order_comment_val != ""){
                 var xhttp_comment = new XMLHttpRequest();
                     xhttp_comment.onreadystatechange = function(){
@@ -384,8 +384,11 @@
                     xhttp_comment.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                     xhttp_comment.send("&note=" + encodeURIComponent(order_comment_val) +
                                        "&rand="+Math.random());
+            }else{
+                // error_order_comment.innerHTML = "Comment field is empty!";
+                order_comment.style.borderColor = "";
+                order_comment.style.backgroundColor = "";
             }
-
         var order_surname = doc.querySelector('#order_surname'),
             order_email = doc.querySelector('#order_email'),
             order_phone = doc.querySelector('#order_phone'),
@@ -394,35 +397,45 @@
             order_email_val = order_email.value,
             order_phone_val = order_phone.value,
             order_address_val = order_address.value,
+            error_order_text = doc.querySelector('#error_order_text'),
+            error_order_email = doc.querySelector('#error_order_email'),
+            error_order_phone = doc.querySelector('#error_order_phone'),
+            error_order_address = doc.querySelector('#error_order_address'),
             check = /^[a-zA-Z]/,
             check_phone = /^[0-9]{10}/,
             check_email = /\S+@\S+\.\S+/;
 
             if((order_surname_val != "") || (order_email_val != "") || (order_phone_val != "") || (order_address_val != "")){
                 if(order_surname_val.search(check) != 0){
-                    // error_login.innerHTML = "Only characters or digits!";
+                    error_order_text.innerHTML = "Only characters!";
                     order_surname.style.borderColor = "#BF5252";
                     order_surname.style.backgroundColor = "#F2C9C9";
                 }else{
-                    // error_login.innerHTML = "";
+                    error_order_text.innerHTML = "";
                     order_surname.style.borderColor = "#cdd2d4";
                     order_surname.style.backgroundColor = "#edeff0";
                     if(check_email.test(order_email_val) != true){
+                        error_order_email.innerHTML = "Email is incorrect!";
                         order_email.style.borderColor = "#BF5252";
                         order_email.style.backgroundColor = "#F2C9C9"; 
                     }else{
+                        error_order_email.innerHTML = "";
                         order_email.style.borderColor = "#cdd2d4";
                         order_email.style.backgroundColor = "#edeff0";
                         if(order_phone_val.search(check_phone) != 0){
+                            error_order_phone.innerHTML = "Phone is incorrect!";
                             order_phone.style.borderColor = "#BF5252";
                             order_phone.style.backgroundColor = "#F2C9C9";
                         }else{
+                            error_order_phone.innerHTML = "";
                             order_phone.style.borderColor = "#cdd2d4";
                             order_phone.style.backgroundColor = "#edeff0";
                             if(order_address_val.search(check) != 0){
+                                error_order_address.innerHTML = "Only characters!";
                                 order_address.style.borderColor = "#BF5252";
                                 order_address.style.backgroundColor = "#F2C9C9";
                             }else{
+                                error_order_address.innerHTML = "";
                                 order_address.style.borderColor = "#cdd2d4";
                                 order_address.style.backgroundColor = "#edeff0";
                                 var xhttp_order = new XMLHttpRequest();
@@ -453,7 +466,11 @@
                 order_phone.style.borderColor = "#BF5252";
                 order_phone.style.backgroundColor = "#F2C9C9";
                 order_address.style.borderColor = "#BF5252";
-                order_address.style.backgroundColor = "#F2C9C9"; 
+                order_address.style.backgroundColor = "#F2C9C9";
+                error_order_text.innerHTML = "Surname field is empty!";
+                error_order_email.innerHTML = "Email field is empty!";
+                error_order_phone.innerHTML = "Phone field is empty!";
+                error_order_address.innerHTML = "Address field is empty!";
             }
     };
 

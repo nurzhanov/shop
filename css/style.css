@@ -719,6 +719,7 @@ nav a#pull {
 .head-list{
     margin-top: 20px;
     font: 1.125em sans-serif;
+    background-color: #CBDEF2;
 }
 
 .block-list-cart{
@@ -810,7 +811,8 @@ nav a#pull {
 
 #bottom-cart-line{
     border-bottom: 1px solid black;
-    width: 790px;
+    /*width: 790px;*/
+    width: 100%;
     height: 5px;
     margin:0px auto;
 }
@@ -824,25 +826,35 @@ nav a#pull {
 }
 
 .button-next{
-    margin-top: 30px;
-    margin-right: 20px;
+/*    margin-top: 30px;
+    margin-right: 20px;*/
 }
 
 .button-next > a{
-    border: 1px solid #B0C181;
+    background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #2a568c 0px, #2a698c 100%) repeat scroll 0 0;
+    border-radius: 4px;
+    color: #fff;
+    float: right;
+    font-size: 1.125em;
+    padding: 10px 30px;
+    text-decoration: none;
+    width: 100px;
+    text-decoration: none;
+
+/*    border: 1px solid #B0C181;
     font: 15px sans-serif;
     color: white;
     padding-left: 18px;
     padding-right: 18px;
     padding-top: 6px;
     padding-bottom: 6px;
-    text-decoration: none;
+   
     background-color: green;
     -webkit-border-radius:6px;
     -moz-border-radius:6px;
     -ms-border-radius:6px;
     -o-border-radius:6px;
-    border-radius: 6px;
+    border-radius: 6px;*/
 }
 
 #clear-cart{

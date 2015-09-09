@@ -17,8 +17,8 @@
                                     echo '<li><a class="log" href="/shop/login.php">Log in / Sign up</a></li>';
                                 }
                             ?>
-                            <!-- <li><a id="cart_status" href="/shop/cart.php?action=oneclick">Cart is empty</a></li> -->
-                            <li><a id="cart_status" href="/shop/cart_copy.php?action=oneclick">Cart is empty</a></li>
+                            <li><a id="cart_status" href="/shop/cart.php?action=oneclick">Cart is empty</a></li>
+                            <!-- <li><a id="cart_status" href="/shop/cart_copy.php?action=oneclick">Cart is empty</a></li> -->
                         </ul>
                     </div>
                 </div>
