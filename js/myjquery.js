@@ -195,8 +195,16 @@
 			cache: false,
 			success: function(data){
 				$('#cart_status').html("Cart is empty");
-		    	swal("Thanks!", "Our manager will contact with You!", "success");
+		    	// swal("Thanks!", "Our manager will contact with You!", "success");
 		    	// window.location.href = "index.php";
+		    	swal({   
+		    		title: "Thanks!", 
+		    		text: "Our manager will contact with You!",   
+		    		type: "success",
+		    		closeOnConfirm: true }, 
+		    		function(){   
+		    			window.location.href = "index.php"; 
+		    	}); 
 			}
 		});
 	});
