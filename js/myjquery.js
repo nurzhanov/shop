@@ -1,28 +1,45 @@
 (function(){
 	
-	// horizontal menu
+	// горизонтальное меню
+	// получаем элемент по id - "pull"
 	var pull = $("#pull");
+	// получение списка элементов
 	var menu = $("nav ul");
 
 	loadcart();
 
+	// устанавливаем обработчик события "click" на выбранный элемент
 	$(pull).on('click', function(e){
+		// отменяем действия браузера
 		e.preventDefault();
+		// плавное сворачивание (если элемент развернут) 
+		// или разворачиванию (если элемент свернут)
 		menu.slideToggle();
+		// устанавливаем высоту элемента без учета отступов и толщины рамки
 		menuHeight = menu.height();
 	});
 
+	// вызываем событие "resize", для окна браузера. 
 	$(window).resize(function(){
-		var q = $(window).width(); 
+		// задаем ширину экрана
+		var q = $(window).width();
+		// если ширина экрана больше 320 и элемент menu спрятан
 		if(q > 320 && menu.is(':hidden')){
+			// убираем все стили для этого лемента
 			menu.removeAttr('style');
 		}
 	});
 
-	// vertical menu
+	// вертикальное меню
+	// устанавливаем обработчик события "click" на выбранный элемент
 	$('#sidebarmenu li.has-sub>a').on('click', function(){
+		// убираем атрибут "href" для текущего элемента
 		$(this).removeAttr('href');
+		// получение родительского элемента "li" для текущего выбранного элемента.
 		var element = $(this).parent('li');
+		/* 
+		если этот элемент не скрыт то 
+		*/
 		if (element.hasClass('open')) {
 			element.removeClass('open');
 			element.find('li').removeClass('open');

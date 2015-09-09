@@ -1,7 +1,20 @@
+/*
+Убираем все внутрненние и внешние отступы у всех элементов
+*/
+
 * {
     margin: 0;
     padding: 0;
 }
+
+
+/* 
+Ширина блока складывается из ширины контента (width), значений отступов (margin), 
+полей (padding) и границ (border). Аналогично обстоит и с высотой блока. 
+Свойство box-sizing позволяет изменить этот алгоритм, 
+чтобы свойства width и height задавали размеры не контента, а размеры блока.
+Свойства width и height включают в себя значения полей и границ, но не отступов (margin). 
+Эта модель используется браузером Internet Exporer в режиме несовместимости. */
 
 *, 
 *:after, 
@@ -11,26 +24,41 @@
     box-sizing: border-box;
 }
 
+/* 
+Делаем новые теги HTML5 блочными для старых браузеров
+*/
+
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary{
     display: block;
 }
 
+/* Адаптивные изображения */
+
 img{
     max-width: 100%;
     height: auto;
-    /*vertical-align: middle;*/
 }
+
+/* контейнер для сетки */
 
 .container {
     width: 90%;
     margin: 0 auto;
 }
 
+/* 
+Задаем размеры колонки
+позиционируем влево
+и задем необходимые отступы
+*/
+
 .container .cols {
     float: left;
     margin: 0 0 1em;
     padding: 0 1em;
 }
+
+/* размеры сетки, 12 колонок */
 
 .container .cols.col-1 {width: 8.333333333333333%;}
 .container .cols.col-2 {width: 16.66666666666667%;}
@@ -45,18 +73,22 @@ img{
 .container .cols.col-11 {width: 91.66666666666666%;}
 .container .cols.col-12 {width: 100%;}
 
+/*
+очищаем float после и до контейнера, строки
+*/
+
 .container:before,
 .container:after,
 .row:before,
 .row:after,
-.clear:before,
-.clear:after {
+.clearfix:before,
+.clearfix:after {
     content: " ";
     display: table;
 }
 
 .container:before,
 .row:after,
-.clear:after{
+.clearfix:after{
     clear:both;
 }

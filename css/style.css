@@ -1,20 +1,32 @@
-/*html {height: 100%}
-* html body {height: 100%}*/
+/*
+Задаем шриф родительскому элементу,
+фоновую картинку без повторений 
+расположеную поцентру вверху
+*/
+
 body {
-    /*font: 100%/1.5em Arial, Helvetica, sans-serif;*/
     /*font-family: "jaf-facitweb", "Helvetica Neue", Arial, sans-serif; */
     font-family: Arial, Helvetica, sans-serif;
     background: url(../images/bg.jpg);
     background-repeat:no-repeat;
     background-position: center top;
-    /*min-height: 100%;*/
-/*    position: relative;*/
 }
+
+/*
+фон белый
+нижний отступ 140px
+*/
 
 section{
     background-color: white;
     padding-bottom: 140px;
 }
+
+/*
+Убирем стили маркера списка,
+и все офрмления текста
+устанавливем показ элементов списка - "inline"
+*/
 
 ul li {
     list-style: none;
@@ -22,44 +34,54 @@ ul li {
     display: inline;
 }
 
+/*
+Убирем для всех ссылок элементов списка офорления текста
+устанавливаем исходный цвет текста - "black"
+*/
+
 ul li a{
     text-decoration: none;
     color: black;
 }
 
+/*Убирем все границы картинок*/
+
 img{
     border: none;
 }
 
-
-/*header-top*/
-.header-top{
-    position: relative;
-}
-
-/*.header-top p{
-    font: Arial, Helvetica, sans-serif;
-    position: absolute;
-    right: 25%;
-    bottom: 25%;
-    font-size: 8em;
-    margin: 0 auto;
-    color: white;
-    border: 5px solid black;
-}*/
-
-
 /*header-middle*/
+/*устанавливаем верхний отступ от банера*/
+
 .header-middle{
     padding-top: 30px;
 }
 
+/* выравнивание формы поиска по центру*/
+
+.form-align{
+    width: 100%;
+    padding-left: 20%;
+}
+
+/*
+строка поиска
+задаем границу размером 1 пиксель серого цвета
+нижний отступ 20 пискелей
+убираем свойство, одновременно устанавливающее цвет, 
+стиль и толщину внешней границы на всех сторонах элемента,
+фоновый цвет - белый,
+цвет текста - черный,
+размер текста задаем 1.125em,
+внутренние отступы по вертикали 0 пикселей, по горизонтали 8 пикселей
+исходная ширина 70%
+*/
+
 #input-searh{
     border: 1px solid gray;
-    margin: 0;
+    margin-bottom: 20px;
     outline: none;
     height: 30px;
-    vertical-align: top;
     background-color: white;
     color: black;
     font-size: 1.125em;
@@ -67,49 +89,63 @@ img{
     width: 70%;
 }
 
-/*#input-searh:focus{
-    animation: input-animation .5s ease forwards;
-}*/
 
-/*@keyframes input-animation {
-    to {
-        width: 80%;
-    }
-}*/
-
-.form-align{
-    width: 100%;
-}
+/*
+кнопка поиска
+убираем границы,
+задаем радиус углов границ 3 пикселя,
+размер текста 1.125em,
+устанавливаем высоту кнопки равной высоте поля для поиска,
+курсок указатель,
+*/
 
 #button-searh{
     border: none;
     border-radius: 3px;
     margin: 0;
-    padding: 0;
+    padding: 0 5px;
     font-size: 1.125em;
-    text-transform: uppercase;
     line-height: 28px;
     cursor: pointer;
 }
+
+/*
+кнопка поиска при наведении,
+меняем фоновый цвет на #36648B (оттенок синего),
+*/
 
 #button-searh:hover{
     background-color: #36648B;
     color: white;
 }
 
+/*
+строка поиска "например"
+задаем цвет белый,
+*/
+
 .exmp{
     color: white;
-    font-size: 1em;
-    height: 100px;
 }
+
+/*
+строка примера поиска
+задаем цвет белый,
+размер шрифта 1em,
+*/
 
 .exmp a{
     color: white;
     font-size: 1em;
 }
 
-.shop-info ul > li{
-    margin-bottom: 5px;
+/*
+блок информации
+задаем нижний отступ для пунктов 15 пикселей
+*/
+
+.shop-info ul li p{
+    padding-bottom: 15px;
 }
 
 .shop-info ul li{
@@ -117,7 +153,9 @@ img{
 }
 
 .sub-menu{
-     text-align: right;
+    text-align: right;
+    border-bottom:  1px solid white;
+    padding-bottom: 5px;
 }
 
 .sub-menu ul li{
@@ -211,16 +249,6 @@ nav{
 
 nav li a {
     color: white;
-}
-
-.clearfix:before,
-.clearfix:after {
-    content: "";
-    display:table;
-}
-
-.clearfix:after {
-    clear:both;
 }
 
 nav a {
@@ -1022,6 +1050,10 @@ nav a#pull {
       visibility: hidden;
       height: 0px;
     }
+
+    .form-align{
+	    padding-left: 0%;
+	}
 }
 
 
