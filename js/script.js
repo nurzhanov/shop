@@ -5,9 +5,8 @@
         info_send = doc.querySelector('#info_send'),
         logout = doc.querySelector("#logout"),
         order_next = doc.querySelector("#order_next"),
-        button_searh = doc.querySelector("#button-searh");
-        // doc.querySelector(".count-input").readOnly = true;
-        // product = doc.querySelector(".add-to-cart");
+        button_searh = doc.querySelector("#button-searh"),
+        pay_button = doc.querySelector("#pay");
 
     var eventsObj = {
         addEvent: function(el, type, fn){
@@ -86,7 +85,6 @@
                 } else {
                     auth_rememberme = "no";
                 }
-                //Создаём объект XMLHTTP
                 var xhttp_log = new XMLHttpRequest();
                 xhttp_log.onreadystatechange = function(){
                     if (xhttp_log.readyState==4 && xhttp_log.status==200) {
@@ -94,7 +92,6 @@
                             swal("Oops!", "Login or Password is incorrect!", "error");
                         }
                         if(xhttp_log.responseText === "yes_auth"){
-                            // alert("You have successfully login in!");
                             window.location.href = "account.php";
                         }
                     }
@@ -133,7 +130,6 @@
             surname_val = surname.value,
             phone_val = phone.value,
             address_val = address.value;
-
             if((login_val != "") || (pass_val != "") || (email_val != "") || (name_val != "") || (surname_val != "") || (phone_val != "") || (address_val != "") ){
                 var pattern = /^[a-zA-Z0-9]/,
                     pattern_name = /^[a-zA-Z]/,
@@ -196,7 +192,6 @@
                                             error_address.innerHTML = "";
                                             address.style.borderColor = "#cdd2d4";
                                             address.style.backgroundColor = "#edeff0";
-                                            // Создаём объект XMLHTTP
                                             var xhttp_reg = new XMLHttpRequest();
                                             xhttp_reg.onreadystatechange = function(){
                                                 if (xhttp_reg.readyState==4 && xhttp_reg.status==200) {
@@ -274,7 +269,6 @@
             info_email_val = info_email.value,
             info_subject_val = info_subject.value,
             info_message_val = info_message.value;
-
         if((info_name_val != "") || (info_email_val != "") || (info_subject_val != "") || (info_message_val != "")){
             var pattern_info = /^[a-zA-Z]/;
             var pattern_email = /\S+@\S+\.\S+/;
@@ -490,6 +484,12 @@
             }
     };
 
+
+    var payProduct = function(e){
+        eventsObj.preventDefault(e);
+        swal("Thanks!", "Our manager will contact with You!", "success");
+    };
+
     if(login_button != null){
         eventsObj.addEvent(login_button, 'click', loginUser); 
     }
@@ -508,5 +508,7 @@
     if(button_searh != null){
         eventsObj.addEvent(button_searh, 'click', searchProduct);
     }
-
+    if(pay_button != null){
+        eventsObj.addEvent(pay_button, 'click', payProduct);
+    }
 })();
