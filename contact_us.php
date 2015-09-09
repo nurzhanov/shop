@@ -23,22 +23,22 @@ include("include/auth_cookie.php");
     		<div class="row">
 				<div class="cols col-8">
 					<div class="contact-form">
-                        <!-- <a href="#" id="boo">SOMETEXT</a> -->
                         <h2>How can we help you?</h2>
                         <p>Do you have questions, wishes or comments about Music Shop?
                         We would be happy if you send us a message.
                         Your Music Shop Support Team</p>
                         <h2>Get In Touch</h2>
                         <form id="info_form" action="#" method="post">
-                            <span class="logtext" id="error_inf_name"></span><br/>
-                            <input class="loginput" id="info_name" type="text" placeholder="Name" /><br/>
-                            <span class="logtext" id="error_inf_email"></span><br/>
-                            <input class="loginput" id="info_email" type="text" placeholder="Email" /><br/>
-                            <span class="logtext" id="error_inf_subject"></span><br/>
-                            <input class="loginput" id="info_subject" type="text" placeholder="Subject" /><br/>
-                            <span class="logtext" id="error_inf_message"></span><br/>
-                            <input class="loginput" id="info_message" placeholder="Your Message Here" /><br/>
-                            <a class="logbutton last" id="info_send" href="#">Send</a>
+                            <span class="primary-text" id="error_inf_name"></span><br/>
+                            <input class="primary-input" id="info_name" type="text" placeholder="Name" /><br/>
+                            <span class="primary-text" id="error_inf_email"></span><br/>
+                            <input class="primary-input" id="info_email" type="text" placeholder="Email" /><br/>
+                            <span class="primary-text" id="error_inf_subject"></span><br/>
+                            <input class="primary-input" id="info_subject" type="text" placeholder="Subject" /><br/>
+                            <span class="primary-text" id="error_inf_message"></span><br/>
+                            <!-- <input class="loginput" id="info_message" placeholder="Your Message Here" /><br/> -->
+                            <textarea class="primary-comment last" id="info_message" placeholder="Message"></textarea><br/>
+                            <a class="primary-button" id="info_send" href="#">Send</a>
                         </form>
 					</div>
 				</div>

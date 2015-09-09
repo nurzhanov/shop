@@ -87,6 +87,11 @@ img{
     font-size: 1.125em;
     padding: 0 8px;
     width: 70%;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
 }
 
 
@@ -468,14 +473,12 @@ nav a#pull {
 
 /* login */
 .login_wrapper{
-    /*height: 800px;*/
     height: 100%;
     margin-top: 50px;
     width: 100%;
 }
 
 .signup_wrapper{
-    /*height: 800px;*/
     height: 100%;
     margin-top: 50px;
     width: 100%;
@@ -489,51 +492,10 @@ nav a#pull {
     margin-bottom: 20px;
 }
 
+/* запомнить меня */
+
 .checksigned{
     cursor: pointer;
-}
-
-.loginput{
-    margin-bottom: 10px;
-    font-size: 1em;
-    /*padding: 7px;*/
-    padding: 0.5em;
-    width: 50%;
-    /*border: none;*/
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    -o-border-radius: 4px;
-    border-radius: 4px;
-    /*background-color: #eeeff1;*/
-    background: #edeff0;
-    border: 1px solid #cdd2d4;
-}
-
-#info_message{
-    /*font-family: "jaf-facitweb", "Helvetica Neue", Arial, sans-serif;  */
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.loginput:focus{
-    animation: input-animation .5s ease forwards;
-}
-
-@keyframes input-animation {
-    to {
-        width: 65%;
-    }
-}
-
-.last{
-    margin-bottom: 30px;
-}
-
-.logtext{
-    font-size: 1.125em;
-    margin-bottom: 15px;
-    width: 50%;
-    color: #BF5252;
 }
 
 .checkboxtext{
@@ -550,26 +512,91 @@ nav a#pull {
     color:#fff;
     background-color:#c1c1c1;
     margin-right: 10px;
-/*    -moz-appearance:none;
-    -webkit-appearance:none;
-    -o-appearance:none;*/
 }
 
-.logbutton{
-    /*height: 20px;*/
-    width: 100px;
-    background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #2A568C 0px, #2A698C 100%) repeat scroll 0 0;
-    /*box-shadow: 0 2px 0 #3f6f21;*/
-    color: #fff;
-    text-decoration: none;
+/* текст над инпутами */
+
+.primary-text{
     font-size: 1.125em;
-    margin-top: 20px;
-    padding: 10px 30px;
+    margin-bottom: 15px;
+    width: 50%;
+    color: #BF5252;
+}
+
+/* инпут */
+
+.primary-input{
+	margin-bottom: 10px;
+    font-size: 1em;
+    padding: 0.5em;
+    width: 50%;
+    border-radius: 4px;
+    background: #edeff0;
+    border: 1px solid #cdd2d4;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
     border-radius: 4px;
+}
+
+/* анимация для инпута */
+
+.primary-input:focus{
+    animation: input-animation .5s ease forwards;
+}
+
+@keyframes input-animation {
+    to {
+        width: 65%;
+    }
+}
+
+/* текстария */
+
+.primary-comment{
+	margin-bottom: 10px;
+    font-size: 1em;
+	font-family: Arial, Helvetica, sans-serif;
+    padding: 0.5em;
+    width: 50%;
+    height: 3.375em;
+    resize: none;
+    border-radius: 4px;
+    background: #edeff0;
+    border: 1px solid #cdd2d4;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+}
+
+/* кнопка */
+
+.primary-button{
+    width: 100px;
+    background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #2A568C 0px, #2A698C 100%) repeat scroll 0 0;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.125em;
+    padding: 7px 20px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+}
+
+/* отступ для последнего элемента */
+
+.last{
+    margin-bottom: 20px;
+}
+
+
+#info_message{
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 /* account */
@@ -578,8 +605,12 @@ nav a#pull {
     margin-top: 25px;
 }
 
+.account_wrapper h2{
+	margin-bottom: 20px;
+}
+
 .account-text{
-    font-size: 1.250em;
+	font-size: 1.125em;
     margin-bottom: 15px;
     width: 50%;
     color: #cdd2d4;
@@ -661,9 +692,8 @@ nav a#pull {
     border-radius: 4px;
     color: #fff;
     font-size: 1.125em;
-    padding: 10px 30px;
+    padding: 7px 20px;
     text-decoration: none;
-    width: 100px;
     float: right;
 }
 
@@ -853,13 +883,8 @@ nav a#pull {
     font: 18px sans-serif
 }
 
-.button-next{
-/*    margin-top: 30px;
-    margin-right: 20px;*/
-}
-
 .button-next > a{
-    background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #2a568c 0px, #2a698c 100%) repeat scroll 0 0;
+/*    background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #2a568c 0px, #2a698c 100%) repeat scroll 0 0;
     border-radius: 4px;
     color: #fff;
     float: right;
@@ -867,22 +892,7 @@ nav a#pull {
     padding: 10px 30px;
     text-decoration: none;
     width: 100px;
-    text-decoration: none;
-
-/*    border: 1px solid #B0C181;
-    font: 15px sans-serif;
-    color: white;
-    padding-left: 18px;
-    padding-right: 18px;
-    padding-top: 6px;
-    padding-bottom: 6px;
-   
-    background-color: green;
-    -webkit-border-radius:6px;
-    -moz-border-radius:6px;
-    -ms-border-radius:6px;
-    -o-border-radius:6px;
-    border-radius: 6px;*/
+    text-decoration: none;*/
 }
 
 #clear-cart{

@@ -1,11 +1,11 @@
 (function(){
-	
 	// горизонтальное меню
 	// получаем элемент по id - "pull"
 	var pull = $("#pull");
 	// получение списка элементов
 	var menu = $("nav ul");
 
+	// вызов метода количества элементов в корзине
 	loadcart();
 
 	// устанавливаем обработчик события "click" на выбранный элемент
@@ -19,7 +19,7 @@
 		menuHeight = menu.height();
 	});
 
-	// вызываем событие "resize", для окна браузера. 
+	// устанавливаем обработчик события "resize" для окна браузера
 	$(window).resize(function(){
 		// задаем ширину экрана
 		var q = $(window).width();
@@ -35,10 +35,13 @@
 	$('#sidebarmenu li.has-sub>a').on('click', function(){
 		// убираем атрибут "href" для текущего элемента
 		$(this).removeAttr('href');
-		// получение родительского элемента "li" для текущего выбранного элемента.
+		// получение родительского элемента "li" для текущего выбранного элемента
 		var element = $(this).parent('li');
 		/* 
-		если этот элемент не скрыт то 
+		если текущий элемент открыт то прячем его  
+		и сворачиваем элемент с идентификатором "ul" за 200 мс
+		иначе открываем его 
+		разворачиваем у текущего элемента дочерние элементы за 200 мс
 		*/
 		if (element.hasClass('open')) {
 			element.removeClass('open');
@@ -48,17 +51,25 @@
 		else {
 			element.addClass('open');
 			element.children('ul').slideDown(200);
-			element.siblings('li').children('ul').slideUp(200);
-			element.siblings('li').removeClass('open');
-			element.siblings('li').find('li').removeClass('open');
-			element.siblings('li').find('ul').slideUp(200);
 		}
 	});
 
-	// add to cart
+	// добавление в корзину
+	// устанавливаем обработчик события "click" на выбранный элемент
 	$('.add-to-cart').click(function(){
+		// получаем уникальный "id" товара
 		var tid = $(this).attr("tid");
-		// console.log(tid);
+		/* 
+		осуществляем запрос к серверу без перезагрузки страницы
+		type - типа запроса
+		url — адрес запроса
+		data - данные передаваемые в запросе (уникальный "id" товара)
+		dataType - тип передаваемых данных в запросе
+		cache - что бы запрос не кешировался нужно установить значение "false"
+		success - выполняется в случае удачного завершения запроса
+		в случае удачного завершения запроса - отображение соотвествующего сообщения
+		обновляем значения товаров в корзине вызовом метода loadcart()
+		*/
 		$.ajax({
 			type: "POST",
 			url: "./include/addtocart.php",
@@ -66,15 +77,25 @@
 			dataType: "html",
 			cache: false,
 			success: function(data){
-				// alert("Product added!");
 				swal("Product added!", "continue shopping ...", "success");
-				// console.log("add ok");
 				loadcart();
 			}
 		});
 	});
 
+	// проверка количества элементов в корзине
 	function loadcart(){
+		/* 
+		осуществляем запрос к серверу без перезагрузки страницы
+		type - типа запроса
+		url — адрес запроса
+		dataType - тип передаваемых данных в запросе
+		cache - что бы запрос не кешировался нужно установить значение "false"
+		success - выполняется в случае удачного завершения запроса
+		в случае удачного завершения запроса - выполняем проверку если данные который вернул сервер
+		равны 0, то отображение сообщения что корзина пуста, иначе отображение корзины и возвращаемого
+		значения количества товаров в корзине
+		*/
 		$.ajax({
 			type: "POST",
 			url: "./include/loadcart.php",
@@ -90,10 +111,20 @@
 		});
 	};
 
-
-
+	// уменьшение товаров в корзине
+	// устанавливаем обработчик события "click" на выбранный элемент
 	$('.count-minus').click(function(){
+		// получение уникального "id" товара
 		var curid = $(this).attr("curid");
+		/* 
+		осуществляем запрос к серверу без перезагрузки страницы
+		type - типа запроса
+		url — адрес запроса
+		data - данные передаваемые в запросе (уникальный "id" товара)
+		dataType - тип передаваемых данных в запросе
+		cache - что бы запрос не кешировался нужно установить значение "false"
+		success - выполняется в случае удачного завершения запроса
+		*/
 		$.ajax({
 			type: "POST",
 			url: "./include/count_minus.php",
@@ -101,23 +132,37 @@
 			dataType: "html",
 			cache: false,
 			success: function(data){
+				// отображаем новое значение количества товаров
 				$('#input_id'+curid).val(data);
+				// обновляем количество элементов в корзине
 				loadcart();
-				// переменная с ценой продукта
+				// получаем цену продукта
 				var priceproduct = $("#tovar"+curid+ " > p").attr("price");
 				// цену умножаем на количество
 				result_total = Number(priceproduct) * Number(data);
-
+				// отображение результирующей цены
 				$("#tovar"+curid+" > p").html(result_total+"$");
 				$("#tovar"+curid+" > h5 > .span-count").html(data);
-
+				// подчсет итоговой цены продукта
 				itog_price();
 			}
 		});
 	});
 
+	// увеличение товаров в корзине
+	// устанавливаем обработчик события "click" на выбранный элемент
 	$('.count-plus').click(function(){
+		// получение уникального "id" товара
 		var curid = $(this).attr("curid");
+		/* 
+		осуществляем запрос к серверу без перезагрузки страницы
+		type - типа запроса
+		url — адрес запроса
+		data - данные передаваемые в запросе (уникальный "id" товара)
+		dataType - тип передаваемых данных в запросе
+		cache - что бы запрос не кешировался нужно установить значение "false"
+		success - выполняется в случае удачного завершения запроса
+		*/
 		$.ajax({
 			type: "POST",
 			url: "./include/count_plus.php",
@@ -125,22 +170,35 @@
 			dataType: "html",
 			cache: false,
 			success: function(data){
+				// отображаем новое значение количества товаров
 				$('#input_id'+curid).val(data);
+				// обновляем количество элементов в корзине
 				loadcart();
-				// переменная с ценой продукта
+				// получаем цену продукта
 				var priceproduct = $("#tovar"+curid+ " > p").attr("price");
 				// цену умножаем на количество
 				result_total = Number(priceproduct) * Number(data);
-
+				// отображение результирующей цены
 				$("#tovar"+curid+" > p").html(result_total+"$");
 				$("#tovar"+curid+" > h5 > .span-count").html(data);
-
+				// подчсет итоговой цены продукта
 				itog_price();
 			}
 		});
 	});
 
+	// подчсет итоговой цены продукта
 	function itog_price(){
+		/* 
+		осуществляем запрос к серверу без перезагрузки страницы
+		type - типа запроса
+		url — адрес запроса
+		dataType - тип передаваемых данных в запросе
+		cache - что бы запрос не кешировался нужно установить значение "false"
+		success - выполняется в случае удачного завершения запроса
+		в случае удачного завершения запроса - отображаем результат сумирования 
+		итоговой цены товаров в корзине
+		*/
 		$.ajax({
 			type: "POST",
 			url: "./include/itog_price.php",
@@ -150,31 +208,5 @@
 				$(".itog-price > strong").html(data);
 			}
 		});
-	};
-
-	// $('.count-input').keypress(function(e)){
-	// 	if(e.keyCode == 13){
-	// 		var curid = $(this).attr("curid");
-	// 		var incount = $("#input-id"+curid.val());
-
-	// 		$.ajax({
-	// 			type: "POST",
-	// 			url: "./include/count_input.php",
-	// 			data: "id="+curid+"&count="+incount,
-	// 			dataType: "html",
-	// 			cache: false,
-	// 			success: function(data){
-	// 				$("#input-id"+curid).val(data);
-	// 				loadcart();
-	// 				// переменная с ценой продукта
-	// 				var priceproduct = $("#tovar"+curid+ " > p").attr("price");
-	// 				// цену умножаем на количество
-	// 				result_total = Number(priceproduct) * Number(data);
-	// 				$("#tovar"+curid+" > p").html(result_total+"$");
-	// 				$("#tovar"+curid+" > h5 > .span-count").html(data);
-	// 				itog_price();
-	// 			}
-	// 		});
-	// 	}
-	// };	
+	};	
 })();

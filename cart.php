@@ -178,7 +178,7 @@ if(mysqli_num_rows($result_total_price) > 0){
 										<div class="row">
 											<div class="cols col-12">
 												<h2 class="itog-price" align="right">Total:<strong>'.$all_price.'</strong>$</h2>
-												<p align="right" class="button-next"><a href="cart.php?action=confirm">Next</a></p>
+												<p align="right"><a class="primary-button" href="cart.php?action=confirm">Next</a></p>
 											</div>
 										</div>
 									';
@@ -223,16 +223,16 @@ if(mysqli_num_rows($result_total_price) > 0){
 										echo '
 										<div class="row">
 											<div class="cols col-6">
-												<span class="logtext" id="error_order_text"></span><br/>
-												<input class="loginput" type="text" placeholder="Surname" name="order_surname" id="order_surname" value="'.$_SESSION["order_surname"].'" /><br/>
-												<span class="logtext" id="error_order_email"></span><br/>
-												<input class="loginput" type="text" placeholder="Email" name="order_email" id="order_email" value="'.$_SESSION["order_email"].'" /><br/>
-												<span class="logtext" id="error_order_phone"></span><br/>
-												<input class="loginput" type="text" placeholder="Phone number" name="order_phone" id="order_phone" maxlength="10" value="'.$_SESSION["order_phone"].'"  /><br/>
-												<span class="logtext" id="error_order_address"></span><br/>
-												<input class="loginput" type="text" placeholder="Delivery address" name="order_address" id="order_address" value="'.$_SESSION["order_address"].'" /><br/>
-												<span class="logtext" id="error_order_comment"></span><br/>
-												<textarea class="loginput last" placeholder="Your comment here" name="order_comment" id="order_comment">'.$_SESSION['order_comment'].'</textarea><br/>  
+												<span class="primary-text" id="error_order_text"></span><br/>
+												<input class="primary-input" type="text" placeholder="Surname" name="order_surname" id="order_surname" value="'.$_SESSION["order_surname"].'" /><br/>
+												<span class="primary-text" id="error_order_email"></span><br/>
+												<input class="primary-input" type="text" placeholder="Email" name="order_email" id="order_email" value="'.$_SESSION["order_email"].'" /><br/>
+												<span class="primary-text" id="error_order_phone"></span><br/>
+												<input class="primary-input" type="text" placeholder="Phone number" name="order_phone" id="order_phone" maxlength="10" value="'.$_SESSION["order_phone"].'"  /><br/>
+												<span class="primary-text" id="error_order_address"></span><br/>
+												<input class="primary-input" type="text" placeholder="Delivery address" name="order_address" id="order_address" value="'.$_SESSION["order_address"].'" /><br/>
+												<span class="primary-text" id="error_order_comment"></span><br/>
+												<textarea class="primary-comment last" placeholder="Your comment here" name="order_comment" id="order_comment">'.$_SESSION['order_comment'].'</textarea><br/>  
 											</div>
 										</div> 
 										';
@@ -240,7 +240,7 @@ if(mysqli_num_rows($result_total_price) > 0){
 									echo '
 									<div class="row">
 										<div class="cols col-6">
-											<a class="button-next logbutton" id="order_next" href="cart.php?action=completion">Next</a>
+											<a class="primary-button" id="order_next" href="cart.php?action=completion">Next</a>
 										</div>
 									</div>
 									';

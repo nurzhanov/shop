@@ -1,10 +1,7 @@
 <?php
-// error_reporting(0);
 include "include/db_connect.php";
 session_start();
 include("include/auth_cookie.php");
-// unset($_SESSION["auth"]);
-// setcookie("rememberme", "", 0, "/");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -93,9 +90,6 @@ include("include/auth_cookie.php");
                                 $query = "SELECT * FROM products WHERE top=1 AND visible=1";
                                 $result = $mysqli->query($query);
                                 while(($row=mysqli_fetch_assoc($result))!=false){
-                                    // echo "<pre>";
-                                    // print_r($row);
-                                    // echo "</pre>";
                                     // если имя картинки не пустое и файл существует
                                     if($row["image"] != "" && file_exists("./products_images/".$row["image"])){
                                         // задаем путь

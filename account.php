@@ -29,20 +29,20 @@ include "include/db_connect.php";
                         <h2>This is your account page</h2>
                         <form id="account_form" action="#" method="post">
                             <span class="account-text">Current Password</span><br/>
-                            <input class="loginput" type="password" id="cur_pass" /><br/>
+                            <input class="primary-input" type="password" id="cur_pass" /><br/>
                             <span class="account-text">New Password</span><br/>
-                            <input class="loginput" type="password" id="new_pass" /><br/>
+                            <input class="primary-input" type="password" id="new_pass" /><br/>
                             <span class="account-text">Email</span><br/>
-                            <input class="loginput" type="text" id="new_email" value="<?php echo $_SESSION['auth_email']?>" /><br/>
+                            <input class="primary-input" type="text" id="new_email" value="<?php echo $_SESSION['auth_email']?>" /><br/>
                             <span class="account-text">Name</span><br/>
-                            <input class="loginput" type="text" id="new_name" value="<?php echo $_SESSION['auth_name']?>" /><br/>
+                            <input class="primary-input" type="text" id="new_name" value="<?php echo $_SESSION['auth_name']?>" /><br/>
                             <span class="account-text">Surname</span><br/>
-                            <input class="loginput" type="text" id="new_surname" value="<?php echo $_SESSION['auth_surname']?>" /><br/>
+                            <input class="primary-input" type="text" id="new_surname" value="<?php echo $_SESSION['auth_surname']?>" /><br/>
                             <span class="account-text">Phone number</span><br/>
-                            <input class="loginput" type="text" id="new_phone" maxlength="10" value="<?php echo $_SESSION['auth_phone']?>" /><br/>
+                            <input class="primary-input" type="text" id="new_phone" maxlength="10" value="<?php echo $_SESSION['auth_phone']?>" /><br/>
                             <span class="account-text">Delivery address</span><br/>
-                            <input class="loginput last" type="text" id="new_address" value="<?php echo $_SESSION['auth_address']?>" /><br/>
-                            <a class="logbutton" id="save" href="#">Save</a>
+                            <textarea class="primary-comment last" id="new_address"><?php echo $_SESSION['auth_address']?></textarea><br/>
+                            <a class="primary-button" id="save" href="#">Save</a>
                         </form>
                     </div>
 				</div>
