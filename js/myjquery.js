@@ -187,6 +187,20 @@
 		});
 	});
 
+	$('#pay').click(function(){
+		$.ajax({
+			type: "GET",
+			url: "cart.php",
+			data: "action=clear",
+			cache: false,
+			success: function(data){
+				$('#cart_status').html("Cart is empty");
+		    	swal("Thanks!", "Our manager will contact with You!", "success");
+		    	// window.location.href = "index.php";
+			}
+		});
+	});
+
 	// подчсет итоговой цены продукта
 	function itog_price(){
 		/* 

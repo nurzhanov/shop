@@ -5,8 +5,8 @@
         info_send = doc.querySelector('#info_send'),
         logout = doc.querySelector("#logout"),
         order_next = doc.querySelector("#order_next"),
-        button_searh = doc.querySelector("#button-searh"),
-        pay_button = doc.querySelector("#pay");
+        button_searh = doc.querySelector("#button-searh");
+        // pay_button = doc.querySelector("#pay");
 
     var eventsObj = {
         addEvent: function(el, type, fn){
@@ -362,9 +362,21 @@
 
     var checkOrderInfo = function(e){
         eventsObj.preventDefault(e);
-        var order_comment = doc.querySelector('#order_comment'),
-            order_comment_val = order_comment.value,
-            error_order_comment = doc.querySelector('#error_order_comment');
+        var order_surname = doc.querySelector('#order_surname'),
+            order_email = doc.querySelector('#order_email'),
+            order_phone = doc.querySelector('#order_phone'),
+            order_address = doc.querySelector('#order_address'),
+            order_surname_val = order_surname.value,
+            order_email_val = order_email.value,
+            order_phone_val = order_phone.value,
+            order_address_val = order_address.value,
+            error_order_text = doc.querySelector('#error_order_text'),
+            error_order_email = doc.querySelector('#error_order_email'),
+            error_order_phone = doc.querySelector('#error_order_phone'),
+            error_order_address = doc.querySelector('#error_order_address'),
+            order_comment = doc.querySelector('#order_comment'),
+            order_comment_val = order_comment.value;
+
             if(order_comment_val != ""){
                 var xhttp_comment = new XMLHttpRequest();
                     xhttp_comment.onreadystatechange = function(){
@@ -378,28 +390,24 @@
                     xhttp_comment.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                     xhttp_comment.send("&note=" + encodeURIComponent(order_comment_val) +
                                        "&rand="+Math.random());
-            }else{
-                // error_order_comment.innerHTML = "Comment field is empty!";
-                order_comment.style.borderColor = "";
-                order_comment.style.backgroundColor = "";
             }
-        var order_surname = doc.querySelector('#order_surname'),
-            order_email = doc.querySelector('#order_email'),
-            order_phone = doc.querySelector('#order_phone'),
-            order_address = doc.querySelector('#order_address'),
-            order_surname_val = order_surname.value,
-            order_email_val = order_email.value,
-            order_phone_val = order_phone.value,
-            order_address_val = order_address.value,
-            error_order_text = doc.querySelector('#error_order_text'),
-            error_order_email = doc.querySelector('#error_order_email'),
-            error_order_phone = doc.querySelector('#error_order_phone'),
-            error_order_address = doc.querySelector('#error_order_address'),
-            check = /^[a-zA-Z]/,
+        // var order_surname = doc.querySelector('#order_surname'),
+        //     order_email = doc.querySelector('#order_email'),
+        //     order_phone = doc.querySelector('#order_phone'),
+        //     order_address = doc.querySelector('#order_address'),
+        //     order_surname_val = order_surname.value,
+        //     order_email_val = order_email.value,
+        //     order_phone_val = order_phone.value,
+        //     order_address_val = order_address.value,
+        //     error_order_text = doc.querySelector('#error_order_text'),
+        //     error_order_email = doc.querySelector('#error_order_email'),
+        //     error_order_phone = doc.querySelector('#error_order_phone'),
+        //     error_order_address = doc.querySelector('#error_order_address'),
+        var check = /^[a-zA-Z]/,
             check_phone = /^[0-9]{10}/,
             check_email = /\S+@\S+\.\S+/;
 
-            if((order_surname_val != "") || (order_email_val != "") || (order_phone_val != "") || (order_address_val != "")){
+            if((order_surname_val != "") || (order_email_val != "") || (order_phone_val != "") ){
                 if(order_surname_val.search(check) != 0){
                     error_order_text.innerHTML = "Only characters!";
                     order_surname.style.borderColor = "#BF5252";
@@ -485,10 +493,19 @@
     };
 
 
-    var payProduct = function(e){
-        eventsObj.preventDefault(e);
-        swal("Thanks!", "Our manager will contact with You!", "success");
-    };
+    // var payProduct = function(e){
+    //     eventsObj.preventDefault(e);
+    //     var xhttp_pay = new XMLHttpRequest();
+    //     xhttp_pay.onreadystatechange = function(){
+    //         if(xhttp_pay.readyState==4 && xhttp_pay.status==200){
+    //             if(xhttp_pay.responseText === "clear"){
+    //                 swal("Thanks!", "Our manager will contact with You!", "success");
+    //             }
+    //         }
+    //     }
+    //     xhttp_pay.open('GET','cart.php?action=clear'+'&rand='+Math.random(),true);
+    //     xhttp_pay.send();
+    // };
 
     if(login_button != null){
         eventsObj.addEvent(login_button, 'click', loginUser); 
@@ -508,7 +525,7 @@
     if(button_searh != null){
         eventsObj.addEvent(button_searh, 'click', searchProduct);
     }
-    if(pay_button != null){
-        eventsObj.addEvent(pay_button, 'click', payProduct);
-    }
+    // if(pay_button != null){
+    //     eventsObj.addEvent(pay_button, 'click', payProduct);
+    // }
 })();

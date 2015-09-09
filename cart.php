@@ -216,8 +216,20 @@ if(mysqli_num_rows($result_total_price) > 0){
 								';
 								if(isset($_SESSION['auth'])){
 									echo '
-										<span class="logtext">Comment</span><br/>
-										<textarea class="order-input" name="order_comment" id="order_comment">'.$_SESSION['order_note'].'</textarea>
+										<div class="row">
+											<div class="cols col-6">
+												<span class="primary-text" id="error_order_text"></span><br/>
+												<input class="primary-input" type="text" placeholder="Surname" id="order_surname" value="'.$_SESSION["auth_surname"].'" /><br/>
+												<span class="primary-text" id="error_order_email"></span><br/>
+												<input class="primary-input" type="text" placeholder="Email" id="order_email" value="'.$_SESSION["auth_email"].'" /><br/>
+												<span class="primary-text" id="error_order_phone"></span><br/>
+												<input class="primary-input" type="text" placeholder="Phone number" id="order_phone" maxlength="10" value="'.$_SESSION["auth_phone"].'"  /><br/>
+												<span class="primary-text" id="error_order_address"></span><br/>
+												<input class="primary-input" type="text" placeholder="Delivery address" id="order_address" value="'.$_SESSION["auth_address"].'" /><br/>
+												<span class="account-text">Comment</span><br/>
+												<textarea class="primary-comment last" id="order_comment">'.$_SESSION['order_note'].'</textarea>
+											</div>
+										</div>
 									';
 									}else{
 										echo '
@@ -232,7 +244,7 @@ if(mysqli_num_rows($result_total_price) > 0){
 												<span class="primary-text" id="error_order_address"></span><br/>
 												<input class="primary-input" type="text" placeholder="Delivery address" name="order_address" id="order_address" value="'.$_SESSION["order_address"].'" /><br/>
 												<span class="primary-text" id="error_order_comment"></span><br/>
-												<textarea class="primary-comment last" placeholder="Your comment here" name="order_comment" id="order_comment">'.$_SESSION['order_comment'].'</textarea><br/>  
+												<textarea class="primary-comment last" placeholder="Your comment here" id="order_comment">'.$_SESSION['order_comment'].'</textarea><br/>  
 											</div>
 										</div> 
 										';
@@ -289,10 +301,9 @@ if(mysqli_num_rows($result_total_price) > 0){
 										';
 									}
 									echo '
-									<h2>Total price:<strong>'.$total_price.'</strong>$</h2>
+									<h2 class="tprice">Total price:<strong>'.$total_price.'</strong>$</h2>
 									<a class="button-next" id="pay" href="#">Pay</a>				
 									';
-
 								break;
 							default:
 								echo '
