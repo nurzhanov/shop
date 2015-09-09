@@ -2,7 +2,8 @@
 * html body {height: 100%}*/
 body {
     /*font: 100%/1.5em Arial, Helvetica, sans-serif;*/
-    font-family: "jaf-facitweb", "Helvetica Neue", Arial, sans-serif; 
+    /*font-family: "jaf-facitweb", "Helvetica Neue", Arial, sans-serif; */
+    font-family: Arial, Helvetica, sans-serif;
     background: url(../images/bg.jpg);
     background-repeat:no-repeat;
     background-position: center top;
@@ -12,7 +13,7 @@ body {
 
 section{
     background-color: white;
-    /*padding-bottom: 140px;*/
+    padding-bottom: 140px;
 }
 
 ul li {
@@ -36,9 +37,8 @@ img{
     position: relative;
 }
 
-.header-top p{
+/*.header-top p{
     font: Arial, Helvetica, sans-serif;
-    /*width: %;*/
     position: absolute;
     right: 25%;
     bottom: 25%;
@@ -46,7 +46,7 @@ img{
     margin: 0 auto;
     color: white;
     border: 5px solid black;
-}
+}*/
 
 
 /*header-middle*/
@@ -62,7 +62,7 @@ img{
     vertical-align: top;
     background-color: white;
     color: black;
-    font-size: 18px;
+    font-size: 1.125em;
     padding: 0 8px;
     width: 70%;
 }
@@ -86,7 +86,7 @@ img{
     border-radius: 3px;
     margin: 0;
     padding: 0;
-    font-size: 18px;
+    font-size: 1.125em;
     text-transform: uppercase;
     line-height: 28px;
     cursor: pointer;
@@ -99,14 +99,13 @@ img{
 
 .exmp{
     color: white;
-    font-size: 16px;
+    font-size: 1em;
     height: 100px;
-
 }
 
 .exmp a{
     color: white;
-    font-size: 16px;
+    font-size: 1em;
 }
 
 .shop-info ul > li{
@@ -323,7 +322,7 @@ nav a#pull {
     padding: 14px 22px;
     cursor: pointer;
     z-index: 2;
-    font-size: 14px;
+    font-size: 0.875em;
     text-decoration: none;
     color: #dddddd;
     background: #49505a;
@@ -371,7 +370,7 @@ nav a#pull {
     background-color: #0099CC; 
     text-align: center;
     padding: 5px 20px; 
-    font-size: 20px; 
+    font-size: 1.250em; 
     line-height: 50px; 
     text-decoration: none;
     cursor: pointer;  
@@ -444,14 +443,13 @@ nav a#pull {
     /*height: 800px;*/
     height: 100%;
     margin-top: 50px;
-    margin-bottom: 20px;
     width: 100%;
 }
 
 .signup_wrapper{
     /*height: 800px;*/
     height: 100%;
-    margin-top: 100px;
+    margin-top: 50px;
     width: 100%;
 }
 
@@ -469,7 +467,7 @@ nav a#pull {
 
 .loginput{
     margin-bottom: 10px;
-    font-size: 16px;
+    font-size: 1em;
     /*padding: 7px;*/
     padding: 0.5em;
     width: 50%;
@@ -485,7 +483,8 @@ nav a#pull {
 }
 
 #info_message{
-    font-family: "jaf-facitweb", "Helvetica Neue", Arial, sans-serif;  
+    /*font-family: "jaf-facitweb", "Helvetica Neue", Arial, sans-serif;  */
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .loginput:focus{
@@ -503,20 +502,20 @@ nav a#pull {
 }
 
 .logtext{
-    font-size: 20px;
+    font-size: 1.125em;
     margin-bottom: 15px;
     width: 50%;
     color: #BF5252;
 }
 
 .checkboxtext{
-    font-size: 20px;
+    font-size: 1.125em;
     margin-bottom: 15px;
     width: 50%;
 }
 
 .logcheckbox{
-    font-size: 18px;
+    font-size: 1.125em;
     width: 15px;
     height:15px;
     border: none;
@@ -535,7 +534,7 @@ nav a#pull {
     /*box-shadow: 0 2px 0 #3f6f21;*/
     color: #fff;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 1.125em;
     margin-top: 20px;
     padding: 10px 30px;
     -webkit-border-radius: 4px;
@@ -552,7 +551,7 @@ nav a#pull {
 }
 
 .account-text{
-    font-size: 20px;
+    font-size: 1.250em;
     margin-bottom: 15px;
     width: 50%;
     color: #cdd2d4;
@@ -606,68 +605,95 @@ nav a#pull {
 
 /* cart */
 .cart_wrapper{
-    height: 500px;
+    /*height: 500px;*/
+    height: 100%;
+    min-height: 500px;
     margin-top: 25px;
 }
 
 #block-step{
-    height: 70px;
-    border-bottom: 1px solid #E0E0E0;
+    /*height: 70px;*/
+    height: auto;
+    /*border-bottom: 1px solid #E0E0E0;*/
     margin-top: 10px; 
+    width: 100%;
 }
 
-#block-step > p{
-    font: 19px sans-serif;
-    color: #646464;
-    margin-top: 8px;
+.nmb_step{
+    font: 1.125em sans-serif;
+    color: #36648b;
+    margin-bottom: 30px;
+   /* margin-top: 8px;
     margin-left: 15px;
-    position: absolute;
+    position: absolute;*/
 }
+
+#clear_cart{
+    background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #2a568c 0px, #2a698c 100%) repeat scroll 0 0;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 1.125em;
+    padding: 10px 30px;
+    text-decoration: none;
+    width: 100px;
+    float: right;
+}
+
+#block-step ul li{
+    width: 28%;
+    /*margin-right: 33.3%;*/
+}
+
+#block-step ul li a{
+     text-align: center;
+} 
 
 #block-step > a{
-    position: absolute;
-    border: 1px solid #D98386;
-    font: bold 13px sans-serif;
-    padding-left: 7px;
+    /*position: absolute;*/
+    /*border: 1px solid #D98386;*/
+    /*font: bold 13px sans-serif;*/
+/*    padding-left: 7px;
     padding-right: 7px;
     padding-top: 4px;
     padding-bottom: 4px;
     margin-top: 5px;
-    margin-left: 700px;
-    text-decoration: none;
-    color: white;
+    margin-left: 700px;*/
+    /*text-decoration: none;*/
+/*    color: white;
     background-color: #DA2027;
     -webkit-border-radius:5px;
     -moz-border-radius:5px;
     -ms-border-radius:5px;
     -o-border-radius:5px;
-    border-radius: 5px;
+    border-radius: 5px;*/
 }
 
 #name-step{
-    height: 30px;
+    /*height: 30px;*/
+    height: auto;
 }
 
 #name-step li{
     float: left;
-    margin-left: 10px;
+    /*margin-left: 10px;*/
     margin-top: 10px;
     cursor: pointer;
 }
 
 #name-step a{
     color: #00658B;
-    font: bold 14px sans-serif;
+    font: 1.125em sans-serif;
     text-decoration: none;
 }
 
 #name-step a.active{
-    color: #EF662B;
-    font: bold 14px sans-serif;
+    color: #66CDAA;
+    font: 1.125em sans-serif;
 }
 
 #header-list-cart{
-    height: 30px;
+    height: auto;
+    min-height: 50px;
     border-bottom: 1px solid #DBDBDB;
 }
 
@@ -675,15 +701,25 @@ nav a#pull {
     float: left;
     margin-left: 5px;
     text-align: center;
-    font: bold 13px sans-serif;
+    font: 1.125em sans-serif;
     color: #6D6D6D;
     margin-top: 7px;
 }
 
-#head1{width: 130px;}
+/*#head1{width: 130px;}
 #head2{width: 400px;}
 #head3{width: 55px;}
-#head4{width: 140px;}
+#head4{width: 140px;}*/
+
+/*#head1{width: 10%;}
+#head2{width: 40%;}
+#head3{width: 5%;}
+#head4{width: 10%;}*/
+
+.head-list{
+    margin-top: 20px;
+    font: 1.125em sans-serif;
+}
 
 .block-list-cart{
     height: 130px; 
@@ -810,7 +846,7 @@ nav a#pull {
 }
 
 #clear-cart{
-    font:22px sans-serif;
+    /*font: 22px sans-serif;*/
     margin-top: 40px;
 }
 
@@ -830,14 +866,14 @@ nav a#pull {
 /*news*/
 .all-news ul li span{
     color: #095E8C;
-    font-size: 18px;
+    font-size: 1.125em;
     margin-bottom: 15px;
 }
 
 .all-news ul li a{
     /*color: #18206D;*/
     border-bottom: 1px solid black;
-    font-size: 18px;
+    font-size: 1.125em;
     margin-bottom: 15px;
 }
 
@@ -1074,7 +1110,9 @@ nav a#pull {
     }
 
 
-
+    #clear_cart{
+        float: none;
+    }
 
 
 }
@@ -1163,6 +1201,11 @@ nav a#pull {
     .shop-info ul{
         text-align: center;
     }
+
+    #block-step ul li{
+    width: 100%;
+    /*margin-right: 33.3%;*/
+}
 }
 
 @media screen and (max-width: 321px) {
